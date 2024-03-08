@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;   
+}
+.text p{
+    background-color: #000000;
+    color: rgba(0, 255, 255, 0.3);
+}
+.background-image{
+    background-image: url(Images/BMW.png);
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
