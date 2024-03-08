@@ -1,0 +1,12 @@
+h1{
+    font-size: 90px;
+    color: red; /* it is for foreground color */
+    background-color: #000000;
+}
+p{
+    color: rgb(15, 0, 50);
+    background-color: #beed25;
+}
+#first_id{
+    color :#beed25;
+}

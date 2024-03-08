@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#heading{
+    /* This is the css vomment for id heading */
+    color: #00ffff;
+    background-color: #faebd7;
+}
+/*id selector */
+#thisdiv{
+    color:blueviolet;
+}
+
+/*Group Element Selector */
+div , h2{
+    background-color: #00b7ff;
+}
+
+/* decendent selector */
+div p{
+    background-color: #ff0000;
+}
+
+/* iD Group Selector*/
+#first , #second{
+    background-color: #ff00e1;
+}

@@ -1,0 +1,7 @@
+/* CSS -- Cascading syle Sheet */
+*{
+    background-color: #ffe8d0;
+}
+h1::before{
+    content: "<< ";
+}

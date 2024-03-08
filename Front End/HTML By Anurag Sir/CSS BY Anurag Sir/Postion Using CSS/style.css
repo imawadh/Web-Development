@@ -1,0 +1,8 @@
+*{
+    background-color: #ccfff6;
+}
+.container_fixed{
+    display: flex;
+    border: 2px;
+    
+}

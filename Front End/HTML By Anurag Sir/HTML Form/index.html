@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+<body>
+    <form action="home.js" method="get">
+        <label for="student_name">Name : </label>
+        <input type="text" name="student_name" id="student_name" placeholder="Full Name" required>
+        <br>
+        <label for="class_name">Class :</label>
+        <input type="text" name="class_name" id="class_name" placeholder="Your Current Class">
+        <br>
+        <label for="student_Password">Password :</label>
+        <input type="password" name="student_name" id="student_name" placeholder="Your Password">
+        <legend>Coheret : </legend>
+        <input type="checkbox" name="CP" id="CP">
+        <label for="CP">C P</label>
+        <br>
+        <input type="checkbox" name="Data_Science" id="Data_Science">
+        <label for="Data_Science">D S</label>
+        <br>
+
+        <!--Drop down -->
+        <label for="Degree">Degree</label>
+        <select name="Degree" id="Degree">
+            <option value="IIT Guwahati">IIT G</option>
+            <option value="IIT Madras">IIT M</option>
+        </select>  
+        <br>
+        
+        <textarea name="Your_description" id="" cols="30" rows="10" placeholder="Tell Me About Yourself" required></textarea>
+        <br>
+        <input type="submit" value="Submit">
+        <br>
+        <input type="reset" value="Reset" onclick="alert('Jai Shree Ram')">
+        
+    </form>
+</body>
+</html>
