@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+.list-of-navigation{
+    background-color: #000000;
+    height: 40px;
+    
+}
+
+ul li{
+    display: inline;
+    color: aliceblue;   
+}
+ul .myname{
+    padding-left: 10%;
+    padding-right: 30%;
+    
+}
+ul li a{
+    color: aliceblue;
+    text-decoration: none;
+    padding-right: 5%;
+    
+}
+.right-padding{
+    padding-right: 10%;
+}
