@@ -10,7 +10,7 @@ body{
     
 } */
 .box{
-
+    font-size: 25px;
     height: 50px;
     width: 50px;
     background-color: #fff;
@@ -40,4 +40,56 @@ body{
     width:50%;
     margin-top: 20%;
     background-color: #fff;
+}
+.place1{
+    height: 300px;
+    width: 300px;
+    background-color: #fff;
+    font-size: 25px;
+}
+.place2{
+    height: 50%;
+    width: 60%;
+    background-color: red;
+    margin-top: 30px;
+    font-size: 2em;
+}
+.plac1
+{
+    font-size: 4rem;
+}
+.position{
+    height: 40px;
+    width: 80px;
+    background-color: #fff;
+}
+.static , .absolute, .fixed, .relative{
+    height: 40px;
+    width: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.static{
+    /* position: static; */
+    background-color: #ff58d2;
+}
+.fixed{
+    background-color: #d5c91f;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+.absolute{
+    background-color: #16ff70;
+    position: absolute;
+    top: 20px;
+    left: 60px;
+
+
+}
+.relative{
+    background-color: #7f3aff;
+    position: relative;
+    top: 50px;
+    left: 40px;
 }
