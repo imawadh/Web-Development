@@ -1,3 +1,3 @@
-const name = ["Finland","England","Ireland","Pakistan"]
-const ans = name.filter((name)=>name.endswith("land"))
+const country = ["Finland","England","Ireland","Pakistan"]
+const ans = country.filter((country)=> country.endsWith("land"))
 console.log(ans)

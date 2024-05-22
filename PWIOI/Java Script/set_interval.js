@@ -6,3 +6,7 @@
 setInterval(()=>{
     console.log("Awadh")
 },1000);
+setInterval(()=>
+{
+    console.log("Kishor ")
+},1000);

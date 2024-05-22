@@ -1,3 +1,6 @@
 setTimeout(()=>{
-    console.log("Awadh Kishor Singh")
+    console.log("Awadh")
 },10000)
+setTimeout(() => {
+    console.log("Kishor")
+}, 1000);
