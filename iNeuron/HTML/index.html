@@ -60,6 +60,93 @@
       <li>Unordered List Item 5</li>
     </ul>
 
-    
+    <!-- Image -->
+    <!-- ./ means current directory/folders 
+    ../means back of current directory  -->
+    <!--Png is just format but it has background -->
+
+    <img
+      src="../Media/Image/png_image_with_backgroung.jpg"
+      height="100px"
+      alt="My Photo"
+      srcset=""
+    />
+    <br />
+    <p>PNG Image with Background</p>
+    <img
+      src="../Media/Image/png_image_no_background.png"
+      height="100px"
+      alt=""
+      srcset=""
+    />
+    <p>PNG Image with no background</p>
+
+    <br />
+
+    <!-- Clickable Image  and other attribute of the image tag -->
+    <a href="https:/awadh.vercel.app" target="_blank"
+      ><img
+        src="../Media/Image/png_image_with_backgroung.jpg"
+        height="100px"
+        alt=""
+        srcset=""
+    /></a>
+    <p>Clickable Image</p>
+    <!-- 
+    target= _blank, _self, _top, _parent and in anchor tag
+    -->
+
+    <!-- link attribute  i.e: anchor tag -->
+
+    <!-- block and inline text -->
+
+    <span
+      ><p>Lorem ipsum dolor sit amet.</p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, id.
+      </p></span
+    >
+
+    <div></div>
+    <nav></nav>
+    <section></section>
+    <footer></footer>
+
+    <!-- audio in a html  2 ways -->
+    <h3>Method 1</h3>
+    <audio
+      controls
+      src="../Media/Audio/climax-epic-sad-piano-song-200132.mp3"
+    ></audio>
+    <h3>Method 2</h3>
+    <audio controls>
+      <source src="../Media/Audio/climax-epic-sad-piano-song-200132.mp3" />
+    </audio>
+
+    <!--Video in a html -->
+    <h3>Method 1</h3>
+    <video
+      controls
+      src="../Media/Video/Video1 Sample.mp4"
+      height="200px" type="mp4"
+    ></video>
+    <h3>Method 2</h3>
+    <video controls height="200px" autoplay>
+      <source src="../Media/Video/Video1 Sample.mp4" />
+    </video>
+    <br />
+    <!--Iframe tag-->
+    <h3>Iframe tag </h3>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/g0eO74UmRBs?si=apN8-nx8OAA85gvo"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
   </body>
 </html>
