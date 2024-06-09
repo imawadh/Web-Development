@@ -12,6 +12,7 @@
     </style> -->
   </head>
   <body>
+    <h2><center>Part 1</center></h2>
     <h1>Setting Up My First Class</h1>
     <input type="text" placeholder="Enter Your Name" />
 
@@ -60,6 +61,7 @@
       <li>Unordered List Item 5</li>
     </ul>
 
+    <h2><center>Part 2</center></h2>
     <!-- Image -->
     <!-- ./ means current directory/folders 
     ../means back of current directory  -->
@@ -136,6 +138,7 @@
     </video>
     <br />
     <!--Iframe tag-->
+    
     <h3>Iframe tag </h3>
     <iframe
       width="560"
@@ -147,6 +150,70 @@
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     ></iframe>
+    <h2><center>Part 3</center></h2>
+    <!--Tables-->
+    <h3>Table in HTML </h3>
+    <table border>
+        <tr>
+            <th>S.No.</th>
+            <th>Name</th>
+            <th>City</th>
+            <th rowspan="6">Group Photo</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Awadh</td>
+            <td>Gorakhpur</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Dinkar</td>
+            <td>Aara</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Chinmoy</td>
+            <td>Kolkata</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td colspan="2">Aditya</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Aadhar</td>
+            <td>Noida</td>
+        </tr>
+    </table>
+
+    <!--Form -->
+    <h3>Form in HTML </h3>
+    <!--Get and Post Method -->
+    <form action="#">
+        Name : <input type="text" name="" placeholder ="Write your name" id="">
+        <br>
+        Email : <input type="email" name=""  placeholder = "Enter your EmailId"id="">
+        <br>
+        Password : <input type="password" placeholder="Enter Your Password">
+        <br>
+        <label for="Gender">Gender : </label>
+        <input type="radio" name="Gender" id=""> Male
+        <input type="radio" name="Gender" id=""> Female
+        <input type="radio" name="Gender" id=""> Prefer not to say
+        <br>
+        <!--Name of radio button and for attribute of label  is stopping us to select multiple gender-->
+        Coding : <br>
+        <input type="checkbox" name="lang" id=""> C++
+        <br>
+        <input type="checkbox" name="lang" id=""> C
+        <br>
+        <input type="checkbox" name="lang" id=""> Python
+        <br>
+        <input type="checkbox" name="lang" id=""> HTML
+        <br>
+        <input type="submit" value="Submit">
+
+    </form>
 
   </body>
 </html>
