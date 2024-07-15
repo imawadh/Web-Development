@@ -15,26 +15,53 @@
         margin: 0;
       }
       header {
-        padding-top: 5px;
+        padding: 10px 20px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        color: azure;
-        background-color: black;
-        font-weight: 500;
-        font-size: 20px;
+        /* color: azure;
+        background-color: black; */
+        /* font-weight: 500; */
+        font-size: 18px;
+      }
+      .bi-card-image span img {
+        height: 20px;
+        width: 20px;
       }
       .bi-card-image span {
         align-items: center;
       }
       .user-image img {
-        height: 45px;
-        border: 1px solod black;
+        height: 40px;
+        border: 1px solid black;
         border-radius: 50%;
       }
-      div nav span{
+      div nav span {
         padding-right: 30px;
       }
+      .cart-name {
+        font-weight: 540;
+        font-size: 26px;
+      }
+      footer{
+        display: grid;
+        grid-template-columns: 0.3fr 0.3fr 0.3fr 0.3fr;
+        background-color: #000f38;
+        color: aliceblue;
+        padding-top: 10px; 
+        padding-bottom: 20px;
+      }
+      .footer-heading{
+        font-weight: bold;
+        font-size: 18px;
+        margin: 15px 80px;
+
+      }
+      .footer-heading~span{
+        display: block;
+        margin: 8px 80px;
+      }
+
     </style>
   </head>
   <body>
@@ -43,7 +70,7 @@
         <span>
           <img src="media/Images/tle_eliminators_logo.ico" height="20px" />
         </span>
-        <span> TLE Eliminators </span>
+        <span class="cart-name"> TLE Eliminators </span>
       </div>
       <div>
         <nav>
@@ -57,5 +84,26 @@
         <img src="media/Images/my_image.jpg" alt="" srcset="" />
       </div>
     </header>
+    <footer>
+      <div>
+        <div class="footer-heading">Courses</div>
+        <span>Level 1</span><span>Level 2</span><span>Level 3</span
+        ><span>Level 4</span>
+      </div>
+      <div>
+        <div class="footer-heading">Information</div>
+        <span>FAQ</span><span>Terms and Conditions</span
+        ><span>Privacy Policy</span>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <span>Our Mentors</span><span>Contact Us</span>
+      </div>
+      <div>
+        <div class="footer-heading">Social</div>
+        <span>Discord</span><span>LinkedIn</span><span>Instagram</span
+        ><span>Twitter</span><span>Youtube</span>
+      </div>
+    </footer>
   </body>
 </html>
