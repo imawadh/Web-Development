@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/media/Images/netflix_icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Netflix</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-image: url(../public/media/Images/banner.jpg);
+            background-size: cover;
+            background-color: black;
+        }
+        .shade{
+            background-color: rgba(0, 0, 0,0.4);
+            height: 120vh;
+            width: 100%;
+            color: white;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+        .right-header{
+            display: flex;
+        }
+        .brand-header-company-title{
+            font-size: 35px;
+            color: red;
+        }
+        .right-header-left~span{
+            padding: 100px;
+        }
+
+        .right-header-left{
+            margin-right: 20px;
+            padding: 7px 7px 0px 7px;
+            border: 1px solid white;
+            border-radius: 7%;
+        }
+        .right-header-right{
+            padding: 7px 7px 0px 7px;
+            background-color: red;
+            border: 1px solid rgb(255, 0, 0);
+            border-radius: 7%;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+        .section-main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .unlimited-section{
+            font-family: sans-serif;
+            font-size: 60px;
+            font-weight: bold;
+        }
+        .watch-section{
+            font-size: 30px;
+            font-weight:500px;
+        }
+        .ready-section{
+            font-size:20px;
+            font-weight:500px;
+        }
+        .email-box{
+            padding: 15px;
+            font-size: 20px;
+            padding-right: 150px;
+            background-color: rgba(59, 59, 59,0.7);
+            border: 1px solid white;
+            border-radius: 5%;
+            margin-right: 1px;
+        }
+        .get-started-box{
+            padding: 10px;
+            font-size: 30px;
+            background-color: red;
+            border-radius: 5%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="shade">
+        <header>
+            <div>
+                <div class="brand-header-company-title">NETFLIX</div>
+            </div>
+            <div class = "right-header">
+                <div class="right-header-left">
+                    <span class="bi bi-translate"></span>
+                    <span>English</span>
+                    <span class="bi bi-chevron-down"></span>
+                </div>
+                <div class="right-header-right">
+                    <div>
+                        Sign In
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div>
+            <div class = "section-main">
+                <div class="unlimited-section">Unlimited movies, TV shows and more.</div>
+            </div>
+            <div class = "section-main">
+                <div class="watch-section">Watch anywhere. Cancel anytime.</div>
+            </div>
+            <div class = "section-main">
+                <div class="ready-section">Ready to watch? Enter your email to create or restart your membership.</div>
+            </div>
+            <div class = "section-main">
+                <div class="email-box">
+                    <span>Email Address</span>
+                </div>
+                <div class="get-started-box">
+                    <span>Get Started</span>
+                    <span class="bi bi-chevron-right"></span>
+                </div>
+            </div>
+            </div>
+        </section>
+    </div>
+
+    
+    
+</body>
+</html>
