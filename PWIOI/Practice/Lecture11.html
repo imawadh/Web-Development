@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 11</title>
+        <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        *{
+            padding: 0;
+            /* margin: 0; */
+        }
+        .dt{
+            background-color: #977777;
+            margin-bottom: 5px;
+            padding: 7px;
+        }
+        .dl-form{
+            display: grid;
+            grid-template-columns: 0.3fr 0.9fr;
+            
+        }
+        .dt-form{
+            color: white;
+            background-color: #000000;
+            margin-bottom:5px;
+            padding: 5px;
+        }
+        .dd-form{
+            color: black;
+            background-color: #545454;
+            margin-bottom:5px;
+            padding: 5px;
+            margin-right: 500px;
+        }
+        .sticky{
+            position: sticky;
+            top: 0;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+        }
+        .dl-grid{
+            display: flex;
+            grid-template-columns: 0.3fr 0.9fr;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- <span class="bi-instagram"></span> -->
+    <h1>DL DT and DD</h1>
+    <dl>
+        <dt class="dt">HTML</dt>
+        <dd>It is a markup Language </dd>
+        <dd >It is used for presentaion Purpose</dd>
+        <dt class="dt">CSS</dt>
+        <dd>It is a styling langauge</dd>
+        <dt class="dt">JavaScript</dt>
+        <dd>It is a scripting language</dd>
+    </dl>
+<hr>
+<h1>Form like structure using dl ,dt and dd </h1>
+
+    <dl class="dl-form">
+        <dt class="dt-form">FirstName</dt>
+        <dd  class="dd-form">Someone</dd>
+        <dt class="dt-form">Lastname</dt>
+        <dd class="dd-form">Someone</dd>
+        <dt class="dt-form">Father's Name</dt>
+        <dd class="dd-form">Someone</dd>
+        <dt class="dt-form">Age</dt>
+        <dd class="dd-form">Someone</dd>
+        <dt class="dt-form">Date of Birth</dt>
+        <dd class="dd-form">Someone</dd>
+    </dl>
+
+
+
+    <hr>
+    <!-- <h1>Postion : sticky attribute</h1>
+    <dl>
+        <dt  class="sticky">Electronics</dt>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+            <dd>Bulb</dd>
+
+        <dt class="sticky">Sports</dt>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+            <dd>Cricket</dd>
+
+        <dt class="sticky">Education</dt>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+            <dd>Copy</dd>
+    </dl> -->
+
+    <hr>
+    <h1>Box - Shadow , Legend , fieldSet </h1>
+    <dl class="dl-grid">
+        <dt>HTML </dt>
+        <dd>Markup Language</dd>
+
+        <dt>CSS</dt>
+        <dd>Styling     </dd>
+
+        <dt>JS</dt>
+        <dd>Scripting Langauge</dd>
+    </dl>
+
+    <hr>
+    <h1>Heading in Heading Element</h1>
+    
+</body>
+</html>
