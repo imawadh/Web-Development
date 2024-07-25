@@ -28,8 +28,9 @@
             background-color: #d3d3d3;
             font-family: sans-serif;
         }
-        sup{
+        .sup{
             color: rgb(252, 92, 119);
+            
         }
         .company-icon{
             display: block;
@@ -51,6 +52,10 @@
             display: flex;
             justify-content: center;
             text-align: center;
+            /* display: grid;
+            grid-template-columns: 4fr 4fr 4fr;
+            text-align: center;
+            not working for bag */
         }
         section{
             height: 50px;
@@ -69,7 +74,7 @@
         }
         .div-span{
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 7px;
         }
         footer{
             padding-top: 20px;
@@ -127,7 +132,7 @@
                 <div><span>HOME&LIVING</span></div>
                 <div><span>BEAUTY</span></div>
                 <div class="studio">
-                <span>STUDIO <SUp>NEW</SUp></span>
+                <span>STUDIO <span class="sup">NEW</span></span>
                 </div>
             </div>
             </nav>
