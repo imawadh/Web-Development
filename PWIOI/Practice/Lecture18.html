@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 18</title>
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<style>
+    /* *{
+        padding: 0;
+        margin: 0;
+    } */
+    .li-iamge-ul{
+        list-style: none;
+    } 
+    .li-image{
+        list-style-image: url(./media/Images/lecture18.png);
+        margin-bottom: 10px;
+    }
+    .extra{
+        color:green;
+        font-size: 15px;
+    }
+    .inox{
+        padding: 10px;
+        list-style: none;
+        width: 20px;
+        background-color: #dad4d4;
+        position: fixed;
+        right: 10px;
+        bottom: 5px;
+    }
+    .inox li{
+        color: rgb(0, 12, 241);
+        padding: 5px;
+    }
+    .pagination-ul{
+        list-style: none;
+        display: flex;
+        
+    }
+    .pagination-ul-li{
+        margin-right: 10px;
+        font-size: 20px;
+        border: 1px solid black;
+        width: 25px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #5fcbe1;
+    }
+    .Pagination{
+        /* position: fixed; */
+        /* align-self: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .extra{
+        margin-bottom: 10px;
+    }
+    .bold{
+        font-size: 25px;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    .offstrike{
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    .flipkart{
+        list-style: none;
+        padding-left: 8px;
+    }
+    .flipkart li{
+        margin-bottom: 10px;
+    }
+    .bi-tag-fill{
+        color: green;
+    }
+    .bi-exclamation-circle{
+        margin-left: 10px;
+        color: #b3b1b1;
+    }
+    
+</style>
+<body>
+    <ul class="li-image-ul">
+        <li class="li-image">HTML</li>
+        <li class="li-image">CSS</li>
+        <li class="li-image">JS</li>
+        <li class="li-image">Bootstrap</li>  
+    </ul>
+    <div class="flipkart">
+        <div class="extra">
+            <span >Extra </span>
+            <span class="bi bi-currency-rupee"></span>
+            <span>3000 off</span>
+        </div>
+        <div>
+            <span class="bold">₹1,299</span>
+            <strike>
+                <span >₹5,999</span>
+            </strike>
+            <span class="offstrike">78% off</span>
+            <span class="bi-exclamation-circle"></span>
+        </div>
+        <div>
+            <h3>Available Offers</h3>
+        </div>
+        <div>
+            <ul class="flipkart">
+                <li>
+                    <span class="bi-tag-fill"></span>
+                    <span><b>Bank OfferGet</b> ₹50 Instant Discount on first Flipkart UPI transaction on order of ₹200 and above <font style="color: blue;">T&C</font></span>
+                </li>
+                <li>
+                    <span class="bi-tag-fill"></span>
+                    <span><b>Bank Offer</b> 5% instant discount on SBI Credit Card Transactions, up to ₹1,250 on orders of ₹7,000 and above <font style="color: blue;">T&C</font></span>
+                </li>
+                <li>
+                    <span class="bi-tag-fill"></span>
+                    <span> <b>Bank Bank OfferExtra </b> ₹250 off on SBI Credit Card EMI Transaction on a Net Cart Value of ₹25000 and above <font style="color: blue;">T&C</font></span>
+                </li>
+                <li>
+                    <span class="bi-tag-fill"></span>
+                    <span> <b>Special PriceGet</b> extra 27% off (price inclusive of cashback/coupon) <font style="color: blue;">T&C</font></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <ul class="inox">
+            <li class="bi-facebook"></li>
+            <li class="bi-twitter"></li>
+            <li class="bi-instagram"></li>
+            <li class="bi-linkedin"></li>
+            <li class="bi-youtube"></li>
+        </ul>
+    </div>
+    <div class="Pagination">
+        Pagination
+        <ul class="pagination-ul">
+            <li class="pagination-ul-li">&lt;&lt;</li>
+            <li class="pagination-ul-li">1</li>
+            <li class="pagination-ul-li">2</li>
+            <li class="pagination-ul-li">3</li>
+            <li class="pagination-ul-li">4</li>
+            <li class="pagination-ul-li">5</li>
+            <li class="pagination-ul-li">&gt;&gt;</li>
+        </ul>
+    </div>
+</body>
+</html>
