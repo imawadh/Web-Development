@@ -1,0 +1,245 @@
+Types of Software applications
+++++++++++++++++++++++++++++++
+a. Desktop applications
+b. Web applications
+c. Distrubuted applications
+d. Mobile applications
+e. AI applications
+f. IoT applications
+g. 2D and 3D applications
+
+Using UI full stack with React we can build "Webapplications and Distrubutedapplications".
+		eg: netflix,youtube,spotify,....
+
+Note::
+Desktop application     : No communication with internet
+WebApplications
+Distrubuted application : using app/browser with the help of internet if the interactions happens then it is web/distrubuted applications.
+Mobile application      : calculator,calendar,gallery,....
+AI applications         : chatgpt
+IoT applications        : smartwatches
+2D and 3D applications  : Gaming applications
+
+Our Profile
++++++++++++
+WEBUI Full stack Developer
+UI Developer
+UI/UX Developer
+MERN stack Developer
+M : MongoDB
+E : ExpressJS
+R : ReactJs
+N : NodeJs
+
+Topics
+ a. HTML
+ b. CSS
+ c. Bootstrap
+ d. Sass
+ e. JavaScript
+ f. jQuery
+ g. React
+
+Backend
+ a. Node Js
+ b. Express Js
+ c. MongoDB
+
+Few tools like
+a. coreldraw
+b. photoshop
+c. adobe reader
+
+					Designing webapplications
+Q>  What is Internet?
+Ans. Internet is a wide area network that connects computers all over the world.
+     Internet makes information available any time,any location and from any device.
+     First computer network is "ARPANET" introduced by US-DOD[Department of Defence] in early 1960's
+     			[Advanced Research Projects Agency Network]
+     To use internet during those days we need to learn protocols like SMTP,FTP,.....
+     The main problem with internet is "No restrictions", so to avoid this tim berner lee introduced "web".
+
+What is Web?
+   A portion of internet with restricted acess.
+   Tim Berner Lee(father of web) introduced the concept of Web.
+   Web Standards are maintained by W3C(www.w3.org)[World wide web Consortium] and whatwg(http://whatwg.org).
+   Darkweb -> not everyone can access[It is illegal way of acccessing the web]
+   Currently WebVersion is "WEB-3".
+Every webapplication is known as "3 tier application".
+Database tier     :: It is a location where data is present.
+Application tier  :: It is a location where the application is hosted.  
+Presentation tier :: It is a location where we access and use the application.
+
+As a full stack developer we will work with 3 layers
+a. Application layer
+b. Database layer     
+c. Presentation layer :: UI Developer role(HTML,CSS,JS,JQuery,Bootstrap,....)
+
+
+To work with building webapplications
++++++++++++++++++++++++++++++++++++++
+1. Downlad and install "NodeJS" software
+    - We are installing Node js for a package manager called "NPM".
+    - Package manager is a software tool used to install,update and uninstall a library from your device for any project.
+    - There are various package manager called
+	a. npm
+	b. yarn
+	c. rubygems
+	d. composer
+	e. NuGet
+	f. Bower
+
+2. Installation process
+	a. visit "https://node.js.org/en"
+	b. select the version 20X
+	c. Download setup file
+        d. Double click install the file
+	e. After installing check whether node is installed or not by moving to command prompt
+		C:\Users\nitin>node -v
+		v20.15.0
+
+		C:\Users\nitin>npm -v
+		10.7.0
+
+3. Download and install "Visual Studio Code" editor
+	
+	- Editor is a software tool used by developers to build,debug,test and deploy applications.
+	- Various editors are available for different technologies(https://editorconfig.org/)
+		a. sublime
+		b. edit+
+		c. notepad++
+		d. webstorm
+		e. vscode etc...
+	- link for download https://code.visualstudio.com/
+
+4. Open vscode and install following extensions for Web Designing
+	- Live Server [Ritwick Dey]
+	- vscode-icons
+	- IntelliSense for CSS class names in HTML [Zignd]
+	- Live Preview[Microsoft]
+
+Note: Better enable "emmet" in your VS Code. It is a code snippet generator.
+	> Go to settings of VS Code
+	> Search for "Emmet"
+	> Select checkbox for "Show Possible Emment Abbrevations..."
+
+		 
+1. Web Server	: It resembles both hardware and software that satisfies client requests by sending and receving the data.
+			a. Local server [LiveServer -> Local Server]
+			b. Cloud server [AWS,AZURE,GCP,...]
+
+2. Web Site     : It is a virtual directory on webserver that gives access to resources on web.	
+		  Every website comprises of 2 locations
+		 	a. Physical Location
+			b. Virtual  Location
+		 Physical Location is a folder where the resources are kept 
+			eg: D:\FashionStore
+		 Virtual Location is a folder path given to clients inorder to access the resources
+			eg: http://www.fashionstore
+
+
+Creating a new website : [Local]
+++++++++++++++++++++++++++++++++
+a. Open any new location
+
+b. Create a new folder in any location
+	D:\FashionStore
+
+c. Open visual studio code and open your website folder
+	[File Menu -> Open Folder]
+
+d. Open "Terminal" in Visual Studio code
+
+e. Switch to "Command Prompt"[Default is Power Shell]	
+	
+f. Run the following command
+	> npm init -y       
+    
+      * It creates package.json file which is holding meta information about the project[libraries used] 
+      * MetaInformation holds name,version and dependencies used in the project[eg:: OpenProject.com]
+
+g. Every Project will consists of 2 standard folders like
+
+     a. public
+     b. src
+     c. package.json
+
+	* public folder consists of static files like
+		a. images[.jpg]
+		b. Documents
+		c. HTML[.html]
+		d. Spreadsheets[.XSLX]
+		e. audio/video files
+
+	* src folder comprises of all dynamic resources like
+		a. css
+		b. scss
+		c. js
+		d. ts etc..
+
+h. Keeps some documents in the project folder
+i. Click on Go live server
+j. You can open ur browser and send the request
+	http://localhost:5500/
+
+Note: The websiste is live now,but it is not having a good UI for the user to access our resource, 
+      so we need to give them a good "webpage", To design a good webpage we go for "HTML/CSS".
+
+WebPage
+  -> It is a hypertext document that provides an UI, where the user can interact with the resources of the website.
+		eg:: open amazon.com  [It display many information]
+		     click on mobiles [It display many information]
+  -> It contains information beyond what user can see.
+  -> Beyond the content the information is available.
+  -> Every webpages are classified into 2 types
+	a. Static pages
+	b. Dyanmic pages
+
+Static pages 
+  -> They are such pages which comprises of same information to display across number of requests.
+  -> Usually static pages have extension of ".html/.htm"
+		eg:: tutorialspoint website(.html will be the extension)
+
+Dynamic pages
+  -> They are such pages which comprises of information according to client requests.
+  -> The output would vary from client to client.
+  -> Apperance may be same for every client, but the content would be different for user to user
+  -> Extension for Dynamic pages are ".jsp,.php,.aspx,....".
+		eg:: inox.com(select -> theatre-> select-> book) 
+			The information will vary from user to user depending upon the seats available.
+
+Note: Static pages and dynamic pages are desinged using "HTML"
+
+PageComposition
+	Static  Pages :: HTML + CSS + JavaScript + jQuery + ....
+	Dynamic Pages :: HTML + CSS + JavaScript + jQuery + JSP|PHP|ASP.... 
+
+Note: Every Project will start with a static page called "index.html"
+
+Browser Architecture
+++++++++++++++++++++
+ - Browser is a software tool to access webpages on the client device.
+ - Various browser available are
+	a. Chrome
+	b. Firefox
+	c. Edge
+	d. Safari
+ - Every browser comprises of following components
+	a. User interface : It contains title bar, address bar, refresh ....
+	b. Browser Engine : It is responsible for converting HTML,CSS into browser understable format.
+				Every browser has browser engine
+				a. Gecko
+				b. webkit
+				c. chakra
+				d. SpiderMonkey
+	c. Rendering  Engine: It is responsible for presentation of processed content.
+	d. Javascript Interpreter: Every browser uses javascript as a langauge for interactions,It is translated using JS interpreter.
+	e. Network : It monitors the activity performed in a page when requested in browser.
+			a. Resource loaded
+			b. Number of request per page
+			c. Time taken to load Content 
+	f. UI Backend : It contains the logic for UserInterface of the browser.
+	g. DataPersistence : It is a location where browser can store client details
+				a. Local storage
+				b. Session storage
+				c. Cookies etc...	
