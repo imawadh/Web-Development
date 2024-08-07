@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <section>
+        <nav>
+            <ul>
+                <li> Image in Next tab
+                    <a href="./media/Images/kidsfashion.jpg" target="_blank">Kids Image</a>
+                </li>
+                <!-- <img src="./media/Images/kidsfashion.jpg" alt=""> -->
+                <li>
+                    Image in same tab 
+                    <a href="javascript:window.open('./media/Images/kidsfashion.jpg','title','height = 300opx, width=200px')">Kids Image</a>
+                </li>
+                <li>
+                    Image in the same window without distrubing other thing on the page
+                    <a href="./media/Images/kidsfashion.jpg" target="main-frame">Kids Image</a>
+                </li>
+            </ul>
+            </nav>
+            <main>
+                <iframe name="main-frame"></iframe>
+            </main>
+    </section>
+</body>
+</html>

@@ -4,8 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aniket</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #597445;
+            display: flex;
+        }
+        .navbar {
+            background-color: #597445;
+            text-align: center;
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            border-right: 1px solid rgb(147, 142, 142);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .navbar .img {
+            margin-bottom: 50px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .navbar ul li a {
+            color: #E7F0DC;
+            text-decoration: none;
+        }
+        .navbar ul li a:hover {
+            color: yellow;
+        }
+        .content {
+            margin-left: 270px; /* Adjust based on the width of the navbar */
+            padding: 20px;
+            width: calc(100% - 270px);
+        }
+        .myimage {
+            height: 230px;
+            width: 230px;
+            border: 2px solid #ebf0dc;
+            border-radius: 50%;
+        }
+        #home {
+            background-color: #658147;
+            border-radius: 5px;
+            margin: 30px 0;
+            font-size: 35px;
+            padding: 20px;
+        }
+        .yellow {
+            color: yellow;
+            font-size: 37px;
+            font-weight: bold;
+        }
+        .aboutme {
+            margin-top: 50px;
+            font-weight: bold;
+            font-size: 35px;
+            margin-bottom: 30px;
+            color: rgb(169, 172, 150);
+        }
+        .about-part {
+            background-color: #658147;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .about-part div {
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+        .yellowa{
+            color: yellow;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="navbar">
+        <div class="img">
+            <img src="prasiddha.jpeg" alt="MyImage" title="Prasiddha Bauruwal" class="myimage">
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#information">Information</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="home">
+            <h1>I'm Prasiddha Baruwal, a <span class="yellow">student at St. Xavier's School, Denonia</span> of class 9<sup>th</sup>.</h1>
+        </section>
+        <section id="about">
+            <div class="aboutme">About Me</div>
+            <div class="about-part">
+                <div>I am curious and enthusiastic about a wide range of subjects, but here are a few things that really excite me:</div>
+                <div>Academics: I love diving deep into subjects like <span class="yellowa">mathematics, science, and literature</span>. Each subject offers a unique way to understand the world, and I enjoy the challenges they bring.</div>
+                <div>Hobbies and Interests: When I'm not studying, you can find me. e.g., <span class="yellowa">reading books, playing sports, coding, painting, playing a musical instrument,</span> etc. These activities help me relax and keep my creativity flowing.</div>
+                <div>Future Goals: My dream is to <span class="yellowa">Engineer.</span> I am determined to work hard and make a positive impact in the world through my chosen field.</div>
+            </div>
+        </section>
+        <section id="information">
+            <h1 class="aboutme">Information</h1>
+            <iframe src="Tourism in Nepal - Wikipedia.PDF" frameborder="0"></iframe>
+        </section>
+    </div>
 </body>
 </html>
