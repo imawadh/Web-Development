@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube</title>
+    <link
+      rel="stylesheet"
+      href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+  </head>
+  <style>
+    * {
+      background-color: rgb(36, 36, 36);
+      color: white;
+    }
+    header {
+      padding: 15px 20px;
+      width: 97vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+    }
+    .bi-youtubex {
+      color: red;
+    }
+    .search-box {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid grey;
+      width: 40vw;
+      border-radius: 20px;
+    }
+    .bi-mic-fill {
+      background-color: grey;
+      border-radius: 50%;
+      padding: 10px;
+    }
+    .search {
+      display: flex;
+    }
+    .search div {
+      padding: 10px;
+    }
+    .headerpart1 {
+      display: flex;
+    }
+    .headerpart11 {
+      padding-top: 7px;
+      margin-right: 5px;
+    }
+    .header2 span {
+      margin-right: 10px;
+    }
+    .user {
+      display: inline-block;
+      background-color: rgb(189, 133, 21);
+      width: 25px;
+      padding: 5px;
+      text-align: center;
+      border-radius: 50%;
+      color: white;
+    }
+    .main {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: 2fr 10fr;
+      gap: 20px;
+    }
+    .upper-nav {
+      list-style: none;
+      padding-left: 5px;
+      font-size: 18px;
+    }
+
+    .img-banner {
+      width: 100%;
+      height: 150px;
+      border-radius: 20px;
+    }
+    .article {
+      display: grid;
+      grid-template-columns: 3fr 9fr;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    .logo {
+      border-radius: 50%;
+      margin: 5px;
+      margin-right: 20px;
+    }
+    .article-content div {
+      margin-bottom: 10px;
+    }
+    .article-content div h1 {
+      font-size: 35px;
+    }
+    .shape {
+      text-decoration: none;
+      color: rgb(210, 210, 210);
+    }
+    .shape1 {
+      text-decoration: none;
+      color: blue;
+    }
+    .subs {
+      background-color: white;
+      width: fit-content;
+      padding: 10px;
+      border-radius: 20px;
+    }
+    .subs span {
+      background-color: white;
+      color: black;
+      padding-right: 3px;
+    }
+    .video-content {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      width: 55%;
+      padding: 5px;
+    }
+    .video-content a {
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+    .video-content a:hover {
+      font-weight: bold;
+      border-bottom: 1px solid grey;
+      padding-bottom: 5px;
+    }
+    .video-content-border {
+      border-bottom: 2px solid grey;
+    }
+    .home {
+      margin-top: 20px;
+      display: flex;
+    }
+    .iframe {
+      width: 246px;
+      height: 138px;
+      margin-left: 15px;
+      margin-right: 20px;
+    }
+    .div-article span {
+      display: block;
+    }
+
+    .div-article-head {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .div-article {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .bi-list {
+      float: inline-end;
+    }
+    .nav2 {
+      list-style: none;
+      padding-left: 5px;
+    }
+    .nav2 li a {
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      margin-bottom: 8px;
+      margin-right: 5px;
+    }
+    .nav2 li a:hover {
+      background-color: lightgrey;
+      border-radius: 10px;
+      color: black;
+    }
+    .upper-nav li a {
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      margin-right: 5px;
+    }
+    .upper-nav li a:hover {
+      background-color: lightgrey;
+      border-radius: 10px;
+      color: black;
+    }
+    .nav1 {
+      margin-bottom: 20px;
+      border-bottom: 1px solid lightgrey;
+      margin-right: 15px;
+    }
+    .nav {
+      display: fixed;
+      height:100vh;
+      left: 0;
+      top: 0;
+      overflow: auto;
+    }
+    .you {
+      font-weight: bold;
+      padding-left: 10px;
+      font-size: 22px;
+    }
+    .subscription {
+      margin-right: 8px;
+    }
+    .subscription ul {
+      list-style: none;
+      padding-left: 5px;
+      align-items: center;
+    }
+    .subscription ul li a {
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+    .subscription ul li a img {
+      float: left;
+    }
+    .subscription ul li a:hover {
+      background-color: lightgray;
+      color: black;
+      border-radius: 10px;
+    }
+    .logosize {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+    }
+    .explore {
+      font-weight: bold;
+      font-size: 22px;
+      padding-left: 10px;
+    }
+    .exploresection {
+      border-top: 1px solid lightgray;
+      margin-right: 7px;
+      padding-top: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid lightgray;
+    }
+    .nav3 {
+      list-style: none;
+      padding-left: 5px;
+    }
+    .nav3 li a {
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    .nav3 li a:hover {
+      background-color: lightgray;
+      color: black;
+      border-radius: 10px;
+    }
+    .morefromyoutube {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding-left: 5px;
+    }
+    .morefromyoutubesection {
+      border-bottom: 1px solid lightgray;
+      margin-right: 7px;
+
+    }
+    .morefromyoutubesection div ul {
+      list-style: none;
+      padding-left: 5px;
+    }
+    .morefromyoutubesection div ul li a {
+      text-decoration: none;
+      text-overflow: clip;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      display: block;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .morefromyoutubesection div ul li a:hover {
+      background-color: lightgray;
+      border-radius: 10px;
+      color: black;
+    }
+    .a {
+      color: red;
+      padding: 0;
+      margin: 0;
+    }
+    .nav5{
+      margin-top: 20px;
+      padding-bottom: 20px;
+      margin-right: 8px;
+      border-bottom: 1px solid lightgray;
+    }
+    .nav51{
+      margin-left: 5px;
+      
+    }
+    .nav51 a{
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+      
+    }
+    .nav51 a:hover{
+      color: black;
+      background-color: lightgray;
+      border-radius: 10px;
+    }
+    .nav-bottom{
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .nav-bottom div{
+      margin-bottom: 10px;
+    }
+    .nav-bottom div a{
+      text-decoration: none;
+    }
+    .copy{
+      display: flexbox;
+    }
+   
+    
+  </style>
+  <body>
+    <header>
+      <div class="headerpart1">
+        <div class="headerpart11">
+          <span class="bi bi-list"></span>
+          <span class="bi bi-youtube bi-youtubex"></span>
+        </div>
+        <div>
+          <span>
+            <img src="./media/Images/youtubeheaderioi.png" alt="" height="30px"
+          /></span>
+        </div>
+      </div>
+      <div class="search">
+        <div class="search-box">
+          <span>Search</span>
+          <span class="bi bi-search"></span>
+        </div>
+        <div>
+          <span class="bi bi-mic-fill"></span>
+        </div>
+      </div>
+      <div class="header2">
+        <span class="bi bi-camera-video-fill"></span>
+        <span class="bi bi-bell"></span>
+        <span class="user"> A</span>
+      </div>
+    </header>
+    <section class="main">
+      <div class="nav">
+        <div>
+          <nav class="nav1">
+            <ul class="upper-nav">
+              <li>
+                <a href="javascript:void()" class="bi-house"> &nbsp; Home</a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-shop-window">
+                  &nbsp; Shorts</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-paypal">
+                  &nbsp; Subscription</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <div>
+            <span class="you">YOU &nbsp; &gt;</span>
+          </div>
+          <div class="nav1">
+            <ul class="nav2">
+              <li>
+                <a href="javascript:void()" class="bi-person-badge">
+                  &nbsp; Your Channel
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-clock-history">
+                  &nbsp; History
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-play">
+                  &nbsp; Playlists
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-person-video">
+                  &nbsp; Your Videos
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-watch">
+                  &nbsp; Watch Later
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-hand-thumbs-up">
+                  &nbsp; Liked Videos
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="subscription">
+          <div>
+            <span class="you"> Subscriptions</span>
+          </div>
+          <ul>
+            <li>
+              <a href="javascript:void">
+                <img
+                  src="./media/Images/pwioilogo.jpeg"
+                  alt=""
+                  class="logosize"
+                />
+                &nbsp; PW Institute of Innovation</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void">
+                <img
+                  src="./media/Images/pwioilogo.jpeg"
+                  alt=""
+                  class="logosize"
+                />
+                &nbsp; Vishwa Mohan</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void">
+                <img
+                  src="./media/Images/tle_eliminators_logo.ico"
+                  alt=""
+                  class="logosize"
+                />
+                &nbsp; TLE Eliminators</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void">
+                <img
+                  src="./media/Images/tle_eliminators_logo.ico"
+                  alt=""
+                  class="logosize"
+                />
+                &nbsp; SamjheKya</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void">
+                <img
+                  src="./media/Images/pwioilogo.jpeg"
+                  alt=""
+                  class="logosize"
+                />
+                &nbsp; Bharat Coding Club</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void">
+                <img
+                  src="./media/Images/my_image.jpg"
+                  alt=""
+                  class="logosize"
+                />
+                &nbsp; Awadh Kishor Singh</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="exploresection">
+          <div>
+            <span class="explore">Explore</span>
+          </div>
+          <div>
+            <ul class="nav3">
+              <li>
+                <a href="javascript:void()" class="bi-tree"> &nbsp; Trending</a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-shop"> &nbsp; Shopping</a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-music-note">
+                  &nbsp; Music</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-film"> &nbsp; Film</a>
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-life-preserver">
+                  &nbsp; Live</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-controller">
+                  &nbsp; Gaming</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-lightbulb">
+                  &nbsp; News</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-joystick">
+                  &nbsp; Sports</a
+                >
+              </li>
+              <li>
+                <a href="javascript:void()" class="bi-book"> &nbsp; Courses</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="morefromyoutubesection">
+          <div class="morefromyoutube">More From Youtube</div>
+          <div>
+            <ul>
+              <li>
+                <a href="javascript:void()">
+                  <span class="bi-youtube a"></span> &nbsp; YouTube Premium
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()">
+                  <span class="bi-suit-diamond a"></span>
+                  &nbsp; YouTube studio
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()">
+                  <span class="bi-music-note a"></span>
+                  &nbsp; YouTube Music
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void()">
+                  <span class="bi-file-earmark-slides a"></span>
+                  &nbsp; YouTube Kids
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class=nav5>
+          <div class="nav51">
+            <a href="" class="bi-stripe">  &nbsp;
+           Setting</a>
+          </div>
+          <div class="nav51">
+            <a href="" class="bi-flag"> &nbsp;
+            Report history</a>
+          </div>
+          <div class="nav51">
+            <a href="" class="bi-question-circle"> &nbsp; Help</a>
+          </div>
+          <div class="nav51">
+            <a href="" class="bi-exclamation-square">   &nbsp;
+              Send Feedback
+            </a>
+            
+          </div>
+        </div>
+        <div class ="nav-bottom">
+          <div>
+            <a href="javascript:void()" class="copy">About Press CopyrightContact  us Creator Advertise Developers</a>
+          </div>
+          <div>
+            <a href="javascript:void()" class="copy">TermsPrivacyPolicy & SafetyHow YouTube worksTest new features</a>
+          </div>
+          <div>
+            <span class="copy">&copy; 2024 Google LLC</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img
+            src="./media/Images/youtubeioibanner.png"
+            alt=""
+            class="img-banner"
+          />
+        </div>
+        <article class="article">
+          <div>
+            <img src="./media/Images/ioiimageyoutube.png" alt="" class="logo" />
+          </div>
+          <div class="article-content">
+            <div>
+              <span><h1>PW Institute of Innovation</h1></span>
+            </div>
+            <div>
+              <span>@PW-IOI . 7.24K subscribers .157 Videoes</span>
+            </div>
+            <div>
+              <a href="javascript:void()" class="shape"
+                >Shaping Futures, Empowering Innovators! 🚀<b>....more </b></a
+              >
+            </div>
+            <div>
+              <a href="javscript:void()" class="shape1"
+                >pwioi.com/?utm_source=Youtube&utm_medium=Social&utm_campaign=Organic
+                <b>... and 8 more links</b></a
+              >
+            </div>
+            <div class="subs">
+              <span class="bi-bell"></span>
+              <span>Subscribe</span>
+              <span class="bi-chevron-down"></span>
+            </div>
+          </div>
+        </article>
+        <div class="video-content-border">
+          <div class="video-content">
+            <a href=""><span>Home</span> </a>
+            <a href=""><span>Videos</span> </a>
+            <a href=""><span>Shorts</span> </a>
+            <a href=""><span>Playlists</span> </a>
+            <a href=""><span>Community</span> </a>
+            <a href=""><span class="bi-search"></span></a>
+          </div>
+        </div>
+        <div class="home">
+          <div>
+            <iframe
+              src="https://www.youtube.com/embed/scX-jneH0hU?si=I4HClYQbMrJ-3atT"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              class="iframe"
+            ></iframe>
+          </div>
+          <div>
+            <article>
+              <div class="div-article">
+                <span class="div-article-head">
+                  How to get into PW IOI | Complete admission process
+                </span>
+                <span class="bi-list"></span>
+              </div>
+              <div class="div-article">
+                <span>
+                  PW Institute of Innovation • 16K views 2 months ago
+                </span>
+              </div>
+              <div class="div-article">
+                <span>
+                  Are you aiming to join PW IOI? This video provides a detailed
+                  guide on the complete admission process, ensuring you
+                  understand each step to secure your spot at this prestigious
+                  institution....
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
