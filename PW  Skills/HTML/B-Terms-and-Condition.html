@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Condition</title>
+    <link rel="stylesheet" href="./PWIOI/Projects/Fashion Store/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        textarea{
+            cursor: not-allowed;
+        }
+        input~span{
+            color: red;
+        }
+        input:checked+span{
+            color: green;
+        }
+        input:checked~button{
+            display: block;
+        }
+        .btn{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <dl class="m-3 p-3">
+        <dd>
+            <h3>Terms</h3>
+            <textarea disabled rows="4" cols="40">Terms and Conditions</textarea>
+        </dd>
+        <dd>
+            <input type="checkbox"><span> I agree</span>
+            <br><br>
+            <button class="btn btn-warning ">Submit</button>
+        </dd>
+    </dl>
+</body>
+</html>
