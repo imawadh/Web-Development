@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
-
-        #para::first-line{
+        p::first-line{
             color: red;
         }
-        #para::first-letter{
+        p::first-letter{
+            color: blue;
+            font-size: 25px;
+        }
+
+        /* #para::first-line{
+            color: red;
+        } */
+        /* #para::first-letter{
             color: blue;
             font-size: 25px;
         }
@@ -23,14 +30,30 @@
         }
         li:last-child::after{
             content: "";
-        }
+        } */
 
-        li::before{
+        /* li::before{
             content: "---";
 
         }
         li:first-child::before{
             content: "";
+        } */
+        ol{
+            display: flex;
+            list-style: none;
+        }
+        ol li::after{
+            content: ">>";
+        }
+        ol li:last-child::after{
+            content: "";
+        }
+        ol li::before{
+            content: "..";
+        }
+        ol li:first-child::before{
+            content: none  
         }
     </style>
 </head>
