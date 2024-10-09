@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        header{
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+        header div{
+            font-weight: bold;
+            font-size: 25px
+        }
+        @media screen and (orientation:landscape) {
+            .bi-justify{
+                display: none;
+            }
+            aside span{
+            margin-left: 10px;
+            }
+            nav span{
+                margin-left: 10px;
+            }
+        }
+        @media screen and (orientation:portrait) {
+            header{
+                justify-content: space-between;
+            }
+            .bi-justify{
+                display: inline;
+                font-size: 30px;
+            } 
+            aside,span{
+                display: none;
+            }
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            Shopper.
+        </div>
+        <nav>
+            <span>Home</span>
+            <span>Catalog</span>
+            <span>Shop</span>
+            <span>Pages</span>
+            <span>Blog</span>
+            <span>Docs</span>
+        </nav>
+        <aside>
+            <span class="bi bi-search"></span>
+            <span class="bi bi-person"></span>
+            <span class="bi bi-heart"></span>
+            <span class="bi bi-cart"></span>
+        </aside>
+        <span class="bi bi-justify"></span>
+    </header>
+</body>
+</html>
