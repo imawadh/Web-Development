@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awadh Kishor Singh</title>
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #signature img{
+            max-height: 35px;
+        }
+        .CodeSection{
+            background-color: black;
+        }
+        .CodeSection ul li{
+           text-align: center;
+           padding-bottom: 25px ;
+        }
+        @media screen and (orientation:landscape){
+            header{
+                justify-content: space-around;
+                padding-left: 10vw;
+                padding-right: 10vw;
+            }
+            #ResponsiveHeader{
+                display: none;
+            }
+            #Connect ul{
+                display: flex;
+                padding: 10px;
+                justify-content: space-around;
+            }
+            #Connect ul li{
+                text-align: center;
+            }
+            .HomeSection{
+                display: grid;
+                grid-template-columns: 7fr 5fr;
+                justify-content: center;
+                padding: 0 10vw 0 10vw;
+                gap: 50px;
+            }
+            #myphoto{
+                width: 30vw;
+                height: auto;
+            }
+            .CodeSection ul {
+                display: flex;
+                justify-content: space-around;
+            }
+            
+        }
+        @media screen and (orientation:portrait){
+            header{
+                justify-content: space-between;
+            }
+
+            nav{
+                display: none;
+            }
+
+            #Connect ul{
+                display: grid;
+                grid-template-columns: 6fr 6fr;
+                text-align: center;
+                flex-wrap: wrap;
+            }
+
+            #Connect ul li{
+                padding: 5px;
+                margin-bottom: 20px;
+            }
+
+            .HomeSection{
+                display: block;
+                padding: 0 10vw 0 10vw;
+                text-align: center;
+            }
+
+            #myphoto{
+                width: 70vw;
+                height: auto;
+                margin-top: 25px;
+            }
+            .CodeSection ul{
+                display: grid;
+                grid-template-columns: 6fr 6fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section  -->
+
+
+    <header class="bg-black d-flex p-2">
+
+        <div class="text-light">
+            <span id="signature"><img src="./media/Images/signature.png" alt="Signature" class="rounded-2"></span>
+        </div>
+
+        <nav>
+            
+            <ul class="list-unstyled d-flex">
+                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Home</a> </li>
+                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">About</a> </li>
+                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Project</a> </li>
+                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Let's Code</a> </li>
+                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Blog</a> </li>
+                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Connect</a> </li>
+            </ul>
+        </nav>
+
+        <div id="ResponsiveHeader">
+            <a href="javascript:void()" class="text-white text-decoration-none">
+                <span class="bi bi-justify"></span>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- Main  -->
+
+
+    <main>
+
+
+        <!-- Home Section -->
+
+        <section class="mt-4 HomeSection align-items-center mb-3" id="Home">
+            <div class="aboutme">
+                <h1 class="bold ">Awadh Kishor Singh</h1>
+                <h3>Student at IIT Madras || CHS - 2023 ||<br> Aspiring Engineer || Web Development || <br>Data Science || Competitive Programmer</h3>
+                <article>I'm exploring the cool world of tech🌐, turning innovative ideas into reality through programming👨‍💻. Right now, I'm diving deep into the basics, honing my skills, and enjoying every moment of this coding adventure. 🌟🚀 Whether it's solving problems, building projects, or simply experimenting with new concepts, I'm always eager to learn and grow in this dynamic field. As I continue to develop my coding abilities, I'm excited to see where this journey will take me and how I can contribute to the tech community.</article>
+            </div>
+            <div>
+                <figure>
+                    <img src="./media/Images/my_image.jpg" alt="My Photo" class="rounded-circle" id="myphoto">
+                </figure>
+            </div>
+
+        </section>
+
+
+        <!-- Code Section  -->
+
+
+        <section class="CodeSection  pb-2 pt-2 mb-5" id="Code">
+            <h3 class="text-light text-center">
+                <span class="bi bi-code-slash text-light"></span> My Codes
+                <span class="bi bi-code-slash text-light"></span>
+            </h3>
+            <br>
+            <ul class="list-unstyled">
+                <li ><a href="javascript:void()" class="bi bi-github text-decoration-none text-primary d-block"></a>
+                <span class="text-primary">GitHub</span></li>
+                <li ><a href="javascript:void()" class="bi bi-code-square text-decoration-none text-light d-block"></a><span class="text-light">LeetCode</span></li>
+                <li ><a href="javascript:void()" class="bi bi-code-slash text-decoration-none text-danger d-block"></a><span class="text-danger">CodeForces</span></li>
+                <li ><a href="javascript:void()" class="bi bi-code text-decoration-none text-success d-block"></a><span class="text-success">CodeChef</span></li>
+                <li ><a href="javascript:void()" class="bi bi-code-square text-decoration-none text-light d-block"></a><span class="text-white">AtCoder</span></li>
+                <li ><a href="javascript:void()" class="bi bi-code-slash text-decoration-none text-warning d-block"></a><span class="text-warning">GeeksForGeek</span></li>
+            </ul>
+        </section>
+
+
+        <!-- Connect Section  -->
+
+        <section class="bg-black pt-2 pb-1" id="Connect">
+            <h3 class="text-light text-center">
+                <span class="bi bi-chat-right-text"></span> &nbsp; Let's Talk &nbsp; <span class="bi bi-chat-left-text"></span>
+            </h3>
+            <br>
+            <ul class="list-unstyled   ">
+                <li ><a href="javascript:void()" class="bi bi-linkedin text-decoration-none text-primary d-block"></a>
+                <span class="text-primary">LinkedIn</span></li>
+                <li ><a href="javascript:void()" class="bi bi-twitter-x text-decoration-none text-light d-block"></a><span class="text-light">Twiiter</span></li>
+                <li ><a href="javascript:void()" class="bi bi-instagram text-decoration-none text-danger d-block"></a><span class="text-danger">Instagram</span></li>
+                <li ><a href="javascript:void()" class="bi bi-whatsapp text-decoration-none text-success d-block"></a><span class="text-success">WhatsApp</span></li>
+                <li ><a href="javascript:void()" class="bi bi-discord text-decoration-none text-light d-block"></a><span class="text-light">Discord</span></li>
+                <li ><a href="javascript:void()" class="bi bi-telegram text-decoration-none text-warning d-block"></a><span class="text-warning">Telegram</span></li>
+            </ul>
+            
+        </section>
+
+    </main>
+
+
+    <!-- Footer  -->
+
+
+    <footer>
+
+
+    </footer>
+    
+</body>
+</html>

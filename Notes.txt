@@ -1,0 +1,436 @@
+Day 1 ------ 
+	
+Web UI Full stack with React
+- This course is for absolute beginners
+- Topics required for Experts[Advanced Level also will be covered]
+- Module wise Projects will be covered
+- Final End to End Project[One project will be done by me and another project you should build]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Types of Software applications
+++++++++++++++++++++++++++++++
+a. Desktop applications
+b. Web applications
+c. Distributed applications
+d. Mobile applications
+e. AI applications
+f. IoT applications
+g. 2D and 3D applications
+
+Note::
+Desktop application     : No communication with internet
+
+Explanation
+===========
+=> Suppose we have a hospital, we don't have branches
+=> Now we need to track about doctor login|logout time, which all patients have come today and to which doctor we have assigned, we need to track about the
+   patient status.
+=> For this to track i would prefer building applications which would be used locally in our machine, such applications are termed as "Desktop applications".
+		note: This type of trend is gone.....
+
+			eg: notepad,paint,calculator,......
+
+
+WebApplications
+Distrubuted application : using app/browser with the help of internet if the interactions happens then it is web/distrubuted applications.
+
+Explanation
+===========
+=> Assume i need to take an appointment with doctor in "Apollo Hosptial".
+=> To take an appointment,now first check the internet connection and open browser and type the webiste of apollo(but not good opening in browser)
+=> Trend now is install an apollo app[using the app all the details will be a part of that app so it is user friendly]
+		eg: netflix,flipkart,amazon,myntra,.....
+
+
+Mobile application      : calculator,calendar,gallery,....
+
+AI applications         : chatgpt,siri,googlehome,amzaon alexa
+
+IoT applications        : smartwatches,smartband(Internet of Things-> help of sensors it tracks how many calories burnt)
+
+2D and 3D applications  : Gaming applications[Bike shown on Screen, where we click and it shows accelarte and u play games]
+
+=========================================================================================================================================
+
+With the help of our course we can build webapplications and distrubuted applications.
+Using UI full stack with React we can build "Webapplications and Distrubutedapplications".
+		eg: netflix,youtube,spotify,instagram,....
+
+After learning this course, our profile will be 
+1. WEBUI Full stack Developer
+	UI Developer
+	UI/UX Developer[User Experience] -> Give example as show 
+	MERN stack Developer
+		M : MongoDB
+		E : ExpressJS
+		R : ReactJs
+		N : NodeJs
+
+	MEAN stack Developer
+		M : MongoDB 
+		E : ExpressJS
+		A : Angular
+		N : NodeJs
+
+UI/UX Developer[User Experience] :: Type react in google[show them page no] it is called as "UI"
+				 :: Change the tab to images[it won't show page no, rather when we scroll the page, images gets loaded] it is called "UX".
+				 :: UI|UX developer with good "Accessibility".
+				 :: "Accesibility" > Building webapplications for "disabled and challenged people". 
+
+
+Topics for our course
+=====================
+FrontEnd
+========
+ a. HTML
+ b. CSS
+ c. Bootstrap
+ d. Sass
+ e. JavaScript
+ f. jQuery
+ g. React[For UX]
+
+BackEnd
+=======
+ a. Node Js
+ b. Express Js
+ c. MongoDB
+
+To get into free-lancing we need to have knowledge on few tools like
+====================================================================
+ a. coreldraw
+ b. photoshop
+ c. adobe reader
+
+
+
+
+
+
+
+
+
+
+
+Day 2 ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+					Designing webapplications
+Q>  What is Internet?
+Ans. Internet is a wide area network that connects computers all over the world.
+     Internet makes information available any time,any location and from any device.
+     First computer network is "ARPANET" introduced by US-DOD[Department of Defence] in early 1960's
+     			[Advanced Research Projects Agency Network]
+     To use internet during those days we need to learn protocols like SMTP,FTP,.....
+     The main problem with internet is "No restrictions", so to avoid this tim berner lee introduced "web".
+
+What is Web?
+   A portion of internet with restricted acess.
+   Tim Berner Lee(father of web) introduced the concept of Web.
+   Web Standards are maintained by W3C(www.w3.org)[World wide web Consortium] and whatwg(http://whatwg.org).
+   Darkweb -> not everyone can access[It is illegal way of acccessing the web]
+   Currently WebVersion is "WEB-3".
+
+Every webapplication is known as "3 tier application".
+Database tier     :: It is a location where data is present.
+Application tier  :: It is a location where the application is hosted.  
+Presentation tier :: It is a location where we access and use the application.
+
+As a full stack developer we will work with 3 layers
+a. Application layer
+b. Database layer     
+c. Presentation layer :: UI Developer role(HTML,CSS,JS,JQuery,Bootstrap,....)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Day3: 
+To work with building webapplications
++++++++++++++++++++++++++++++++++++++
+1. Downlad and install "NodeJS" software
+    - We are installing Node js for a package manager called "NPM".
+    - Package manager is a software tool used to install,update and uninstall a library from your device for any project.
+    - There are various package manager called
+	a. npm
+	b. yarn
+	c. rubygems
+	d. Composer
+	e. NuGet
+	f. Bower
+
+2. Installation process
+	a. visit "https://node.js.org/en"
+	b. select the version 20X
+	c. Download setup file
+        d. Double click install the file
+	e. After installing check whether node is installed or not by moving to command prompt
+		C:\Users\nitin>node -v
+		v20.15.0
+
+		C:\Users\nitin>npm -v
+		10.7.0
+
+3. Download and install "Visual Studio Code" editor
+	
+	- Editor is a software tool used by developers to build,debug,test and deploy applications.
+	- Various editors are available for different technologies(https://editorconfig.org/)
+		a. sublime
+		b. edit+
+		c. notepad++
+		d. webstorm
+		e. vscode etc...
+	- link for download https://code.visualstudio.com/
+
+4. Open vscode and install following extensions for Web Designing
+	- Live Server [Ritwick Dey]
+	- vscode-icons
+	- IntelliSense for CSS class names in HTML [Zignd]
+	- Live Preview[Microsoft]
+
+Note: Better enable "emmet" in your VS Code. It is a code snippet generator.
+	> Go to settings of VS Code
+	> Search for "Emmet"
+	> Select checkbox for "Show Possible Emment Abbrevations..."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Day 4 ------------------------------------------------------------------------------------------------------------------------------------------------------
+		 
+1. Web Server	: It resembles both hardware and software that satisfies client requests by sending and receving the data.
+			a. Local server [LiveServer -> Local Server]
+			b. Cloud server [AWS,AZURE,GCP,...]
+
+2. Web Site     : It is a virtual directory on webserver that gives access to resources on web.	
+		  Every website comprises of 2 locations
+		 	a. Physical Location
+			b. Virtual  Location
+		 Physical Location is a folder where the resources are kept 
+			eg: D:\FashionStore
+		 Virtual Location is a folder path given to clients inorder to access the resources
+			eg: http://www.fashionstore
+
+
+Creating a new website : [Local]
+++++++++++++++++++++++++++++++++
+a. Open any new location
+
+b. Create a new folder in any location
+	D:\FashionStore
+
+c. Open visual studio code and open your website folder
+	[File Menu -> Open Folder]
+
+d. Open "Terminal" in Visual Studio code
+
+e. Switch to "Command Prompt"[Default is Power Shell]	
+	
+f. Run the following command
+	> npm init -y       
+    
+      * It creates package.json file which is holding meta information about the project[libraries used] 
+      * MetaInformation holds name,version and dependencies used in the project[eg:: https://www.codeproject.com/]
+
+g. Every official webapplication keeps its resources in 2 folders at a hight level
+     a. public
+     b. src
+     c. package.json
+
+	* public folder consists of static files like
+		a. images[.jpg]
+		b. documents
+		c. presentation[.pptx]
+		d. spreadsheets[.XSLX]
+		e. multimedia [audio/video]
+		f. html files
+
+	* src folder comprises of all dynamic resources like
+		a. css
+		b. scss
+		c. js
+		d. ts etc..
+
+h. Keeps some documents in the project folder
+i. Click on Go live server
+j. You can open ur browser and send the request
+	http://localhost:5500/
+
+Note: The website is live now,but it is not having a good UI for the user to access our resource, 
+      so we need to give them a good "webpage", To design a good webpage we go for "HTML/CSS".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Day 5 ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WebPage
+  -> It is a hypertext document that provides an UI, where the user can interact with the resources of the website.
+		eg:: open amazon.com  [It display many information]
+		     click on mobiles [It display many information]
+  -> It contains information beyond what user can see.
+  -> Beyond the content the information is available.
+  -> Every webpages are classified into 2 types
+	a. Static pages
+	b. Dyanmic pages
+
+Static pages 
+  -> They are such pages which comprises of same information to display across number of requests.
+  -> Usually static pages have extension of ".html/.htm"
+		eg:: tutorialspoint website(.html will be the extension)
+
+Dynamic pages
+  -> They are such pages which comprises of information according to client requests.
+  -> The output would vary from client to client.
+  -> Apperance may be same for every client, but the content would be different for user to user
+  -> Extension for Dynamic pages are ".jsp,.php,.aspx,....".
+	 	eg:: inox.com(select -> theatre-> select-> book) 
+			The information will vary from user to user depending upon the seats available.
+		     irctc app (PNR textbox and submit)
+
+Note: Static pages and dynamic pages are desinged using "HTML"
+
+PageComposition
+	Static  Pages :: HTML + CSS + JavaScript + jQuery + ....
+	Dynamic Pages :: HTML + CSS + JavaScript + jQuery + JSP|PHP|ASP.... 
+
+Note: Every Project will start with a static page called "index.html",it is also possible to inform server to start 
+1. Go to project folder[D:\FashionStore]
+2. Add a new file called "index.html".
+		Welcome to FashionStore
+3. Click on "GoLive", the application will start in "index.html".
+
+Note: Browser understands plaintext,images,document etc...
+      By default browser will display the information in plain text style,it wont do by default in the way we do it in plain text.
+      To disply the context in the way we want on the webpage, we go for a markup language called "HTML".
+			eg:: index.html
+					Welcome to fashion store
+					   (Kids|Men|Women)
+			     output:: plain text
+	
+			eg:: index.html
+				<div align='center'>
+     					Welcome to fashion store  <br/>
+        					(Kids|Men|Women)
+				</div>
+			     output:: Markup Output
+
+HTML
+ => It stands for Hyper Text Markup Language.
+ => It is used mainly for "Presentation" purpose.
+ => "MarkUp" refers to "Marking up the content" so that it can be presented exactly as required.
+ => HTML to browser will display the presentation as need by the user.
+
+Evolution of HTML
++++++++++++++++++
+ => In Early 1960's GML and SGML are the languages used for "MarkUp".
+ => Generic MarkUp Language and StandardGenericMarkUp Language were designed by CERN[Council for European Research and Nuclear] Labs.
+ => In early 1990's TimeBerner lee introduced "WEB" and a language for "WEB" that is "HTML[Open Source]".
+ => IETF(Internet Engineering Task Force) these people developed HTML for several years upto HTML3.1.
+ => In 2004 "WHATWG(Web HyperText Application Technology Work Group)" took the responsiblity of HTML and started the 
+    version "HTML4.0".
+ => official webiste of WHATWG is "whatwg.org".
+ => The latest version of HTML is "HTML5"(2014).
+ 
+Whats new in HTML5?
+Ans. HTML5  introduced new features to make webpages more browser and SEO friendly.
+     SEO refers to "Search Engine Optimisation".
+     Responsive Designs[users using webapplication using phones, so website should provide facility for user to use website]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Day 6 ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
