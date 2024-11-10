@@ -395,20 +395,3051 @@ Ans. HTML5  introduced new features to make webpages more browser and SEO friend
 
 Day 6 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Browser Architecture
+++++++++++++++++++++
+ - Browser is a software tool to access webpages on the client device.
+ - Various browser available are
+	a. Chrome
+	b. Firefox
+	c. Edge
+	d. Safari
+ - Every browser comprises of following components
+	a. User interface : It contains title bar, address bar, refresh ....
+	b. Browser Engine : It is responsible for converting HTML,CSS into browser understable format.
+				Every browser has browser engine
+				a. Gecko
+				b. webkit
+				c. chakra
+				d. SpiderMonkey
+	c. Rendering  Engine      : It is responsible for presentation of processed content.
+	d. Javascript Interpreter: Every browser uses javascript as a langauge for interactions,It is translated using JS interpreter.
+	e. Network : It monitors the activity performed in a page when requested in browser.
+			a. Resource loaded
+			b. Number of request per page
+			c. Time taken to load Content 
+	f. UI Backend      : It contains the logic for UserInterface of the browser.
+	g. DataPersistence : It is a location where browser can store client details
+				a. Local storage
+				b. Session storage
+				c. Cookies etc...	  
+
+HTML Parsing in Browser
+=======================
+Flow 
+   -> Markup -> bytes-> characters -> Tokens[Tags] -> Elements [Nodes] -> DOM ->  Layout -> Rendering -> Painting
+
+HTML       -> presenting DOM
+JAVASCITPT -> Modifying  DOM 
+
+-> HTML present content on browser using elements arranged in hierarchial order called "DOM".
+-> There are 100's of elements.
+-> HTML Elements are classified into 5 categories
+  a. Normal elements
+  b. void elements
+  c. RC Data elements
+  d. Raw text elements
+  e. Foreign elements
+
+Normal elements
+- Elements which return a presentation directly on call back [without any additional attributes].
+- Elements in HTML are built by using tags.
+- Normal Elements require a start tag and end tag.
+- Normal Elements will start returning presentation but can’t stop implicitly.
+- They require explicit end tag.
+- Usually require start and end tags.
+		eg: <b> HELLO </b>
+
+void elements
+- The term void refers to element that doesn’t return any presentation directly on call back.
+- Void means no return type.
+- They can return only the specific content and stop implicitly.
+- Void elements doesn’t require “End Tag”.
+Ex:
+<img> tag Image – Element
+
+Raw Text Elements
+- These elements are presented without a tag.
+		eg:: Temparature20C 45000/-
+		     Temparture&deg;C &#8377;45000/-
+		     
+Ex:
+&copy; ©
+&#8377;
+&deg;
+
+RC Data Elements
+- Rich Text Content Elements
+- These elements will not allow any another element with in the context.
+Ex:
+<textarea> </textarea>
+
+eg#1. <p> Hello <b>pwian's</> <p>
+      <textarea> 
+	  Hello
+	  <b>pwian's</b>
+      </textarea>
+
+Foreign Element 
+- Every browser can’t understand these elements.
+- You have to import a library that makes the browser compatible with element.
+	Ex: SVG, MathML, Canvas
 
 
 
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Day  7
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+HTML Page Structure
++++++++++++++++++++
+ => Every HTML file must have static extensions called ".html or .htm"
+ => Every HTML page starts with documentation declaration from HTML5 version.
+ 			<!doctype html>
+	It is a indication to the browser engine that i am using latest features of HTML, if we don't specify the doctype then the
+	browser engine understands the HTML has "HTML4" version.
+
+ => Every HTML page must have a documentation scope, It specifies the start and end of the document in browser.
+ 		eg: <html> 
+			document scope
+		    </html>
+    eg#1.
+	<!DOCTYPE html>
+	<html>
+        	document-1
+	</html>
+	<html>
+        	document-2
+	</html>
+	     Note: If some changes needs to be done in document-1, then it creates a problem because browser does the below things
+	<!DOCTYPE html>
+	<html>
+        	document-1 document-2
+	</html>
+
+=> Every document scope must have "lang" attribute.It is used to define language for the web page content.
+	<html lang="en-IN">
+	<html lang="en-US">
+		eg:: amazon.com (USA) , amazon.in(IND)
+
+=> Every document scope has 2 sections at high level.
+	<!DOCTYPE html>
+	<html>
+        	<head>
+
+        	</head>
+        	<body>
+                
+        	</body>
+	</html>
+	
+HeadSection :: It Comprises of the Content loaded into browser memory and later delivered to browser UI, so that we can reuse the 
+               content across multiple requests.
+	       It typically contains the following components
+			a.link	 b.meta  c.style  d.scripts e.title
+
+title :: It is used for browser and SEO.[Search Engine Optmisation]
+		Note: ROBOTS [Google BOT, WebCrawlers, WebSpiders]
+	 Broswer uses title tag to display in "titlebar" and in "favourites".[While bookmarking the webpage]
+	 SEO uses title to display in search results.
+
+link ::  It is used to link any external document like css file or shortcut icon.
+	  Note: favicon.ico -> size (16px to 32px), type(.ico)
+
+					index.html
+		<html lang="en-US">
+			<head>
+		 		<title>FashionStore</title>
+		 		<link rel= 'shortcut icon' href='public/images/favicon.ico'/>
+			</head>
+		</html>
+
+
+
+Day 8
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Meta in head section
+++++++++++++++++++++
+ -> It is required for webpage to make it responsive and SEO Friendly.
+ -> The term meta refers to MetaData.
+ -> Meta data comprises of information about our webpage.
+ -> A responsive webpage can adjust according to device.
+ -> It can fit content to device screen[ipad,browser,phone,etc...]
+ -> To Test the responsivness pages, you can download and install
+	     "chrome mobile simulator"
+ -> Add the following content in head section
+	<meta name= 'viewport' content="width=device-width, initial-scale=1"/>
+		a. viewport	 : It refers to screen size and its dimensions
+		b. width	 : It refers to current page content width
+		c. initial-scale : It refers to zoom level [1 = 100]
+
+eg#1.
+ <!DOCTYPE html>
+<html>
+    <head >
+        <meta name="viewport" content="width=device-width, initial-scale=200">
+	<title>
+		Fashion Store
+	</title>
+
+    </head>        
+        <body>
+            Many of our Services allow you to create, store or share Your Content or receive material from others. We don’t claim 	    ownership of Your Content. Your Content remains yours, and you are responsible for it.
+When you share Your Content with other people, you understand that they may be able to, on a worldwide basis, use, save, record, reproduce, broadcast, transmit, share and display Your Content for the purpose that you made Your content available on the Services, without compensating you. If you do not want others to have that ability, do not use the Services to share Your Content. You represent and warrant that for the duration of these Terms, you have (and will have) all the rights necessary for Your Content that is uploaded, stored or shared on or through the Services and that the collection, use and retention of Your Content will not violate any law or rights of others. Microsoft does not own, control, verify, pay for, endorse or otherwise assume any liability for Your Content and cannot be held responsible for Your Content or the material others upload, store or share using the Services.
+To the extent necessary to provide you and others with the Services, to protect you and the Services, and to improve Microsoft products and services, you grant to Microsoft a worldwide and royalty-free intellectual property licence to use Your Content, for example, to make copies of, retain, transmit, reformat, display and distribute via communication tools Your Content on the Services. If you publish Your Content in areas of the Service where it is available broadly online without restrictions, Your Content may appear in demonstrations or materials that promote the Service. Some of the Services are supported by advertising. Controls for how Microsoft personalises advertising are available at https://choice.live.com. We do not use what you say in email, chat, video calls or voice mail, or your documents, photos or other personal files to target advertising to you. Our advertising policies are covered in detail in the Privacy Statement.
+        </body>
+    </head>
+</html>
+
+	2. <meta http-equiv="refresh" content="5">
+		http-equiv : refers to request handler, which can process your request for page by refreshing every few seconds
+		content    : it defines the no of seconds
+
+- Meta provides following attributes to make our page SEO Friendly
+	<meta name = "keywords"  content = "some keywords used for finding our site"/>
+	<meta name="description" content = "something abour our result"/>
+	<meta charset="UTF-8">
+		a. UTF-8 :: Unicode Translation Format(applicable for english alphabets)
+		b. UTF-16, UTF-32......
+
+eg#1.					index.html
+<html lang="en-IN">
+    <head >
+        <meta name="viewport" content="width=device-width, initial-scale=200">
+        <meta http-equv="refresh" content="5">
+        <meta name ="keywords" content="kids,Mens,Womens fashion best offers">
+        <meta name = "description" content="online fashion store with best offers ">
+    </head>
+</html>
+
+4. style : It is used to embed css into webpage
+		<style type ='text/css'>
+		</style>
+5. 
+ <script type = 'text/javascript'>
+ </script>
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 9
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+							HTML BODY SECTION
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+=> It comprises of the content which is rendred directly in browser.
+=> It is defined with <body> token and it contains some important attributes.
+
+Attributes
+   a. bgcolor : It sets background color for the page.
+   b. text    : It sets text color 
+
+Note: HTML colors are defined by using 3 techniques 
+	a. color name.			
+			eg: <body bgcolor="red" text="white">
+				<p>.....</p>
+			    </body>
+
+
+	b. color shade name.		
+		HTML also support hundreds of color shade names
+			 Darkcyan
+			 Lightcyan
+			 Lightgreen etc..
+
+	c. Hexa decimal code.
+		o Hexadecimals colors are basically “RGB” color
+		o R-Red, G-Green, B-Blue
+		o Hexadecimal number system is 16 base number system, where we use 16 different values ranging from “0 to F”.
+		o Hexadecimal color can be defined in 3 or 6 chars followed by hash “#”
+			 3 Chars Code
+				#RGB
+			 6 Chars Code
+				#RRGGBB
+
+		o Red, Green and Blue Value can be “0 to F” 
+			Hexa: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f
+				[0 is minimum, f is maximum]
+				- First place is for Red
+				- Second Place is for Green
+				- Third place is for Blue
+
+Example
+=======			
+#FF0000 	- Red 		#F00
+#00FF00 	- Green 	#0F0
+#0000FF 	- Blue 		#00F
+#FFFF00 	- Yellow 	#FF0
+#000000 	- Black 	#000
+#FFFFFF 	- White 	#FFF
+
+
+3. background : It sets background image to body section.
+	
+syntax: 
+	<body background = ""/>
+
+Note: we can control images only through css attributes.
+      These attributes are defined in <style> manner.
+      css attributes for background are
+	background-repeat   	: repeat|no-repeat|repeat-x|repeat-y
+	background-size     	: contain|cover|auto|width&height in pixels
+	background-position 	: top|center|right|left
+	background-attachment	: fixed|scroll
+
+contain : Resize the background image to cover the entire container, even if it has to stretch the image or cut a 
+	  little bit off one of the edges
+cover   : Resize the background image to make sure the image is fully visible
+
+
+eg:: 
+<style>
+         body{
+             background-repeat: no-repeat;
+             background-size: 100%;
+             background-position: center center;
+             background-attachment: fixed;  
+         }
+</style>
+<body background="public/images/background-banner.jpg">
+	........
+	........
+	........
+</body>
+
+4. align : It is used to align the body content to the left, right,center or justify.
+	syntax : 
+		<body align = 'left|right|center|justify'>
+		</body>
+
+left: It sets the text left-align.
+
+right: It sets the text right-align.
+
+center: It sets the text center-align.
+
+justify: It stretches the text of a paragraph to set the width of all lines equal.
+
+5. left margin       ] margin will set space b/w content and page
+   right margin      ] 
+   bottom margin
+   top margin
+
+ eg:: <body align="justify"  topmargin="25" leftmargin="50" bottommargin="50"  rightmargin="50">
+
+6. vlink : It sets colour for visited links in a page
+   alink : It sets colour for active  links in  a page
+   <body vlink="grey" alink="red">
+            <a href="http://www.flipkart.com">FLIPKART</a>|
+            <a href="http://www.amazon.in">AMAZON</a> |
+            <a href="http://www.myntra.com">MYNTRA</a>
+    </body>
+
+Semantics  in Body Section
+++++++++++++++++++++++++++
+ -> An element used for a specific purpose.
+ -> HTML has more than 100 of semantics according to MDN.
+ -> WHATWG(HTML), W3C(WEB), Javascript(ECMA)  for these 3 people documentation is prepared by MDN(Mozilla Development Network).
+ -> HTML5 introduced semantics for body section to make it more SEO[Search Engine Optimisation] Friendly.
+ -> Old websites are not SEO friendly, but by using HTML5 we make wepages SEO Friendly.
+
+
+
+
+Day 10
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Body section semantics for Layout Design
+++++++++++++++++++++++++++++++++++++++++
+-> HTML4 uses table element for designing a "Layout".
+-> Table is not SEO Friendly
+-> Table leads to a situation known as "Kiss-Of-Death".[refer image for this problem]
+-> HTML5 introduced new "Semantics" for designing a Layout.
+-> The new semantics will make a page SEO Friendly.
+-> The new layout semantics are
+   	1. <aside> 2. <article> 3. <header> 4. <footer> 5. <div> 6. <span> 7. <figure> 8. <figcaption> 9. <dialogue> 10. <main> 
+        12. <section>
+
+<div> and <span> tag
+++++++++++++++++++++
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        div
+        {
+            border: 2px solid black;
+            margin: 5px;
+            padding: 5px;
+        }
+        span{
+            background-color: rgb(0, 174, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        Web Development
+        <div>
+            FrontEnd
+            <div>
+                HTML
+                It is a <span>markup</span> language
+            </div>
+            <div>
+                CSS
+                It is a sytling language
+            </div>
+        </div>
+
+        <div>
+            BackEnd
+            <div>
+                MongoDB
+                It is a database
+            </div>
+            <div>
+               Node.js
+               It is a server side scripting language
+            </div>
+        </div>
+    
+    </div> 
+</body>
+</html>
+
+Note: The <span> tag is much like the <div> element, 
+      but <div> is a block-level element and <span> is an inline element.
+
+-> Padding is used to create space around an element's content, inside of any defined borders.
+   CSS has properties for specifying the padding for each side of an element:
+1. padding-top
+2. padding-right
+3. padding-bottom
+4. padding-left
+
+Note: padding : top left right bottom
+
+eg#1. padding: 25px;
+	all four paddings are 25px
+
+2. <header> 
+	1. It is used to configure header section of webpage.
+	2. Typically every header of a webpage comprises of
+		a. BrandName
+		b. BrandIcon
+		c. NavBar
+		d. Shortcut Buttons etc...
+
+Theme for our project
++++++++++++++++++++++
+ URL :: https://themes.getbootstrap.com/preview/?theme_id=37702
+
+Setup boostrap Icons for project
+++++++++++++++++++++++++++++++++
+a. open terminal in your project
+b. switch to command prompt
+c. type the following command
+	npm install bootstrap-icons --save
+d. npm adds a new folder to your project by name called "node_modules", it comprises of all library files installed using "npm".
+e. To use icons in any of the webpage we need to link bootstrap-icons.css
+	<link rel='stylesheet' href='node_modules\bootstrap-icons\font\bootstrap-icons.css'/>
+f. To display icons we need to use css class names on the container
+	eg: <span class='bi bi-facebook'>Facebook</span>
+            <span class='bi bi-person-fill'>Person</span>
+	    <span class='bi bi-heart'></span>
+
+
+
+
+
+
+
+
+Day 11
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+<header>
+	content of the header
+</header>
+  It is a container that is used to display a top margin on the page.
+  Typically header is a webpage comprises of brand-name,logo,shortcut buttons,navigation etc...
+
+
+CSS style attributes
+====================
+    To work with any of the fonts we use these attributes in css.
+ font-size    : It changes the character size.[unit: px]
+ font-weight  : It changes in bold 
+ font-style   : It changes in italics 
+ font-family  : It sets text style by using font-family.[Arial,TimesNewRoman,....]
+
+ margin : 
+ margin-left:
+ margin-right:
+ margin-top:
+ margin-bottom: 
+
+ display : It can display the elements in the container with various styles
+		a. none
+		b. block	 : just like <p>
+		c. inline        : just like <span>
+		d. inline-block
+		e. grid		 : Displays an element as a block-level grid container
+		f. flex		 : Displays an element as a block-level flex container
+
+ justify-content  : It can justify the contents in the container with the following values.
+			space-between : Items will have space between them
+                        space-around  : Items will have space before, between, and after them
+			space-evenly  : Items will have equal space around them
+
+  padding         : It sets space around contents in all directions 
+  padding-bottom
+  padding-top
+  padding-right
+  padding-left 
+
+  border 	: It sets border style,side and color for the container
+  border-radius : It sets rounded container.
+  text-align    : It aligns text left,center,right or justify
+ 
+Note: We can't change height and width of any span element using CSS.
+      To set width and height of a span we need to go for "display:inline-block"
+
+<nav>
+ it is used to configure navigation area in a webpage.
+ it comprises of nav items or shortcut buttons.
+
+<article> 
+  it is a container element that keeps the highlights of webpage content.
+  it is typically the offers,announcement,news,updates,....
+
+
+header-template.html
+====================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppert Template</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+
+        header{
+            font-size:25px;
+            font-family: Arial;
+            display: flex; 
+            justify-content: space-between; 
+            padding: 10px;
+        }
+        .brand-title{
+            font-weight: bold;    
+        }
+        nav span{
+            margin-right:20px;
+        }
+
+        .cart-count{
+            background-color: red;
+            colour: white;
+            padding:3px;
+            width: 25px;
+            display: inline-block;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 20px;
+        }	
+
+        article{
+            background-color: black;
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            padding: 25px;
+        }
+        
+        .bi-lightning-fill{
+            color: gold;
+            font-style: 20px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span class="brand-title">Shopper.</span>
+        </div>
+        <div>
+            <nav>
+                <span>Home</span>
+                <span>Catalog</span>
+                <span>Shop</span>
+                <span>Pages</span>
+                <span>Blog</span>
+                <span>Docs</span>
+            </nav>
+        </div>
+        <div>
+            <nav>
+                <span class="bi bi-search"></span>
+                <span class ="bi bi-person"></span>
+                <span class="bi bi-heart"></span>
+                <span class="bi bi-cart3"><span class="cart-count">2</span></span>
+            </nav>
+        </div>
+    </header>
+    <article>
+        <marquee>
+            <span class="bi bi-lightning-fill"></span>
+            <span>Happy Holiday Deals on Everything</span>
+            <span class="bi bi-lightning-fill"></span>
+        </marquee>
+    </article>
+</body>
+</html>
+
+
+
+Day 12
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<footer>
+  -> It defines the content to display at the bottom margin of a web page.
+  -> Typically footer comprises of copyrights, contact details, social bars, services etc.
+
+<aside>
+  -> It defines the content which is not relative to current context or that navigates the user to another website.
+  -> It contains the content outside the current context.
+ 
+syntax:
+  <aside>
+	social media ads,....
+  </aside>
+
+Note: display : flex -> Keeps flexible columns, which changes according to the width of the screen.
+      display : grid -> Keeps fixed no of columns.
+      Default screen width is 1200px, so max no of columns in a page is 12.
+      we can split the grid into columns using "grid-template-columns".
+      Every  columns size  can be  using pixel or fractions.
+		eg:: 	200px 5fr
+      pixels are fixed and fractions are responsive[will be adjusted as per the width of the screen].
+
+syntax:
+  footer{
+	display: grid;
+	grid-template-columns : 240px;
+  }
+
+Note: selecting child and sibling in CSS
+       parent child{		===> child selector
+
+       }
+       ElementA + ElementB      ====> Adjacent building
+       {
+
+       }
+       ElementA~ElementB       ====> All elements after specific
+       {
+
+       }
+   
+eg#2    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionStore</title>
+    <style>
+        footer{
+            display: grid;
+            grid-template-columns: 2.4fr 2.4fr 2.4fr 2.4fr 2.4fr;
+            background-color: black;
+            color:white;
+            padding: 10px;
+            font-family: Arial;
+        }
+        .footer-brand-name{
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .footer-title{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-title~span{
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        aside span{
+            margin-right: 5px;
+            font-size: 15px;
+        }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head> 
+<body>
+    <footer>
+        <div>
+            <div class="footer-brand-name">Shopper.</div>
+                <aside >
+                    <span class="bi bi-facebook"></span>
+                    <span class="bi bi-twitter"></span>
+                    <span class="bi bi-youtube"></span>
+                    <span class="bi bi-linkedin"></span>
+                </aside>
+        </div>
+        <div>
+            <div class="footer-title">Support</div>
+            <span>Contact Us</span>
+            <span>FAQs</span>
+            <span>Size Guide</span>
+            <span>Shipping & Returns</span>   
+        </div>
+        <div>
+            <div class="footer-title">SHOP</div>
+            <span>Men's Shopping</span>
+            <span>Women's Shopping</span>
+            <span>Kids' Shopping</span>
+            <span>Discounts</span>
+        </div>
+        <div>
+            <div class="footer-title">COMPANY</div>
+            <span>Our Story</span>
+            <span>Careers</span>
+            <span>Terms & Conditions</span>
+            <span>Privacy & Cookie policy</span>
+        </div>
+        <div>
+            <div class="footer-title">CONTACT</div>
+            <span>1-202-555-0105</span>
+            <span>1-202-555-0106</span>
+            <span>help@shopper.com</span>
+        </div>
+    </footer>
+</body>
+</html>
+
+Complete source code
+++++++++++++++++++++
+index.html
+++++++++++
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoppert Template</title>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+
+        header{
+            font-size: 25px;
+            font-family: Arial;
+            display: flex; 
+            justify-content: space-between; 
+            padding: 10px;
+        }
+        .brand-title{
+            font-weight: bold;
+            padding:25px;
+        }
+        nav span{
+            margin-right: 10px;
+        }
+        .cart-count{
+            background-color: red;
+            color: white;
+            width: 25px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 25px;
+            padding:5px; 
+        }
+
+        .bi-lightning-fill{
+            color: gold;
+            font-size: large;
+        }
+        article{
+            background-color: black;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-size: 10px;
+        }
+
+        section{
+            height: 40px;
+        }
+
+        footer{
+            display: grid;
+            grid-template-columns: 2.4fr 2.4fr 2.4fr 2.4fr 2.4fr;
+            padding: 20px;
+            font-family: Arial;
+            background-color: black;
+            color: white;
+        }
+
+        .footer-brand-name{  
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-title{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-title~span{ 
+            display: block;
+            margin-bottom: 15px;
+        }
+        aside span{
+            margin-right: 5px;
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span>Shopper.</span>
+        </div>
+        <div>
+            <nav>
+                <span>Home</span>
+                <span>Catalog</span>
+                <span>Shop</span>
+                <span>Pages</span>
+                <span>Blog</span>
+                <span>Docs</span>
+            </nav>
+        </div>
+        <div>
+            <nav>
+                <span class="bi bi-search"></span>
+                <span class ="bi bi-person"></span>
+                <span class="bi bi-heart"></span>
+                <span class="bi bi-cart3"><span class="cart-count">2</span></span>
+            </nav>
+        </div>
+    </header>
+    <article>
+       <span class="bi bi-lightning-fill"></span>
+       <span>HAPPY HOLIDAY DEALS ON EVERYTHING</span>
+       <span class="bi bi-lightning-fill"></span>
+    </article>
+
+    <section>
+
+    </section>
+
+    <footer>
+
+        <div>
+            <div span class="footer-brand-name">Shopper</div>
+            <aside>
+                <span class="bi bi-facebook"></span>
+                <span class="bi bi-twitter"></span>
+                <span class="bi bi-youtube"></span>
+                <span class="bi bi-linkedin"></span>
+            </aside>
+        </div>
+
+        <div>
+            <div class="footer-title">SUPPORT</div>
+            <span>Contact Us</span>
+            <span>FAQs</span>
+            <span>Size Guide</span>
+            <span>Shipping & Returns</span>
+        </div>
+
+        <div>
+            <div class="footer-title">SHOP</div>
+            <span>Men's Shopping</span>
+            <span>Women's Shopping</span>
+            <span>Kids' Shopping</span>
+            <span>Discounts</span>
+        </div>
+        <div>
+            <div class="footer-title">COMPANY</div>
+            <span>Our Story</span>
+            <span>Careers</span>
+            <span>Terms & Conditions</span>
+            <span>Privacy & Cookie policy</span>
+        </div>
+        <div>
+            <div class="footer-title">CONTACT</div>
+            <span>1-202-555-0105</span>
+            <span>1-202-555-0106</span>
+            <span>help@shopper.com</span>
+        </div>
+    </footer>
+</body>
+</html>
+
+eg#2
+footer of flipkart.html
++++++++++++++++++++++++
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart</title>
+    <style type="text/css">
+        footer{
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            height: 200px;
+        }
+        .col-left{
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr 3fr;
+        }
+        .col-right{
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            border-left: 2px solid black;
+            padding-left: 20px;
+        }
+    </style> 
+</head>
+<body>
+    <footer>
+        <div class="col-left">
+            <div>
+                <div>ABOUT</div>
+                <span></span>
+            </div>
+            <div>
+                col-2
+            </div>
+            <div>
+                col-3
+            </div>
+            <div>
+                col-4
+            </div>
+        </div>
+        <div class="col-right">
+            <div>
+                col-1
+            </div>
+            <div>
+                col-2
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+Designing a section area and main area
+++++++++++++++++++++++++++++++++++++++
+section : It defines the content between header and footer area.
+          Typically all website content is kept in section.
+
+syntax: 
+	<section>
+		//content
+	</section>
+
+main : It is considered as entry point, user can start using the website through an entry point called main.
+
+syntax:
+	<main>
+		//entry point
+	</main>
+
+Working with netflix website to make the image blur and we need to put content inside that
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+eg#3
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        body{
+            background-size: cover;
+        }
+        .shade{
+            background-color: rgba(0,0,0,0.1);
+            width: 105%;
+            height: 100vh;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+
+<body background="public/images/netflix-background.jpeg">
+    <div class="shade">
+
+    </div>
+</body>
+</html>
+
+
+
+Day 13
+
+ ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Working with main section(entry point) :: eg:: Netflix.in
+
+
+eg#1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        body{
+            background-size: cover;
+        }
+        .shade{
+            background-color: rgba(0,0,0,0.1);
+            width: 100%;
+            height: 100vh;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
+        header{
+            padding: 20px;
+            color: white;
+            font-size: 20px;
+            font-family: Arial;
+            display: flex;
+            justify-content: space-between;
+        }
+        .brand-title{
+            font-size: 35px;
+            color: red;
+            margin-left:50px;
+            font-weight: bold;
+        }
+
+        .btn-signin{
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            width: 100px;
+            display: inline-block;
+            text-align: center;
+        }
+        section{
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            text-align: center;
+            font-size: 15px;
+            font-family: Arial;
+            padding: 10px;
+        }
+        .title{
+            font-size: 55px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .subtitle-1{
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .subtitle-2{
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .email{
+            background-color: gray;
+            padding: 15px;
+            width: 500px;
+            display: inline-block;
+            text-align: left;
+            font-size: 20px;
+            font-family: Arial;
+        }
+        .btn-start{
+            background-color: red;
+            padding: 15px;
+            width: 150px;
+            display: inline-block;
+            text-align: left;
+            font-size: 20px;
+            font-family: Arial;
+        }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body background="public/images/netflix-background.jpeg">
+    <div class="shade">
+        <header>
+            <div>
+                <span class="brand-title">NETFLIX</span>
+            </div>
+            <div>
+                <span class="bi bi-globe"></span>
+                <span>Language</span>
+                <span class="bi bi-chevron-down"></span>
+                <span class="btn-signin">Signin</span>
+            </div>
+        </header>
+        <section>
+            <div>
+                <div class="title">Unlimited movies, TV shows and more</div>  
+                <div class="subtitle-1">Watch anywhere. Cancel anytime.</div>
+                <div class="subtitle-2">
+                    Ready to watch? Enter your email to create or restart your membership.
+                </div>
+                <main>
+                    <span class="email">Email address</span>
+                    <span class="btn-start">Get Started&nbsp;&nbsp;&nbsp;<span class="bi bi-chevron-right"></span></span>
+                </main>
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+</html>
+
+Displaying the content in the center
+++++++++++++++++++++++++++++++++++++
+1. Keep all the contents in one container
+2. <body>
+	<div>
+		//your content here
+	</div>
+   </body>
+3. body is the container here which would display the contents center with attributes
+	body{
+		display:flex; justify-content:center; align-items:center; height: 100vh;
+	}
+Note: justify-content:center (horizontal)
+      align-items: center(vertical)
+
+eg#1.   center-demo.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Demo</title>
+    <style>
+        .title{
+            font-size: 60px;
+            font-weight: bold;
+        }
+        .sub-title{
+            font-size:30px;
+            font-weight: bold;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center; 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body background="public/images/background-banner.jpeg">
+    <main>
+        <div class="title">HTML</div>
+        <div class="sub-title">Hyper Text MarkUp Language</div>
+    </main>
+    
+</body>
+</html>
+
+
+dialog
+======
+ -> It is a popup created for page.
+ -> <dialog open=''>
+    </dialog>
+ -> we can keep any content in dialog, but it is hidden.
+ -> you can show/hide the dialog using open attribute.
+ -> we can control dialog dynamically using javascript.
+
+eg#3.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <dialog open>
+        Chat with our helpdesk...
+    </dialog>
+</body>
+</html>
+
+fig and figcaption
+  -> It is used to make SEO friendly
+  -> It is used to encapuslate any image with caption.
+ 
+syntax: 
+ <figure>
+	<figcaption>
+		name...
+	</figcaption>
+ </figure>
+
+Working with fig and figcaption
++++++++++++++++++++++++++++++++	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure</title>
+    <style>
+        figure{
+            border: 1px solid black;
+            height: 200px;
+            width: 500px;
+            padding: 10px;
+        }
+        figure div{
+            border: 1px dotted red;
+            height: 150px;
+            width: 360px;
+        }    
+    </style>
+</head>
+<body>
+    <figure>
+        <div></div>
+        <figcaption>
+            Browser Engine
+        </figcaption>
+    </figure>
+</body>
+</html>
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+HTML basic entities and semantics for body
+a. line break <br>
+	Browser ignores the line breaks given in editor.
+	You have to manually add line break by using “<br>” element.
+   FAQ: What is difference between <br> and <br/>?
+	- There is not such element called “<br/>” in HTML.
+	- Always use only <br>
+	- <br/> is used to indicate that it is a self-ending or void element.
+
+b. Blank Spaces
+ - Browser ignores additional spaces between words and characters.
+ - Browser allows only one characters space between words or chars.
+ - To add manual space, you have to use “&nbsp” [non-breakable space].
+ - It is “Raw Text Element”
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sematics</title>
+</head>
+<body>
+   H &nbsp;&nbsp;T&nbsp; M &nbsp; L
+</body>
+</html>
+	output  H   T   M   L
+
+
+c. Pre-formatted Text
+  - It is used to present the content exactly as defined in source code.
+  - It will keep the spaces and line break are defined in editor.
+  - The content must be defined with-in “<pre>” element.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sematics</title>
+    <style type="text/css">
+        div{
+            font-size: 25px;
+            font-family: Arial;
+        }
+        pre{
+            border: 1px solid black;
+            height: 150px;
+            width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Sample C program
+    </div>
+    <div>
+        <pre>
+            #include &lt;stdio.h&gt;
+            void main()
+            {
+                printf("welcome to html...");
+            }
+        </pre>
+    </div>
+</body>
+</html>
+	
+
+
+
+
+
+
+
+
+Day 14
+ ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+d. Code Element
+    - <code> is an element used to define code snippet in web page.
+    - It allows to browser and SEO to understand that the content enclosed in some computer code.
+     
+e. Variables in HTML Code Presentation:
+     - You can <var> for variable in HTML.
+     - Variables are designated with <var> for code snippet.
+
+f. Sample template for a code
+	-> we use <samp> element to present this.
+	-> It is used for comments and captions in page.
+
+General syntax 
+==============
+<samp>caption about the program</samp>
+<code>
+    <pre>
+	<!-- Code about the caption -->
+    </pre>
+</code>
+
+eg#1:: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        var{
+            color: blue;
+        }
+        samp{
+            color: gray;    
+        }
+        code{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <samp>Program of Printing Height X Width</samp>
+    </div>
+    <code>
+        <pre>
+            #include &lt;stdio.h&gt;
+                void main()
+                {
+                    int <var>height</var> = 100;
+                    int <var>width</var>  = 200;
+                    printf("welcome to html...");
+                }  
+        </pre>
+    </code>
+</body>
+</html>
+======================================================================================================
+
+small text and large text
++++++++++++++++++++++++++
+ => <small> content <small>  :: It sets letter size small
+ => <big> large   </big>     :: It sets letter size large
+
+Note: In css we adjust the font we use "font-style", In HTML we have <font> but its not suggestible.
+
+eg::
+<body>
+     Normal Text<br>
+    <small>Small Text</small><br>
+    <big>Large Text</big>
+</body>
+
+=====================================================================================================
+
+Details and Summary
+- It is used to display the content in detail only when required.
+- It allows to expand and collapse your content.
+- It saves the screen space.
+
+Syntax:
+<details>
+	<summary> Your Title </summary>
+		some text…
+</details>
+- You can specify “open” attribute to show the details.
+
+eg#2.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+       details div{
+            background-color: black;
+            color: white;
+            padding: 5px;
+       }
+    </style>
+</head>
+<body>
+    <details>
+        <summary>What is Netflix?</summary>
+        <div>
+            Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on 	   	    	    thousands of internet-connected devices.<br>
+            You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. 
+	    There's always something new to discover, and new TV shows and movies are added every week!
+        </div>
+    </details>
+    <details>
+        <summary>How much does Netflix cost?</summary>
+        <div>
+            Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from 		   		₹149 to ₹649 a month. No extra costs, no contracts.
+        </div>
+    </details>
+</body>
+</html>
+
+eg#3.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sematics</title>
+    <style type="text/css">
+        details span{
+            display: block;
+            padding: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            background-color: black;
+            color: white;
+            width:150px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <details open>
+            <summary>HTML</summary>
+                <span>Normal Elements</span>
+                <span>RC Elements</span>
+                <span>Void Elements</span>
+                <span>Foreign Elements</span>
+        </details>
+        <details>
+            <summary>Java</summary>
+                <span>OOPS</span>
+                <span>Datatypes</span>
+                <span>Compiler</span>
+                <span>JVM</span>
+        </details>
+    </nav>
+</body>
+</html>
+
+Note: Open amazon.in and tell  >Need help is also <details>?
+
+========================================================================================
+
+Data List with Terms and Definitions:
+	- Data List is defined with <dl>
+	- Data list is a collection of terms defined with <dt> and definition defined with <dd>
+
+Syntax:
+<dl>
+	<dt>Term</dt>
+	<dd> Definition </dd>
+	<dt> Term </dt>
+	<dd> Definition </dd>
+	<dd> Definition </dd>
+</dl>
+
+Note: 
+1. <dt> and <dd> will have some default alignment, so it is easy for presentation
+2. dl has the capability to display in columns using grid(dt-> one column and dd-> one column)
+
+
+eg#4.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+       dt{
+        background-color: gray;
+        color: black;
+        padding: 5px;
+       }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>
+            HTML
+        </dt>
+        <dd>
+            It is a markup language
+        </dd>
+        <dd>
+            It is used for presentation
+        </dd>
+        <dd> 
+            Designed by Tim Berner lee
+        </dd>
+        <dt>
+            CSS
+        </dt>
+        <dd>
+            It defines style
+        </dd>
+        <dt>
+            Javascript
+        </dt>
+        <dd>
+            It manipulates DOM
+        </dd>   
+    </dl>
+</body>
+</html>
+
+eg#5.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+       dl{
+         display: grid;
+         grid-template-columns: 3fr 9fr;
+       }
+       dt{
+         background-color: black;
+         color: white;
+         padding: 5px;
+         margin-bottom: 10px;
+       }
+       dd{
+         background-color: lightgray;
+         color: black;
+         padding: 5px;
+         margin-bottom: 10px;
+       }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>First Name</dt>
+        <dd>some name</dd>
+        <dt>Last Name</dt>
+        <dd>some name</dd>  
+        <dt>Father Name</dt>
+        <dd>some name</dd>
+        <dt>Age</dt>
+        <dd>some number</dd>
+        <dt>Date of birth</dt>
+        <dd>some date</dd>
+    </dl>
+</body>
+</html>
+
+eg#6.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+       .title{
+            font-size: 40px;
+            font-weight: bold;
+       }
+       dt{
+         background-color: black;
+         color: white;
+         padding: 10px;
+         width: 150px;
+         position: sticky;
+         top: 0;
+         margin-left: 10px; 
+       }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="title">Shopper.</div>
+        <dl>
+            <dt>Electornics</dt>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+            <dd>Mobiles</dd>
+            <dd>Watches</dd>
+
+            <dt>FashionWear</dt>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd> 
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd> 
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd> 
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd> 
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd>
+            <dd>KidsWear</dd>
+            <dd>MensWear</dd>
+            <dd>WomensWear</dd> 
+
+            <dt>Footwear</dt>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+            <dd>Sneakers</dd>
+            <dd>Loafers</dd>
+            <dd>Casuals</dd>
+        </dl>
+    </nav>
+</body>
+</html>
+
+Note: We can make content sticky on a webpage using css property 
+	dt{
+		position : sticky;
+		top : 0;
+	}
+       show one example of inox.com (check quickbox section, it is fixed once we scroll the page)
+=============================================================================================================
+
+Field Set and Legends
+- Field set is container with frame.
+- Legend puts a caption for field set.
+
+Syntax:
+<fieldset>
+	<legend> Title </legend>
+	Your content…
+</fieldset>
+
+In Css we can set shadow to any container by using box-shadow
+box shadow will have 4 values 
+{
+	box-shadow : horizontal vertical blur color;
+}
+
+The unit of horizontal vertical blur is "pixels".
+
+eg#7.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+
+       dl{
+         display: grid;
+         grid-template-columns: 3fr 9fr;
+       }
+
+       dt{
+         background-color: black;
+         color:white;
+         padding: 5px;
+         margin-bottom: 10px;
+       }
+
+       dd{
+        background-color: lightgray;
+        color:black;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 200px;
+       }
+
+       fieldset{
+         margin-bottom: 20px;
+         border-radius: 10px;
+         width: 500px;
+         box-shadow: 10px 10px 5px black;
+         background-image: url(public/images/background-banner.jpeg);
+         background-size: cover;
+       }
+
+       legend{
+          text-align: center;
+          background-color: black;
+          color:white;
+          padding: 5px;
+          border-radius: 20px;
+       }
+
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Person details</legend>
+        <dl>
+            <dt>FirstName</dt>
+            <dd>SomeName</dd>
+            <dt>LastName</dt>
+            <dd>SomeName</dd>
+            <dt>Age</dt>
+            <dd>SomeAge</dd> 
+         </dl>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Contact details</legend>
+        <dl>
+            <dt>City</dt>
+            <dd>SomeCity</dd>
+            <dt>State</dt>
+            <dd>SomeState</dd>
+            <dt>PostalCode</dt>
+            <dd>Somepostalcode</dd>
+         </dl>
+    </fieldset>
+     
+</body>
+</html>
+
+
+Day 15
+
+ ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Headings in HTML
+   - Headings need a different appearance in page.
+   - HTML provides pre-defined heading levels.
+   - HTML headings levels are defined by using <hn>.
+   - “n” refers to level number from 1 to 6.
+   - They are not mainly meant for 'appearance' but also for 'SEO friendly'.
+
+Syntax:
+<h1> </h1>
+<h2> </h2>
+ ……………….
+<h6> </h6>
+- Heading levels from 1 to 6 will decrease the size.
+- Heading can be defined with “align” attribute, which can align left, center, right or justify.
+
+
+FAQ: Why to use heading element for headings?
+- Heading elements will make your topics SEO friendly.
+- SEO can identify the topics on your page if they are defined in heading.
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+</head>
+<body>
+    <h1>WebTechnologies</h1>
+    <h2>FrontEnd</h2>
+    <h3>HTML</h3>
+    It is a Presentation language
+    <h3>CSS</h3>
+    It is a Styling language
+    <h2>BackEnd</h2>
+    <h3>Node JS</h3>
+    It is a server side scripting language
+    <h3>MongoDB</h3> 
+    It is a database engine
+</body>
+</html>
+
+
+Note: The effect of headings can be give without <hn> tags also, then why we need <hn> tags
+      <hn> tags are given to make page SEO friendly which is as shown below
+eg#2.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <script type="text/javaScript">
+        function bodyload() {
+            var x = document.getElementsByTagName("h3");
+            alert(`The no of 3rd level elements are :: ${x.length}`);
+        }
+    </script>
+    
+</head>
+<body onload="bodyload()">
+    <h1>WebTechnologies</h1>
+    <h2>FrontEnd</h2>
+    <h3>HTML</h3>
+    It is a Presentation language
+    <h3>CSS</h3>
+    It is a Styling language
+    <br><br>
+    <font size='4'>
+        <b>JavaScript</b><br><br>
+    </font>
+    It is a Scripting language
+    <h2>BackEnd</h2>
+    <h3>Node JS</h3>
+    It is a server side scripting language
+    <h3>MongoDB</h3> 
+    It is a database engine
+</body>
+</html>
+
+Output : The no of 3rd level elements are : 4
+
+
+2. can we change the appearence of <hn> tags.
+Ans. yes possible using css styling attributes.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        h1{
+            font-family: Algerian;
+            font-size: 60px;
+        }
+    </style>  
+</head>
+<body onload="bodyload()">
+    <h1>WebTechnologies</h1>
+    <h2>FrontEnd</h2>
+    <h3>HTML</h3>
+    It is a Presentation language
+    <h3>CSS</h3>
+    It is a Styling language
+    <h2>BackEnd</h2>
+    <h3>Node JS</h3>
+    It is a server side scripting language
+    <h3>MongoDB</h3> 
+    It is a database engine
+</body>
+</html>
+
+3. Can we remove the default style defined for Heading?
+ Ans. default style for heading are bold,font-size,display: block.
+      To remove/control default style we go for 'css inheritance value'.
+      we need to use css inheritance value "unset".
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        h1{
+            font-weight: unset;
+            font-size: unset;
+            display: unset;
+        }
+    </style>
+    
+</head>
+<body onload="bodyload()">
+    <h1>WebTechnologies</h1>
+    <h1>welcome</h1>
+    <h2>FrontEnd</h2>
+    <h3>HTML</h3>
+    It is a Presentation language
+    <h3>CSS</h3>
+    It is a Styling language
+    <h2>BackEnd</h2>
+    <h3>Node JS</h3>
+    It is a server side scripting language
+    <h3>MongoDB</h3> 
+    It is a database engine
+</body>
+</html>
+
+eg#2.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        h1{
+            all: unset;        
+	}
+    </style>
+    
+</head>
+<body onload="bodyload()">
+    <h1>WebTechnologies</h1>
+    <h1>welcome</h1>
+    <h2>FrontEnd</h2>
+    <h3>HTML</h3>
+    It is a Presentation language
+    <h3>CSS</h3>
+    It is a Styling language
+    <h2>BackEnd</h2>
+    <h3>Node JS</h3>
+    It is a server side scripting language
+    <h3>MongoDB</h3> 
+    It is a database engine
+</body>
+</html>
+
+Note:
+- Don’t use headings for highlighting any word or sentence in a paragraph.
+- Heading by default will have line break above and below.
+- Don’t use too many headings in a page. SEO can SPAM your page.
+
+FAQ: 
+ Q> Why to use heading element for headings?
+ Q> Why we have to use heading elements for giving heading,can't we configure using HTML text styles and css styles?
+ Q> can we change the appearnce of <hn> tags?
+ Q> Can we remove the default style defined for Heading?
+
+========================================================================================================================
+Paragraphs and Blockquotes
+- HTML ignores the line breaks and paragraph marks.
+- You have to manually add paragraphs by using <p> element.
+- It supports “align” attribute, which can set text left, center, right or justified.
+- Paragraphs will have a line break before and after.
+
+Syntax:
+<p>Your Content</p>
+<p align='left/right/center/justify'>Your Content </p>
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+</head>
+<body>
+    HTML
+    It is a Markup Langauge 
+    It is used for Presentation Purpose
+</body>
+</html>
+
+Output
+HTML It is a Markup Langauge It is used for Presentation Purpose
+
+Note: The expectation is we need the content one below the other,then we would go for <div> or we would go for <br>
+      div : inline
+      br  : takes the data to new line
+      
+Note: <div> container will seperate the content.
+       br if we use and if we want to align the content to center then it is not possible as shown below
+
+eg#2.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+</head>
+<body>
+    HTML
+    <div>It is a Markup Langauge </div>
+    <div>It is used for Presentation Purpose</div>
+</body>
+</html>
+Output
+HTML
+It is a Markup Langauge
+It is used for Presentation Purpose
+
+eg#3.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+</head>
+<body>
+    <h3> HTML </h3>
+    <p align = 'center'>It is a Markup Langauge</p>    
+    <p>It is used for Presentation Purpose</p>  
+</body>
+</html>
+
+Working with <blockquote> tag
+==============================
+- Blockquote is similar to paragraph but have left and right indentation for text.
+   [Indentation is space between margin and text]
+- It is defined by using “<blockquote>” element.
+- In SEO blockquote is used a summary for content in page.
+- It is mainly used during summary representation.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        blockquote{
+            padding-left: 250px;
+            padding-right: 250px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <blockquote align="justify">
+        Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or 
+	software installer that distributes the software with your device; or (ii) you and.
+    </blockquote>
+    <p align="justify">
+        Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of 
+	its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by 
+	Microsoft or one of its affiliates, and Microsoft is the
+        retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer,
+        use of this software is subject to your volume license agreement rather than this agreement.
+    </p>  
+</body>
+</html>
+
+FAQ. How to set the first-line indent for paragraph or blockquote?
+	Ans. we define it using the attribute called text-indent.
+		blockquote
+		{
+			text-indent : 100px;
+		}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        blockquote{
+            padding-left: 250px;
+            padding-right: 250px;
+            font-style: italic;
+            text-indent: 100px;
+        }
+    </style>
+</head>
+<body>
+    <blockquote align="justify">
+        Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or 
+	software installer that distributes the software with your device; or (ii) you and.
+    </blockquote>
+    <p align="justify">
+        Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, 
+	one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced 
+	by Microsoft or one of its affiliates, and Microsoft is the
+        retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this 
+	software is subject to your volume license agreement rather than this agreement.
+    </p>  
+</body>
+</html>
+
+Output : because text-indent is specified for <blockquote> tag, The first line will have some extra space at the begining.
+
+
+2. How to set line space, word space, character space in a paragraph?
+Ans. using css attributes
+		line-height
+		word-space
+		letter-space
+
+syntax: 
+ p{
+	line-height  : 10px;
+	word-space   : 5px;
+	letter-space : 15px;
+ }
+
+eg#1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        blockquote{
+            padding-left: 250px;
+            padding-right: 250px;
+            font-style: italic;
+            text-indent: 100px;
+            line-height: 25px;
+
+        }
+        h1{
+            text-align: center;
+            word-spacing: 15px;
+            letter-spacing: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>News updates</h1>
+    <blockquote align="justify">
+        Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer 
+	or software installer that distributes the software with your device; or (ii) you and.
+    </blockquote>
+    <p align="justify">
+        Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one 
+	of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced 
+	by Microsoft or one of its affiliates, and Microsoft is the
+        retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this 
+	software is subject to your volume license agreement rather than this agreement.
+    </p>  
+</body>
+</html> 
+
+3. How to set a DropCrap?
+Ans. By using the following style we can set DropCrap.
+-> Access the first letter using the class: first-letter
+-> After Acessing the firstletter apply fonts[size,weight,family]
+-> Apply css float as left
+
+syntax ::
+ p:: first-letter{
+	font-size: 50px;
+        font-weight: bold;
+        float: left;
+        font-family: Brush Script Mt;
+        color: blue;
+        padding-right: 2px;
+ }
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+        .main-para::first-letter{
+            font-size: 50px;
+            font-weight: bold;
+            float: left;
+            font-family: Brush Script Mt;
+            color: blue;
+            padding-right: 2px;
+        }
+    </style>
+</head>
+<body>
+    <p align="justify" class="main-para">
+        Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, 
+	one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices 
+	produced by Microsoft or one of its affiliates, and Microsoft is the
+        retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, 
+	use of this software is subject to your volume license agreement rather than this agreement.
+    </p>  
+</body>
+</html>
+
+4. How to display paragrah as continous paragraph?
+Ans. We prefer working with grid,but it is not a good approach, instead we can use css columsn attribute as shown below. 
+
+By using css columns attribute
+section
+{
+       columns: 5;
+       column-gap: 20px;
+       margin-top: 25px;
+       column-rule: 2px dotted black;
+}
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>headings</title>
+    <style>
+
+        header{
+            background-color: black;
+            color: white;
+            font-size: 45px;
+            font-weight: bold;
+            font-family: 'Times New Roman';
+            padding: 10px;
+            text-align: center;
+        }
+
+        section{
+            columns: 5;
+            column-gap: 20px;
+            margin-top: 25px;
+            column-rule: 2px dotted black;
+        }
+
+        p{
+            text-align: justify;
+        }
+        .para1::first-letter{
+            float: left;
+            margin-left: 5px;
+            color:blue;
+            font-size: 50px;
+            font-weight: bold;
+            font-family: 'Times New Roman';
+        }
+        h3{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        HINDU
+    </header>
+    <section>
+        <p class="para1">
+            Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, 
+            one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices 
+            produced by Microsoft or one of its affiliates, and Microsoft is the
+            retailer if you acquired the software directly from Microsoft. 
+            Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather 
+            than this agreement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a ea ducimus! Cum temporibus, id expedita ipsa consequatur 
+            odit deserunt asperiores, mollitia nulla debitis ab! Nihil ea similique quo! Voluptatum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, consequuntur veritatis cum ea at eius fugiat nisi nulla 
+            officiis molestias maiores neque blanditiis, voluptatem rem ullam. Ab doloribus placeat fugiat, tempore ea exercitationem 
+            assumenda esse eum praesentium eos pariatur quia, dolorum accusamus porro beatae!
+            Omnis modi sint illum dolore quas atque explicabo, voluptas, harum velit totam aspernatur voluptatem placeat. 
+            Obcaecati culpa dolorem cumque delectus vero voluptatem at dolores aut laudantium sit, quibusdam facere labore velit 
+            exercitationem ea maiores nulla dignissimos, quidem iure. Dolor eius similique animi harum nemo, excepturi repellat 
+            rerum esse, debitis recusandae, ducimus beatae a obcaecati? Eaque, omnis!
+        </p>
+        <p>
+            Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the
+            retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a ea ducimus! Cum temporibus, id expedita ipsa consequatur odit deserunt asperiores, mollitia nulla debitis ab! Nihil ea similique quo! Voluptatum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, consequuntur veritatis cum ea at eius fugiat nisi nulla officiis molestias maiores neque blanditiis, voluptatem rem ullam. Ab doloribus placeat fugiat, tempore ea exercitationem assumenda esse eum praesentium eos pariatur quia, dolorum accusamus porro beatae!
+            Omnis modi sint illum dolore quas atque explicabo, voluptas, harum velit totam aspernatur voluptatem placeat. Obcaecati culpa dolorem cumque delectus vero voluptatem at dolores aut laudantium sit, quibusdam facere labore velit exercitationem ea maiores nulla dignissimos, quidem iure. Dolor eius similique animi harum nemo, excepturi repellat rerum esse, debitis recusandae, ducimus beatae a obcaecati? Eaque, omnis!
+        </p>  
+        <p>
+            Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the
+            retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a ea ducimus! Cum temporibus, id expedita ipsa consequatur odit deserunt asperiores, mollitia nulla debitis ab! Nihil ea similique quo! Voluptatum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, consequuntur veritatis cum ea at eius fugiat nisi nulla officiis molestias maiores neque blanditiis, voluptatem rem ullam. Ab doloribus placeat fugiat, tempore ea exercitationem assumenda esse eum praesentium eos pariatur quia, dolorum accusamus porro beatae!
+            Omnis modi sint illum dolore quas atque explicabo, voluptas, harum velit totam aspernatur voluptatem placeat. Obcaecati culpa dolorem cumque delectus vero voluptatem at dolores aut laudantium sit, quibusdam facere labore velit exercitationem ea maiores nulla dignissimos, quidem iure. Dolor eius similique animi harum nemo, excepturi repellat rerum esse, debitis recusandae, ducimus beatae a obcaecati? Eaque, omnis!
+        </p> 
+        <h3>Sports Updates</h3> 
+        <p>
+            Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the
+            retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a ea ducimus! Cum temporibus, id expedita ipsa consequatur odit deserunt asperiores, mollitia nulla debitis ab! Nihil ea similique quo! Voluptatum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, consequuntur veritatis cum ea at eius fugiat nisi nulla officiis molestias maiores neque blanditiis, voluptatem rem ullam. Ab doloribus placeat fugiat, tempore ea exercitationem assumenda esse eum praesentium eos pariatur quia, dolorum accusamus porro beatae!
+            Omnis modi sint illum dolore quas atque explicabo, voluptas, harum velit totam aspernatur voluptatem placeat. Obcaecati culpa dolorem cumque delectus vero voluptatem at dolores aut laudantium sit, quibusdam facere labore velit exercitationem ea maiores nulla dignissimos, quidem iure. Dolor eius similique animi harum nemo, excepturi repellat rerum esse, debitis recusandae, ducimus beatae a obcaecati? Eaque, omnis!
+        </p>  
+        <p>
+            Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the
+            retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a ea ducimus! Cum temporibus, id expedita ipsa consequatur odit deserunt asperiores, mollitia nulla debitis ab! Nihil ea similique quo! Voluptatum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, consequuntur veritatis cum ea at eius fugiat nisi nulla officiis molestias maiores neque blanditiis, voluptatem rem ullam. Ab doloribus placeat fugiat, tempore ea exercitationem assumenda esse eum praesentium eos pariatur quia, dolorum accusamus porro beatae!
+            Omnis modi sint illum dolore quas atque explicabo, voluptas, harum velit totam aspernatur voluptatem placeat. Obcaecati culpa dolorem cumque delectus vero voluptatem at dolores aut laudantium sit, quibusdam facere labore velit exercitationem ea maiores nulla dignissimos, quidem iure. Dolor eius similique animi harum nemo, excepturi repellat rerum esse, debitis recusandae, ducimus beatae a obcaecati? Eaque, omnis!
+        </p>  
+        <p>
+            Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the
+            retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a ea ducimus! Cum temporibus, id expedita ipsa consequatur odit deserunt asperiores, mollitia nulla debitis ab! Nihil ea similique quo! Voluptatum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, consequuntur veritatis cum ea at eius fugiat nisi nulla officiis molestias maiores neque blanditiis, voluptatem rem ullam. Ab doloribus placeat fugiat, tempore ea exercitationem assumenda esse eum praesentium eos pariatur quia, dolorum accusamus porro beatae!
+            Omnis modi sint illum dolore quas atque explicabo, voluptas, harum velit totam aspernatur voluptatem placeat. Obcaecati culpa dolorem cumque delectus vero voluptatem at dolores aut laudantium sit, quibusdam facere labore velit exercitationem ea maiores nulla dignissimos, quidem iure. Dolor eius similique animi harum nemo, excepturi repellat rerum esse, debitis recusandae, ducimus beatae a obcaecati? Eaque, omnis!
+        </p>  
+    </section>
+    
+</body>
+</html>
+
+FAQ
+Q> How to set the first-line indent for paragraph or blockquote?
+Q> How to set line space, word space, character space in a paragraph?
+Q> How to set a DropCap?
+Q> How to display paragrah as a continous paragraph?
+
+
+
+
+
+
+
+Day 16
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Text formatting in HTML
+=======================
+ -> We can change the text formatting  using font.
+ -> font :: we can change the face(family), size and color.
+ 
+syntax: <font face=" " size="" color=""> Your Text </font>
+           face  : font family
+	   size  : 1 to 7 level[increasing order]
+           color : it represents color name and color code 
+
+Note: <font> is deprecated [Obsolete] from HTML 5. 
+      It is recommended to define font only with CSS.
+
+Note: To go check the font, go to control panel and see the folder called "fonts" and find all the fonts of your system.
+
+FAQ: What are websafe fonts?
+     These are fonts available to all devices. The websafe fonts are 
+		a. sans-serrif
+		b. serrif
+		c. monospace
+
+2. fontstyle
+	 <b> bold </b>
+         <strong> strong> </strong
+
+         <i> italics </i>
+	 <em> emphasize </em>
+
+What is the difference between <b> and <strong>
+ Ans. Our code will undergo different phases like design and review phase.
+	design phase : developer will give <b> for bolding some content and it would be sent for reviewing
+        review phase : after reviewing the content they will use <strong> tag to tell there are few more content which needs
+		       to be highlighted. after this in the design phase developer will notice <strong> tag and he will
+		       recognize that this contents are for <bold> so he will change <strong> to <bold> again.
+	similarly for <i> and <em>
+
+3. font effects
+	Font Effects Tag
+		Underline <u> <ins>[review]
+		Strikeout <strike> <del>[review]
+		Super Script <sup> Character position raised from base line
+		Sub Script <sub> Character position lowered from base line
+
+FAQ: 
+ Q> What are websafe fonts?
+ Q> What is the difference between <b> and <strong>
+===================================================================================================================
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        b{
+            background-color: cyan;
+        }
+        strong{
+            background-color: cyan;
+        }
+        i{
+            background-color: green;
+        }
+        em{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    The font style <b> <u>Bold</u> </b> is similar to <strong> <ins>Strong</ins></strong><br><br> 
+    The font style <i> <strike>italic</strike> </i> is similar to <em> <del> emphasize </del>  </em>
+    <br><br>
+    X<sup>2</sup><br>
+    H<sub>2</sub>O
+</body>
+</html>
+
+Ordered and Unordered List
+- Order List will add auto numbering for a list of options, which can update automatically when you add or delete items.
+- Orders List is defined by using <ol> Element.
+- Items in list are defined by using <li>.
+
+Syntax:
+<ol>
+	<li> Item-1 </li>
+	<li> Item-2 </li>
+</ol>
+Note: Default numbering will be given for Items.
+
+type::  If specifies the numbering type, which can be
+- a
+- A
+- i
+- I
+- 1(default)
+
+start[number] : It defines the numbering level to start with.
+Ex:
+<ol type="A" start="5">
+	<li>Internet</li>
+	<li>Web Server</li>
+	<li>Web Site</li>
+	<li>Web Page</li>
+</ol>
+
+reversed:: It arranges the numbering in reverse order. It is not support on old version browser.
+Ex:
+<ol reversed start="5">
+	<li>Internet</li>
+	<li>Web Server</li>
+	<li>Web Site</li>
+	<li>Web Page</li>
+</ol>
+
+We can do nesting of ordering elements
+++++++++++++++++++++++++++++++++++++++
+ => In UI technologies we need to analyse the elements in good programming style not on the appearence way because the application
+    may break when it goes for testing.
+
+bad code
+++++++++
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+    <h3> Web Technologies </h3>
+    <ol>
+
+        <li>Front End</li>
+            <ol type="a">
+                <li>HTML</li>
+                <li>CSS</li>
+             </ol>
+        
+        <li>Back End </li>
+            <ol type="a">
+                <li>NodeJS</li>
+                <li>MongoDB</li>
+            </ol>   
+    </ol>
+
+</body>
+</html>
+
+Good code
++++++++++
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+    <h3> Web Technologies </h3>
+    <ol>
+
+        <li>Front End
+            <ol type="a">
+                <li>HTML</li>
+                <li>CSS</li>
+             </ol>
+        </li>
+         
+        <li>Back End
+            <ol type="a">
+                <li>NodeJS</li>
+                <li>MongoDB</li>
+            </ol> 
+        </li>   
+    </ol>
+</body>
+</html>
+
+
+ 
+Day 17
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FAQ's
+ a.  How to remove numbers from ordered list?
+ Ans. we can remove using css attribute called
+	ol{
+		list-style: none; 
+	  }
+
+eg#1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        ol{
+            list-style-type: none;
+        }
+        li{
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <ol>
+        <h6>SUPPORT</h6>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+    </ol>
+</body>
+</html>
+
+2> How to create a scrollable list?
+Ans.
+1. Keep a border
+2. Keep a proper width and height as per the content area.
+3. using an css attribute called "overflow : hidden|scroll|auto"
+
+eg#2.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        ol{
+            list-style-type: none;
+            border: 1px solid gray;
+            width: 150px;
+            height: 150px;
+            overflow: auto;
+        }
+        li{
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <ol>
+        <h6>SUPPORT</h6>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+    </ol>
+</body>
+</html>
+
+How to display list items inline?
+Ans. ol{
+            display: flex;
+            justify-content: space-between;    
+        }
+
+eg#3.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        ol{
+            display: flex;
+            justify-content: space-between;    
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>Contact Us</li>
+        <li>FAQs</li>
+        <li>Size Guide</li>
+        <li>Shipping & Returns</li>
+    </ol>
+</body>
+</html>
+
+4> how to display list items in columns wise?
+Ans. using display : grid, grid-template-columns : 6fr 6fr.
+
+eg#4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        .choice{
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            width: 500px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        li{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>
+            Which of the following is not a oop language?
+            <ol type="a" class="choice">
+                <li>C</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>Javascript</li>
+            </ol>
+        </li>   
+    </ol>
+</body>
+</html>
+
+Q> How to change the options in ordered list?
+eg#5
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+        .choice{
+            width: 500px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            columns: 2;
+        }
+        li{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>
+            Which of the following is not a oop language?
+            <ol type="a" class="choice">
+                <li>C</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>Javascript</li>
+            </ol>
+        </li>   
+    </ol>
+</body>
+</html>
+==================================================================================================================
+FAQ: 
+Q> How to remove numbering in orderlist?
+Q> How to create a scrollable list?
+Q> How to display list items inline?
+Q> How to display li in columns wise?
+Q> How to change the options in ordered list?
+
+==================================================================================================================
+UnOrderedList
+=============
+Unordered List
+- It is used to define bulleted list.
+- Bulleted list comprises of symbol instead of numbering.
+- Unordered list is defined by using “<ul>”
+- List items are defined by using “<li>”
+- The attribute “type” defines the symbol type,which can be
+	o disc
+	o circle
+	o square
+
+
+<body>
+	<ul type="square">
+		<li>Web Sever</li>
+		<li>Web Site</li>
+		<li>Web Page</li>
+	</ul>
+</body>
+
+How to set Custom bullets?
+ Ans. we can do by using list-style-image attribute of css.
+
+eg#5
+Flipkart website for displaying contents using ol
++++++++++++++++++++++++++++++++++++++++++++++++++
+Note: Hint we can use bootstrap icons
+
+eg#6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+
+        ul{
+            list-style: none;
+        }
+        li{
+            font-size: 10px;
+            font-family: Arial;
+            margin-bottom: 10px;
+          
+        }
+        span{
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <ul>
+        <li class="bi bi-tag-fill">
+            <span>Bank Offer</span> Get ₹25 Instant Discount on first Flipkart UPI transaction on order of ₹200 and aboveT&C
+        </li>
+        <li class="bi bi-tag-fill">
+            <span>Bank Offer</span> 5% Cashback on Flipkart Axis Bank CardT&C
+        </li>
+        <li class="bi bi-tag-fill">
+            <span>Bank Offer</span> Flat ₹1,250 off on HDFC Bank Credit Card EMI Txns, Tenure: 6 and 9 months, 
+		Min Txn Value: ₹15,000T&C
+        </li>
+        <li class="bi bi-tag-fill">
+            <span>Special Price</span> Get extra 7% off (price inclusive of cashback/coupon)T&C
+        </li>
+    </ul>
+</body>
+</html>
+
+Q> To display the content in fixed style we can use the following attributes of css in "ul"
+ ul{
+            list-style: none;
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            width: 5px;	
+            background-color: white;
+            padding: 5px;
+   }
+
+eg#7.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+    <style type="text/css">
+
+        ul{
+            list-style: none;
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            width: 5px;
+            background-color: white;
+            padding: 2px;
+        }
+        li{
+            font-size: 10px;
+            font-family: Arial;
+            margin-bottom: 10px;  
+            color:green;
+        }
+    </style>
+
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vero totam atque, animi maiores, quidem ea autem ipsam saepe iusto officiis expedita nemo doloremque aliquid exercitationem distinctio, sapiente quo. Esse quaerat id tempore quidem voluptates, facilis itaque alias quasi quisquam illum error aliquam reiciendis illo delectus sequi optio sapiente cum consequatur minima quis! Vel quam magni suscipit, vitae repellendus ipsam omnis ipsa eligendi, sequi minima iste perferendis ex error corporis quis quas culpa nostrum maiores rem hic nulla. Ex, tempore molestiae est nemo cum assumenda? Ullam doloremque illo beatae, modi eligendi vel aut excepturi impedit molestias facere quisquam consectetur iusto sequi. Illum expedita iste, distinctio quaerat consequatur ducimus deleniti fugit repellendus a. Fuga consequatur laborum praesentium ea aspernatur nostrum error molestias consectetur libero nisi consequuntur veritatis maxime omnis culpa eum voluptatum, nihil ullam et amet, laudantium nobis pariatur alias. Sequi hic odio maiores harum, nisi consequatur deserunt consectetur aperiam dolores velit rem. Quisquam incidunt qui, asperiores possimus laboriosam fugiat nemo placeat nam sit quo sequi, eius eum labore doloremque modi magnam. A earum obcaecati commodi dolor cum labore soluta nesciunt, provident perferendis voluptate doloribus, pariatur in error praesentium necessitatibus, voluptates nemo molestiae doloremque ipsum sequi temporibus consequatur ut velit deserunt? Quam, veritatis, voluptatum fuga odio voluptas, ratione natus modi optio maxime delectus officia quibusdam error tenetur? Aliquam aut, id corporis dignissimos rem, numquam non dolor praesentium necessitatibus distinctio vitae quis quia rerum, assumenda sint atque? Dignissimos pariatur, exercitationem quidem natus est veniam ut dicta voluptatem, nobis ipsam porro iure possimus illum itaque quae sed nam iste eius ex similique officia corporis fugit, quos odit. Nobis architecto vel error assumenda tempore at! Ipsa nobis deserunt unde vero quibusdam modi eum sequi minus accusamus ex eos dolore sunt soluta distinctio similique, earum sed molestiae cupiditate, ipsam nesciunt doloribus. Assumenda, quia. Impedit, ab.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sunt quae magni, praesentium voluptatibus numquam eius illum veritatis debitis doloremque ipsum iure dolorum a iste error, odit eum perspiciatis, repudiandae dolorem corporis obcaecati? Suscipit repellendus autem vel, hic enim saepe provident eligendi sed nemo officia minus soluta necessitatibus sapiente quaerat aliquam quia iure rerum. Ducimus amet debitis in, ratione culpa placeat officiis, expedita quidem omnis blanditiis, sequi ipsa quibusdam similique dolorum? Repellendus consequatur molestias error harum at blanditiis cupiditate nemo adipisci esse dignissimos excepturi aut nam unde doloremque quisquam, ad inventore animi soluta iste illum laudantium provident aliquid sit suscipit. Eligendi ad numquam, beatae consequatur eaque aliquid! Incidunt quo quas, a eos dolorum eveniet necessitatibus provident numquam iure illum, accusamus cumque accusantium amet. Ratione amet excepturi vel. Ad quam deleniti temporibus provident, odio officiis obcaecati tenetur quia omnis magni sunt consectetur, dignissimos dolore totam! Sunt soluta explicabo nulla exercitationem quidem necessitatibus repudiandae ut, impedit, fugit doloribus distinctio quos cupiditate cum, optio blanditiis ullam quae commodi quaerat saepe ad minus deleniti repellat tempore. Nihil neque consequatur esse, assumenda tempore autem repudiandae laudantium laborum numquam. Natus ullam impedit ex, tempore fugit vero reiciendis illo eum sint repellat provident molestiae, ducimus modi! Cum quibusdam veniam suscipit. Commodi quod minus nihil nam facere fuga inventore magni repellat at odio, aut praesentium? Vero nam aliquam porro facere error odit placeat delectus doloremque eius quas deleniti repellendus impedit doloribus ad consequatur sunt unde obcaecati ex sit perferendis ducimus beatae, quasi veritatis adipisci? Accusamus cupiditate fugit iusto aliquid est mollitia? Commodi cupiditate explicabo, tempora obcaecati pariatur magnam sequi minima ex, ad error quas quisquam debitis, fugit labore esse optio! Incidunt molestias obcaecati iure atque unde dolorum at doloremque possimus ab sapiente voluptatibus, molestiae a consequuntur adipisci quasi ex beatae repellendus velit. Pariatur magni quisquam officia soluta nisi.</p>
+    <ul>
+        <li class="bi bi-facebook"></li>
+        <li class="bi bi-twitter"></li>
+        <li class="bi bi-instagram"></li>
+        <li class="bi bi-linkedin"></li>
+    </ul>
+</body>
+</html>
+
+Q> How to work with pagination using ol?
+Ans. 
+<style type="text/css">
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            height: 500px;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            font-family: Arial;
+        }
+        li{
+          margin-right: 10px;
+          padding:5px;
+          width: 25px;
+          border: 1px solid blue;
+          border-radius: 10px;
+          text-align: center;
+          background-color: lightblue; 
+        }
+
+        li:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        .disabled{
+            background-color: grey;
+            color:white;
+            border: none;
+        }
+        .disabled:hover{
+           cursor: not-allowed;
+        }
+</style>
+
+eg#8
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style type="text/css">
+
+         ul{
+            list-style: none;
+            display: flex;
+            font-family: Arial;
+        }
+
+        li{
+          margin-right: 10px;
+          padding:5px;
+          width: 25px;
+          border: 1px solid blue;
+          border-radius: 10px;
+          text-align: center;
+          background-color: lightblue; 
+        }
+
+        li:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+        .disabled{
+            background-color: grey;
+            color:white;
+            border: none;
+        }
+        .disabled:hover{
+           cursor: not-allowed;
+        }
+	nav{
+		display: flex;
+		justify-content: center;
+		align-items : end;
+	}
+    </style>
+</head>
+<body>
+  <nav>
+    <ul>
+        <li><span>&laquo;</span></li>
+        <li><span>1</span></li>
+        <li><span>2</span></li>
+        <li><span>3</span></li>
+        <li class="disabled"><span>4</span></li>
+        <li><span>5</span></li>
+        <li><span>...</span></li>
+        <li><span>&raquo;</span></li>
+    </ul>
+  </nav>
+</body>
+</html>
+
+FAQ
+ Q> How to set custom bullets in ul?
+ Q> Can we keep any images for ul instead of circle disc and square?
+ Q> Can we keep bootstrap icons for the ul, list items?
+ Q> How to set pagination using ol?
+ 
+
+
+
+
+
 Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------
 Day 3 ------------------------------------------------------------------------------------------------------------------------------------------------------

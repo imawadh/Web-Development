@@ -1,0 +1,15 @@
+Setup boostrap Icons for project
+
+++++++++++++++++++++++++++++++++
+a. open terminal in your project
+b. switch to command prompt
+c. type the following command
+	npm install bootstrap-icons --save
+d. npm adds a new folder to your project by name called "node_modules", it comprises of all library files installed using "npm".
+e. To use icons in any of the webpage we need to link bootstrap-icons.css
+	<link rel='stylesheet' href='node_modules\bootstrap-icons\font\bootstrap-icons.css'/>
+f. To display icons we need to use css class names on the container
+	eg: <span class='bi bi-facebook'>Facebook</span>
+            <span class='bi bi-person-fill'>Person</span>
+	    <span class='bi bi-heart'></span>
+

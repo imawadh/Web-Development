@@ -3,24 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Awadh Kishor Singh</title>
     <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         *{
             margin: 0;
             padding: 0;
+           
+        }
+        body{
+            background-color: #eee;
         }
         #signature img{
             max-height: 35px;
+            
         }
-        .CodeSection{
-            background-color: black;
-        }
+
         .CodeSection ul li{
-           text-align: center;
-           padding-bottom: 25px ;
+        text-align: center;
+        padding-bottom: 25px ;
         }
+
+        .header-links{
+            text-decoration: none;
+            color: white;
+            margin: 0 1vw 0 0;
+            padding: 0.3vw;
+        }
+
+
+        .header-links:hover{
+            color: yellow;
+            border-bottom: 1px solid yellow;
+        }
+
+        .header-links:active{
+            color: green;
+        }
+        
+        .myphoto{
+            border: 1px solid red;
+        }
+
         @media screen and (orientation:landscape){
             header{
                 justify-content: space-around;
@@ -54,7 +81,9 @@
                 justify-content: space-around;
             }
             
+            
         }
+
         @media screen and (orientation:portrait){
             header{
                 justify-content: space-between;
@@ -107,13 +136,13 @@
 
         <nav>
             
-            <ul class="list-unstyled d-flex">
-                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Home</a> </li>
-                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">About</a> </li>
-                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Project</a> </li>
-                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Let's Code</a> </li>
-                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Blog</a> </li>
-                <li> <a href="javascript:void()" class="text-decoration-none m-2 text-white">Connect</a> </li>
+            <ul class="list-unstyled d-flex ">
+                <li> <a href="#Home" class="header-links">Home</a> </li>
+                <li> <a href="#About" class="header-links">About</a> </li>
+                <li> <a href="#Project" class="header-links">Project</a> </li>
+                <li> <a href="#Code" class="header-links">Let's Code</a> </li>
+                <li> <a href="#Blog" class="header-links">Blog</a> </li>
+                <li> <a href="#Connect" class="header-links">Connect</a> </li>
             </ul>
         </nav>
 
@@ -136,12 +165,12 @@
         <section class="mt-4 HomeSection align-items-center mb-3" id="Home">
             <div class="aboutme">
                 <h1 class="bold ">Awadh Kishor Singh</h1>
-                <h3>Student at IIT Madras || CHS - 2023 ||<br> Aspiring Engineer || Web Development || <br>Data Science || Competitive Programmer</h3>
+                <h2>Student at IIT Madras || CHS - 2023 ||<br> Aspiring Engineer || Web Development || <br>Data Science || Competitive Programmer</h2>
                 <article>I'm exploring the cool world of tech🌐, turning innovative ideas into reality through programming👨‍💻. Right now, I'm diving deep into the basics, honing my skills, and enjoying every moment of this coding adventure. 🌟🚀 Whether it's solving problems, building projects, or simply experimenting with new concepts, I'm always eager to learn and grow in this dynamic field. As I continue to develop my coding abilities, I'm excited to see where this journey will take me and how I can contribute to the tech community.</article>
             </div>
             <div>
                 <figure>
-                    <img src="./media/Images/my_image.jpg" alt="My Photo" class="rounded-circle" id="myphoto">
+                    <img src="./media/Images/my_image.jpg" alt="My Photo" class="rounded-circle myphoto" id="myphoto">
                 </figure>
             </div>
 
@@ -151,7 +180,7 @@
         <!-- Code Section  -->
 
 
-        <section class="CodeSection  pb-2 pt-2 mb-5" id="Code">
+        <section class="CodeSection  pb-2 pt-2 mb-5 bg-black" id="Code">
             <h3 class="text-light text-center">
                 <span class="bi bi-code-slash text-light"></span> My Codes
                 <span class="bi bi-code-slash text-light"></span>
