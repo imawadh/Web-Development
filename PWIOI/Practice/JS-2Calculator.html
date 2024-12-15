@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../Projects/Fashion Store/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <section class="bg-black p-3">
+        <div>
+            <input type="text" id="result" class="p-2 rounded w-100"> </input>  
+        </div>
+        <div>
+            <button class="btn btn-primary btn-lg m-2" id="one" onclick="appendToTextArea(1)">1</button>
+            <button class="btn btn-primary btn-lg m-2" id="two" onclick="appendToTextArea(2)">2</button>
+            <button class="btn btn-primary btn-lg m-2" id="three" onclick="appendToTextArea(3)">3</button>
+            <button class="btn btn-primary btn-lg m-2" id="four" onclick="appendToTextArea(4)">4</button>
+            <button class="btn btn-primary btn-lg m-2" id="five" onclick="appendToTextArea(5)">5</button>
+            <button class="btn btn-primary btn-lg m-2" id="six" onclick="appendToTextArea(6)">6</button>
+            <button class="btn btn-primary btn-lg m-2" id="seven" onclick="appendToTextArea(7)">7</button>
+            <button class="btn btn-primary btn-lg m-2" id="eight" onclick="appendToTextArea(8)">8</button>
+            <button class="btn btn-primary btn-lg m-2" id="nine" onclick="appendToTextArea(9)">9</button>
+            <button class="btn btn-primary btn-lg m-2" id="zero" onclick="appendToTextArea(0)">0</button>
+            <button class="btn btn-warning btn-lg m-2" id="minus" onclick="appendToTextArea('-')">-</button>
+            <button class="btn btn-warning btn-lg m-2" id="plus" onclick="appendToTextArea('+')">+</button>
+            <button class="btn btn-warning btn-lg m-2" id="mutiply" onclick="appendToTextArea('*')">*</button>
+            <button class="btn btn-warning btn-lg m-2" id="divide" onclick="appendToTextArea('/')">/</button>
+            <button class="btn btn-success btn-lg m-2" id="equalsTo" onclick="calculate()">=</button>
+            <button id="Clear" class="btn btn-danger btn-lg m-2" onclick="clear()" >Clear</button>
+        </div>
+    </section>
+
+    <script >
+        function clear(){
+            document.getElementById("result").value="";
+        }
+        
+
+        function appendToTextArea(myCharacter){
+            let currentContent = document.getElementById("result").value;
+            let finalContent =  currentContent + myCharacter;
+            document.getElementById("result").value = finalContent;
+
+        }
+        
+        function calculate(){
+            let expression = document.getElementById("result").value;
+            document.getElementById("result").value = eval(expression);
+        }
+        
+    </script>
+    <script src="../Projects/Fashion Store/node_modules/jquery/dist/jquery.js"></script>
+    <script src="../Projects/Fashion Store/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
