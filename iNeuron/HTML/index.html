@@ -74,6 +74,7 @@
       srcset=""
     />
     <br />
+    
     <p>PNG Image with Background</p>
     <img
       src="../Media/Image/png_image_no_background.png"
@@ -120,6 +121,8 @@
       controls
       src="../Media/Audio/climax-epic-sad-piano-song-200132.mp3"
     ></audio>
+
+
     <h3>Method 2</h3>
     <audio controls>
       <source src="../Media/Audio/climax-epic-sad-piano-song-200132.mp3" />
@@ -133,11 +136,14 @@
       height="200px"
       type="mp4"
     ></video>
+
     <h3>Method 2</h3>
     <video controls height="200px" autoplay>
       <source src="../Media/Video/Video1 Sample.mp4" />
     </video>
     <br />
+
+
     <!--Iframe tag-->
 
     <h3>Iframe tag</h3>
@@ -151,6 +157,7 @@
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     ></iframe>
+
     <h2><center>Part 3</center></h2>
     <!--Tables-->
     <h3>Table in HTML</h3>
@@ -199,21 +206,23 @@
       Password : <input type="password" placeholder="Enter Your Password" />
       <br />
       <label for="Gender">Gender : </label>
-      <input type="radio" name="Gender" id="" /> Male
-      <input type="radio" name="Gender" id="" /> Female
-      <input type="radio" name="Gender" id="" /> Prefer not to say
+      <input type="radio" name="Gender" id="" value="Male"/> Male
+      <input type="radio" name="Gender" id="" value="Female"/> Female
+      <input type="radio" name="Gender" id="" value="Not Need"/> Prefer not to say
       <br />
       <!--Name of radio button and for attribute of label  is stopping us to select multiple gender-->
       Coding : <br />
-      <input type="checkbox" name="lang" id="" /> C++
+      <input type="checkbox" name="lang" id="" value="C++"/> C++
       <br />
-      <input type="checkbox" name="lang" id="" /> C
+      <input type="checkbox" name="lang" id="" value="C"/> C
       <br />
-      <input type="checkbox" name="lang" id="" /> Python
+      <input type="checkbox" name="lang" id="" value="Python"/> Python
       <br />
-      <input type="checkbox" name="lang" id="" /> HTML
+      <input type="checkbox" name="lang" id="" value="HTML"/> HTML
       <br />
       <input type="submit" value="Submit" />
+      <!-- file:///A:/Desktop/Nothing/Web%20Development/iNeuron/HTML/index.html?Gender=Male&lang=C&lang=Python&lang=HTML# -->
     </form>
+   
   </body>
 </html>

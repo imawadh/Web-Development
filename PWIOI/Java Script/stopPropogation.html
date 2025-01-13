@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="GrandParent" style="background-color: red; width: 600px; height: 600px;">
+        GrandParent
+        <div id="parent" style="background-color: rgb(97, 137, 196);width: 400px; height: 400px;">
+            Parent 
+            <div id="child" style="background-color: yellow;width: 200px; height: 200px;" >
+                Child
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const child = document.querySelector("#child");
+        const parent = document.querySelector("#parent");
+        const GrandParent = document.querySelector("#GrandParent");
+        const body = document.querySelector("body");
+
+        child.addEventListener("click",function(event){
+            alert("Child Clicked " + event.target.id+ "\nThis id is being Click :: "+this.id);
+          
+        });
+        parent.addEventListener("click",function(){
+            alert("parent Clicked "+"\nThis id is being Click :: "+this.id);
+            event.stopPropagation();    
+            // Jaha bhi hum ye likhege wahi par ye stop ho jayega jab propogate hota hai mtlb ki parent pe nhi jayega 
+        });
+        GrandParent.addEventListener("click",function(){
+            alert("GrandParent Clicked "+ "\nThis id is being Click :: "+this.id);
+        });
+        body.addEventListener("click",function(){
+            alert("body Clicked "+ "\nThis id is being Click :: "+this.id);
+        });
+
+
+        // child.addEventListener('click', function(e) {
+        //     console.log(e);
+            
+        //     alert(
+        //         "Child clicked\n" + "the id is " + e.target.id + "\n" + this.id
+        // )
+        // })
+
+        
+    </script>
+</body>
+</html>

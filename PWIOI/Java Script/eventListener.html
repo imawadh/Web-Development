@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener </title>
+</head>
+<body>
+
+    <button onclick="fun()">Click Me</button>
+    <br>
+    <br>
+
+    <div id="mydiv" onclick="ChangeColor();">
+        Change Color
+    </div>
+
+    <br>
+    <br>
+
+    <div id="anotherDiv">
+        Change Color Using Event Listener 
+    </div>
+
+    <div id="div3">
+        Click Me to Change to Hello 
+    </div>
+
+    <br>
+    <br>
+    <div>
+        GrandParent
+        <div>
+            Parent 
+            <div>
+                Child
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fun(){
+            alert("Hello I am Alert !")
+        }
+        function ChangeColor(){
+            document.getElementById("mydiv").style.color="red";
+        }
+
+        const Change = document.querySelector("#anotherDiv");
+        Change.addEventListener("click",()=>Change.style.color="blue");
+
+
+        document.querySelector("#div3").addEventListener("click",function(){
+            document.querySelector("#div3").innerHTML="Hello";
+        });
+
+
+
+    </script>
+
+</body>
+</html>
