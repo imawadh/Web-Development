@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #bef1fa;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .calculator {
+            width: 100%;
+            max-width: 500px; 
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        
+        .calculator-screen {
+            width: 100%;
+            height: 80px;
+            text-align: right;
+            font-size: 2.5em;
+            padding: 15px;
+            background-color: #212121;
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        
+        .calculator-button {
+            width: 100%;
+            height: 70px;
+            font-size: 2em;
+            margin: 10px 0;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .calculator-button:hover {
+            background-color: #15ff00;
+            transform: scale(1.05);
+        }
+
+        
+        .operator {
+            background-color: #ff8c00;
+            color: #fff;
+        }
+
+      
+        .equal {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        
+        .clear {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+      
+        @media (max-width: 600px) {
+            .calculator {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .calculator-screen {
+                font-size: 2.2em;
+                height: 70px;
+                padding: 10px;
+            }
+
+            .calculator-button {
+                font-size: 1.6em;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .calculator-screen {
+                font-size: 1.8em;
+                height: 60px;
+                padding: 8px;
+            }
+
+            .calculator-button {
+                font-size: 1.4em;
+                height: 55px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="calculator">
+    <div class="calculator-screen" id="screen"></div>
+    <div class="calculator-buttons">
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('7')">7</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('8')">8</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('9')">9</button>
+        <button class="btn btn-warning calculator-button operator" onclick="appendToScreen('/')">/</button>
+
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('4')">4</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('5')">5</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('6')">6</button>
+        <button class="btn btn-warning calculator-button operator" onclick="appendToScreen('*')">*</button>
+
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('1')">1</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('2')">2</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('3')">3</button>
+        <button class="btn btn-warning calculator-button operator" onclick="appendToScreen('-')">-</button>
+
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('0')">0</button>
+        <button class="btn btn-light calculator-button" onclick="appendToScreen('.')">.</button>
+        <button class="btn btn-primary calculator-button equal" onclick="calculate()">=</button>
+        <button class="btn btn-warning calculator-button operator" onclick="appendToScreen('+')">+</button>
+
+       
+        <button class="btn btn-danger calculator-button clear" onclick="clearScreen()">C</button>
+        <button class="btn btn-secondary calculator-button" onclick="backspace()">←</button>
+        <button class="btn btn-warning calculator-button operator" onclick="appendToScreen('%')">%</button>
+        <button class="btn btn-info calculator-button operator" onclick="sqrt()">√</button> 
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+function appendToScreen(value) {
+    document.getElementById("screen").innerText += value;
+}
+
+
+function clearScreen() {
+    document.getElementById("screen").innerText = '';
+}
+
+
+function calculate() {
+    let screen = document.getElementById("screen");
+    let result = screen.innerText;
+
+    try {
+        if (result.includes('/')) {
+            let parts = result.split('/');
+            if (parts[1] == '0') {
+                screen.innerText = 'undefined'; 
+                return;
+            }
+        }
+        
+        screen.innerText = eval(result);
+    } catch (error) {
+        screen.innerText = 'Error';
+    }
+}
+
+
+function backspace() {
+    let screen = document.getElementById("screen");
+    screen.innerText = screen.innerText.slice(0, -1); 
+}
+
+
+function percentage() {
+    let screen = document.getElementById("screen");
+    let expression = screen.innerText;
+    if (expression) {
+        let parts = expression.split('%');
+        if (parts.length === 2) {
+            let percentage = parseFloat(parts[0]) / 100;
+            let total = parseFloat(parts[1]);
+            screen.innerText = percentage * total;
+        }
+    }
+}
+
+
+function sqrt() {
+    let screen = document.getElementById("screen");
+    let currentInput = screen.innerText;
+
+    if (currentInput && !isNaN(currentInput)) {
+        screen.innerText = Math.sqrt(parseFloat(currentInput)).toFixed(4); 
+    } else {
+        screen.innerText = 'Error'; 
+    }
+}
+</script>
+
+</body>
+</html>
