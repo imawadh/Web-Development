@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="container">
+        <p>This is a <span style="display: none;">hidden</span> word.</p>
+        <p>Another line </p>
+    </div>
+    
+    <button type="button" onclick="showWord()">Delete Record</button>
+    <script type="text/javascript">
+        function showWord(){
+            console.log(document.getElementById("container").innerText);// It doesn't show hidden text and no indentation 
+
+            
+            console.log(document.getElementById("container").textContent);
+        }
+    </script>
+</body>
+</html>

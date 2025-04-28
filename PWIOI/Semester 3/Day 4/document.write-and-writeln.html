@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello user</h1>
+    <button type="button" onclick="addContent()">Add Content</button>
+    <!-- <script type="text/javascript">
+        function addContent(){
+            document.write("Welcome to the world of JavaScript..\n") // Backslash n ha sno effect here 
+            document.write("Welcome to the world of JavaScript.. <br>")
+            // To bring content  to the next line we use <br>
+            document.writeln("Hello World ")
+            document.writeln("<br> Awadh")
+            // Practically there is no difference between document.write and document.writeln()
+
+        }
+    </script> -->
+    <!---->
+    <script type="text/javascript">
+        function addContent(){
+            h1 = document.createElement("h1");
+            h1.textContent = "Welcome to the world of JavaScript";
+            body = document.body;
+            body.appendChild(h1);
+
+        }
+    </script>
+</body>
+</html>

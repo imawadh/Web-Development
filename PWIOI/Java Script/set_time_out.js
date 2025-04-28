@@ -4,3 +4,6 @@ setTimeout(()=>{
 setTimeout(() => {
     console.log("Kishor")
 }, 1000);
+
+
+// setTimeout(callback, delay); here dealy is in millisecond

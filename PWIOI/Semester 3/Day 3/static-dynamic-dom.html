@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="box">
+        <p class="item">Item 1</p>
+        <p class="item">Item 2</p>
+        <p class="item">Item 3</p>
+        <p class="item">Item 4</p>
+    </div>
+    <button type="button" onclick="add()">Add</button>
+    <script type="text/javascript">
+        lengthByQuerySelector = document.querySelectorAll(".item");
+        lengthByTagSelector = document.getElementsByClassName("item");
+        function add(){
+            div = document.querySelector("div");
+
+            console.log(lengthByQuerySelector)
+            console.log(lengthByTagSelector)
+
+            pElement = document.createElement("p");
+            pElement.className = "item";
+            pElement.textContent = "Item 5";
+            div.appendChild(pElement);
+
+            console.log("Length by Query Selector ",lengthByQuerySelector.length);
+            console.log("Length by tag Selector ",lengthByTagSelector.length);
+        }
+        
+    </script>
+</body>
+</html>
