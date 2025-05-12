@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
+
+    <script type="text/javascript">
+      
+        function changeFont(){
+            const fontSize = document.getElementById("fntSize");
+            const sampleText = document.getElementById("sampleText");
+            console.log("Hello");
+            console.log(sampleText);
+            sampleText.style.color = "red";
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="properties">
+        <dl class="d-flex justify-content-around align-items-center">
+            <!-- Font Size -->
+            <div>
+                <dt>Font Size</dt>
+                <dd>
+                    1
+                    <input type="range" name="" id="fntSize" min="1" max="7" onchange="changeFont()">
+                    7
+                </dd>
+            </div>
+            <!-- Color Picker-->
+            <div>
+                <dt>Color</dt>
+                <dd>
+                    <input type="color" name="" id="">
+                </dd>
+            </div>
+            <!-- Font Style -->
+             <div>
+                <dt>Style</dt>
+                <dd>
+                    <select class="form-select">
+                        
+                        <option value="bold" selected>Bold</option>
+                        <option value="italic">Italic</option>
+                        <option value="underline">Uderline</option>
+                      </select>
+                </dd>
+                
+             </div>
+             <!--Align-->
+             <div>
+                <dt>Align</dt>
+                <dd>
+                    <button class="btn btn-primary">Left</button>
+                    <button class="btn btn-warning">Center</button>
+                    <button class="btn btn-success">Right</button>
+                </dd>
+                
+             </div>
+            
+        </dl>
+
+        <p id="sampleText">Sample Text</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <script type="text/javascript">
+      const frm = document.getElementById("frm");
+      const switchButton = document.getElementById("switchCheck");
+      if (switchButton.checked) {
+        frm.className = "bg-dark";
+      }
+    </script>
+  </head>
+  <body class="p-3 d-flex justify-content-center align-items-center m-5">
+    <div class="border rounded-2 border-2 p-3">
+      <form id="frm" class="bg-light text-dark">
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="switchCheck"
+          />
+          <span>Dark Theme</span>
+        </div>
+
+        <h2>User Login</h2>
+
+        <dl>
+          <dt>User Name</dt>
+          <dd>
+            <input type="text" />
+          </dd>
+          <dt>Password</dt>
+          <dd>
+            <input type="password" />
+          </dd>
+        </dl>
+      </form>
+      <br />
+      <div>
+        <button class="btn btn-dark w-100" id="btnLogin">Login</button>
+      </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

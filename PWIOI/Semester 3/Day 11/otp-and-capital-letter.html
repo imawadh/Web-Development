@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function validateOTP(){
+            const otpEntered = document.getElementById("otp");
+            if(otpEntered.value==="1234"){
+                console.log("Correct OTP");
+            }
+            else{
+                console.log("Invalid OTP");
+            }
+        }
+
+        function upperCaseName(){
+            const userName = document.getElementById("txtName");
+            userName.value = userName.value.toUpperCase();
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>
+            UserName
+        </dt>
+        <dd>
+            <input type="text" id="txtName" placeholder="ENTER IN UPPERCASE" onblur="upperCaseName()">
+        </dd>
+        <dt>
+            Password
+        </dt>
+        <dd>
+            <input type="txt" id="otp" onblur="validateOTP()">
+            
+        </dd>
+    </dl>
+</body>
+</html>
