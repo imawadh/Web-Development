@@ -9,14 +9,72 @@
 
     <script type="text/javascript">
       
-        function changeFont(){
-            const fontSize = document.getElementById("fntSize");
+        function changeFontSize(){
+            const fontSize = document.getElementById("fntSize").value;
             const sampleText = document.getElementById("sampleText");
-            console.log("Hello");
-            console.log(sampleText);
-            sampleText.style.color = "red";
+            // Convert range value (1-7) to a reasonable px value
+            const pxSize = 12 + (parseInt(fontSize) * 6); // This will give range from 18px to 54px
+            sampleText.style.fontSize = pxSize + "px";
 
         }
+        function changeFontColor(){
+            // const color = document.getElementById("colorPicker").value;
+            // const sampleText = document.getElementById("sampleText");
+            // sampleText.style.color = color;
+            const color = document.getElementById("colorPicker").value;
+            const sampleText = document.getElementById("sampleText");
+            sampleText.style.color = color; 
+        }
+
+        function fontStyleChange(){
+            const style = document.getElementById("fontStyle").value;
+            const sampleText = document.getElementById("sampleText");
+
+            if (style === "bold") {
+                sampleText.style.fontWeight = "bold";
+                sampleText.style.fontStyle = "normal"; // Reset italic if it was applied
+                sampleText.style.textDecoration = "none"; // Reset text decoration
+            } 
+            else if (style === "italic") {
+              sampleText.style.fontStyle = "italic";
+              sampleText.style.fontWeight = "normal"; // Reset bold if it was applied
+              sampleText.style.textDecoration = "none"; // Reset text decoration
+            } 
+            else if (style === "underline") {
+              sampleText.style.textDecoration = "underline";
+              sampleText.style.fontWeight = "normal"; // Reset bold
+              sampleText.style.fontStyle = "normal"; // Reset italic
+            } 
+            else if (style === "overline") {
+              sampleText.style.textDecoration = "overline";
+              sampleText.style.fontWeight = "normal"; // Reset bold
+              sampleText.style.fontStyle = "normal"; // Reset italic
+            } 
+            else if (style === "line-through") {
+              sampleText.style.textDecoration = "line-through";
+              sampleText.style.fontWeight = "normal"; // Reset bold
+              sampleText.style.fontStyle = "normal"; // Reset italic
+            } 
+            else {
+              // Handle default or no style
+              sampleText.style.fontWeight = "normal";
+              sampleText.style.fontStyle = "normal";
+              sampleText.style.textDecoration = "none";
+            }
+        }
+        function alignCenter(){
+            const sampleText = document.getElementById("sampleText");
+            sampleText.className = "text-center";
+        }
+        function alignRight(){
+            const sampleText = document.getElementById("sampleText");
+            sampleText.className = "text-end";
+        }
+        function alignLeft(){
+            const sampleText = document.getElementById("sampleText");
+            sampleText.className = "text-start";
+        }
+        
 
     </script>
 </head>
@@ -28,7 +86,7 @@
                 <dt>Font Size</dt>
                 <dd>
                     1
-                    <input type="range" name="" id="fntSize" min="1" max="7" onchange="changeFont()">
+                    <input type="range" name="" id="fntSize" min="1" max="7" onchange="changeFontSize()">
                     7
                 </dd>
             </div>
@@ -36,18 +94,21 @@
             <div>
                 <dt>Color</dt>
                 <dd>
-                    <input type="color" name="" id="">
+                    <input type="color" name="" id="colorPicker" onchange="changeFontColor()">
                 </dd>
             </div>
             <!-- Font Style -->
              <div>
                 <dt>Style</dt>
                 <dd>
-                    <select class="form-select">
-                        
-                        <option value="bold" selected>Bold</option>
+                    
+                    <select id="fontStyle" onchange="fontStyleChange()">
+                        <option value="">Normal</option>
+                        <option value="bold">Bold</option>
                         <option value="italic">Italic</option>
-                        <option value="underline">Uderline</option>
+                        <option value="underline">Underline</option>
+                        <option value="overline">Overline</option>
+                        <option value="line-through">Line-through</option>
                       </select>
                 </dd>
                 
@@ -56,16 +117,18 @@
              <div>
                 <dt>Align</dt>
                 <dd>
-                    <button class="btn btn-primary">Left</button>
-                    <button class="btn btn-warning">Center</button>
-                    <button class="btn btn-success">Right</button>
+                    <button class="btn btn-primary" onclick="alignLeft()">Left</button>
+                    <button class="btn btn-warning" onclick="alignCenter()">Center</button>
+                    <button class="btn btn-success" onclick="alignRight()">Right</button>
                 </dd>
                 
              </div>
             
         </dl>
-
-        <p id="sampleText">Sample Text</p>
+        <div class="m-3 p-2 border border-2 border-dark rounded-3 mx-auto bg-dark-subtle" style="width:50%;">
+            <p id="sampleText" class="text-end">Hello World</p>
+        </div>
+        
 
     </div>
 </body>

@@ -48,6 +48,8 @@ String Formatting Methods in javascript ::
     4. fontColor(string)    ::  string(return type)
     5. toUpperCase()        ::  string(return type)
 
+    
+
 e.g: 
 
     let str = "sachin";
@@ -61,7 +63,26 @@ e.g:
     // If we same return return of methods we can appply method chaining 
     document.write(str.toUpperCase().bold().fontColor('red'))
 
+Some Other Methods on String Objact :: 
 
+    6. startsWith(string)   ::  boolean(return type , it is case sensitive)
+    7. endsWith(string)     ::  boolean(return type , it is case sensitive)
+
+    e.g; 
+        let str = "sachin@gmail.com"
+        console.log(str.endsWith("@gmail.com")) // True
+        console.log(str.endsWith("@GMAIL.COM")) // False
+
+        let str = "IPL2025"
+        console.log(str.startsWith("IPL")) // True
+        console.log(str.startsWith("ipl")) // False
+
+    8. charAt(index)        :: Object(Single Data)
+    9. charCodeAt(index)    :: Object(Single Data)
+
+    Note :: 
+        ASCII of a-z = 97 to 122 
+        ASCII of A-Z = 65 60 90
 
 
 ================================================================================================================

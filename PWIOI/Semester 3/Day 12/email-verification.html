@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script type="text/javascript">
+        function emailVerify(){
+            const email = document.getElementById("userEmail");
+            const msg = document.getElementById("err-msg");;
+            let flag = email.value.indexOf('@');
+            if(flag==-1){
+                msg.innerHTML = "Invalid Email".fontcolor("red").bold();
+            }
+            else{
+                flag = email.value.endsWith("@gmail.com");
+                if(flag){
+                    msg.innerHTML = "Valid Email".fontcolor("green").bold();
+                }
+                else{
+                    msg.innerHTML = "Only Gmail is Allowed ".fontcolor("red").bold();
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <dl class="p-4">
+        <dt>User Email</dt>
+        <dd>
+            <input type="text" id="userEmail" onblur="emailVerify()">
+        </dd>
+        <dd id="err-msg">
+
+        </dd>
+    </dl>
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
