@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        function a(){
+            var b = 3;
+            console.log(c);
+            c();// This will not give error in case of hoisting variable expression and arrow function gives error 
+            function c(){
+                console.log(b);
+                console.log(z);
+                d();
+            }
+            function d(){
+                var val = 90;
+                console.log("I am D function");
+                console.log(val);
+                
+            }
+        }
+        var z = 100;
+        a();
+        console.log(b);
+        
+    </script>
+</head>
+<body>
+    Hello
+</body>
+</html>

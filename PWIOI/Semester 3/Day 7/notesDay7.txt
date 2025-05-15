@@ -1,0 +1,61 @@
+var : It supports hoisting
+
+================================================================================================================
+
+Hoisting :
+        It is a phenomenon in js where variables and functions can be used without initialisation.
+        If var variable holds function expression | arrow function then such variables cann't be used without initialisation, if we try to use it, it would result in 'Type Error'.
+
+================================================================================================================
+
+Basics of Function :: 
+
+Four Different Types of Function :::: 
+        NO Parameter and No Return Type
+        NO Parameter and Return Type
+        Parameter and No Return Type
+        Parameter and Return Type
+
+
+    
+
+
+================================================================================================================
+
+Lexical Environment and Scope Chain :: 
+        Lexical Environment  :: Memory of the container + Memory of Parent Conatiner
+
+        Scope Chain :: It refers to chain of lexical environment to identify the variable|functions to access
+
+
+
+=====================================================================================
+        
+var :
+  It supports hoisiting with 'undefined' as the result
+  Redeclaring the same variable is possible.
+  Reassignment of value to a variable is possible.
+  It is a function scope variable.
+  It supports shadowing.
+ 
+let : 
+  It supports hoisting[Variable would be in Temporal Dead Zone: it can't be used without initializing]
+  If we try to use the variable present in Temporal Dead Zone, then it would result in 
+		ReferenceError : variable can't be accesed without initialization.
+
+  redeclaring the same variable is not possible.
+  Reassignment of value to a variable is possible.
+  They are block scope variable [Can't be used outside the block]
+  It supports shadowing[Redeclaring the same variable in different scope]
+
+
+const : 
+  It supports hoisting[Variable would be in Temporal Dead Zone: it can't be used without initializing]
+  redeclaring the same variable is not possible
+  ReAssignment of value to a varialbe is also not possible[It result in TypeError]
+  They are block scope variable [Can't be used outside the block]   
+  It supports shadowing[Redeclaring the same variable in different scope]
+
+    
+==================================================================================
+location is part of window object 
