@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="p-4">
+    <p id="msg">
+
+    </p>
+    <script type="text/javascript">
+        let str = prompt("Enter the User Email :: ",'sachin@gmail.com');
+
+        let userName = str.substring(0,str.indexOf('@'));
+        let domainName = str.substring(str.indexOf('@')+1);
+
+        const msg = document.getElementById("msg");
+        msg.innerHTML = `User name is <b>${userName}</b> <br> Domain Name is <b>${domainName}</b>`;
+        msg.style.color = "red";
+        msg.style.fontFamily = "Algerian";
+    </script>
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

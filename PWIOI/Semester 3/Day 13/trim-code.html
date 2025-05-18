@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function addName(){
+            let userName = document.getElementById("textUserName");
+            let nameOfUser = userName.value.trim();
+            if(nameOfUser==""){
+                let msg = document.getElementById("msg");
+                msg.textContent = "Enter the Name Please ::: ";
+                msg.style.color = "red";
+                
+            }
+            else{
+                let ul = document.getElementById("list-items");
+                let li = document.createElement("li");
+                li.textContent = nameOfUser.toUpperCase();
+                ul.appendChild(li);
+                let msg = document.getElementById("msg");
+                msg.textContent = "";
+                userName.value = '';
+                userName.focus();
+                document.getElementById("addItemBtn").disabled = true;
+                document.getElementById("resetBtn").disabled = false;
+                document.getElementById("deleteItem").disabled = false;
+            }
+            
+            
+        }
+        function resetList(){
+            let ul = document.getElementById("list-items");
+            ul.innerHTML = '';
+            document.getElementById("resetBtn").disabled = true;
+            document.getElementById("deleteItem").disabled = true;
+        }
+        function toggleButton(){
+            document.getElementById("addItemBtn").disabled = false;
+        }
+
+        function disableBtn(){
+            document.getElementById("addItemBtn").disabled = true;
+            document.getElementById("resetBtn").disabled = true;
+            document.getElementById("deleteItem").disabled = true;
+
+        }
+
+        function deleteItem(){
+            let listItem = document.getElementById("list-items");
+            listItem.removeChild(listItem.lastElementChild);
+            
+            if(listItem.childElementCount==0){
+                document.getElementById("deleteItem").disabled = true;
+                document.getElementById("resetBtn").disabled = true;
+            }
+
+        }
+
+    </script>
+</head>
+<body class="p-4" onload="disableBtn()">
+    <div>
+        <input class="form-control-sm" type="text" name="" id="textUserName" placeholder="Enter Your Name " oninput="toggleButton()">
+        <button  onclick="addName()" id="addItemBtn">Add to list</button>
+        <button  onclick="resetList()" id="resetBtn">Reset list</button>
+        <button  onclick="deleteItem()" id="deleteItem">Delete Item</button>
+    </div>
+    <div id="msg">
+
+    </div>
+    <ul id="list-items">
+
+    </ul>
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

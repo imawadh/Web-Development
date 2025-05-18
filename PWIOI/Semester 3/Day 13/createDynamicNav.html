@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="p-3">
+    
+
+    <script type="text/javascript">
+        let details = "Home|About|Contact|Support";
+        let items = details.split("|");
+        let ul = document.createElement("ul");
+        let val = function(item){
+            let li = document.createElement("li");
+            li.textContent = item.toUpperCase();
+            
+            ul.appendChild(li);
+        }
+        items.forEach(val);
+        let body = document.body;
+        body.appendChild(ul);
+
+    </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

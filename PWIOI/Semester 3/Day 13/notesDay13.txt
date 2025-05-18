@@ -1,0 +1,57 @@
+=====================================================================================
+Methods of string object ::
+    1. toUpperCase() 
+
+
+
+
+
+
+
+split() --> 
+    It is used to split the given string based on delimeter 
+    It accepts two arguments 
+        a. delimeter :: string
+        b. number    :: limit (Number of elements that the split should happen)
+    
+    Syntax :: 
+        split(string|regEx,number) : string[]
+
+
+
+    CornerCases ::: 
+        "".split()                      ==== ['']
+        "".split("")                    ==== []
+        "hello,User".split()            ==== ['hello,user']
+        "hello,User".split(undefined)   ==== ['hello,user']
+        "hello,User".split(null)        ==== ['hello,user']
+        "hello,User".split('',0)        ==== []
+        "P,W,,".split('')               ==== ['P','W','','']
+        "P,W,".split('')                ==== ['P','W','']
+        "Virat".split('')               ==== ['V','i','r','a','t']
+
+        
+
+    
+
+================================================================================================================
+NOTE :::
+        In JavasCript we can use condition statemants on Methods|properties while returns 'object|null'
+        This is possible because by default js uses the following condition to process instruction ... 
+
+            if(something!=null){
+                // Truthy Values 
+            }
+            else{
+                // Falsly Vlaues 
+            }
+
+        e.g; 
+
+            let str = ''.someMethod(input);// object|null
+            if(str){                                        ====>        if(str!=null){
+                // process for true code                                 
+            }                                                            }                    
+            else{                                                        else{
+                // process for flase code           
+            }                                                            }
