@@ -1,6 +1,13 @@
 =====================================================================================
 Methods of string object ::
-    1. toUpperCase() 
+    a. toUpperCase()       : string
+    b. startsWith(string)  : boolean
+    c. endsWith(string)    : boolean
+    d. charAt(number)      : string
+    e. charCodeAt(number)  : number
+    f. indexOf(string)     : number( -1 : not found , otherwise returns the index)
+    g. slice([number],[number]) : string 
+    h. substring([number],[number]) : string
 
 
 
@@ -31,12 +38,21 @@ split() -->
         "Virat".split('')               ==== ['V','i','r','a','t']
 
         
+===============================================================================================
+trim()
+   It is used to remove trailing and leading space of the data
+    e.g: 
+        let str='   sachin ramesh tendulkar  '
+        console.log(str,str.length) // sachin ramesh tendulkar   28
 
+
+        let str='   sachin ramesh tendulkar  '
+        console.log(str.length,str.trim(),str.trim().length) // 28 'sachin ramesh tendulkar' 23
     
 
 ================================================================================================================
 NOTE :::
-        In JavasCript we can use condition statemants on Methods|properties while returns 'object|null'
+        In Javascript we can use condition statemants on Methods|properties while returns 'object|null'
         This is possible because by default js uses the following condition to process instruction ... 
 
             if(something!=null){
@@ -55,3 +71,4 @@ NOTE :::
             else{                                                        else{
                 // process for flase code           
             }                                                            }
+===============================================================================================================

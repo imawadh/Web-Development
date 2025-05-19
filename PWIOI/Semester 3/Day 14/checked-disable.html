@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function disableEnableInput(){
+            const userName = document.getElementById("txtUserName");
+            const msg = document.getElementById("msg");
+            const checkbox = document.getElementById("checkbox");
+            if(checkbox.checked){
+                userName.disabled = true;
+                msg.innerHTML = `The entered name is :: ${userName.value}`;
+            }
+            else{
+                userName.disabled = false;
+                msg.innerHTML = '';
+
+            }
+        }
+    </script>
+</head>
+<body class="p-5">
+    <input type="checkbox" name="" id="checkbox" onchange="disableEnableInput()"> Enable | Diasable 
+    <dl>
+        <dt>UserName</dt>
+        <dd>
+            <input type="text" name="" id="txtUserName">
+        </dd>
+        <dd id="msg">
+
+        </dd>
+    </dl>
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+
+        function toggleButton(){
+            const btn = document.getElementById("btnSort");
+            btn.className = btn.className == "bi bi-sort-alpha-down" ? "bi bi-sort-alpha-up" : "bi bi-sort-alpha-down" ;
+        }
+
+
+        function changeStatus(){
+            const msg = document.getElementById("msg");
+            const checkbox = document.getElementById("statusCheck");
+            let status = checkbox.checked ? "In Stock" :"Out of Stock";
+            msg.innerHTML = status;
+        }
+
+        
+        function changeImgStatus(){
+            const btn = document.getElementById("hideShowImg");
+            btn.textContent = btn.textContent == "Hide" ?"Show": "Hide";
+
+            const img = document.getElementById("imageBahubali");
+            img.style.display = img.style.display=="none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body class="p-3">
+    <!-- <span class="bi bi-arrow-90deg-up"></span> -->
+    
+    <h2 class="text-center pt-3 text-danger">Program 1</h2>
+    <div class="mt-3 p-3 border border-3 border-dark">
+        <button class="bi bi-sort-alpha-down" type="button" id="btnSort" onclick="toggleButton()"></button>
+    </div>
+
+
+
+    <h2 class="text-center pt-3 text-danger">Program 2</h2>
+    <div class="mt-3 p-3 border border-3 border-dark">
+        <input type="checkbox" name="" id="statusCheck" onchange="changeStatus()">
+        <span id ='msg'>
+            Out Of Stock
+        </span>
+    </div>
+
+
+
+    <h2 class="text-center pt-3 text-danger">Program 3</h2>
+    <div class="mt-3 p-3 border border-3 border-dark">
+        <button type="button" id="hideShowImg" onclick="changeImgStatus()"> Show </button>
+        <br> <br>
+        <img src="../public/images/babubali.jpeg" alt="" width="100" height="100" style="display: none;" id="imageBahubali">
+    </div>
+
+    <div>
+
+    </div>
+
+
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

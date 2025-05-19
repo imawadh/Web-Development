@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function validatePwd(){
+            let pwd = document.getElementById("pwd");
+            let cnfpwd = document.getElementById("cnfPwd");
+            let msg = document.getElementById("msg");
+            msg.innerHTML = (pwd.value === cnfpwd.value) ? "Password Matched" : "Password Mismatched";
+            msg.style.color = (msg.textContent == "Password Matched") ? "green" : "red";
+            
+        }
+    </script>
+</head>
+<body class="p-4">
+    <dl>
+        <dt>Password</dt>
+        <dd>
+            <input type="password" id="pwd">
+        </dd>
+        <dt>Confirm Password</dt>
+        <dd>
+            <input type="password"  id="cnfPwd" onkeyup="validatePwd()">
+        </dd>
+    </dl>
+    <p id="msg"></p>
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

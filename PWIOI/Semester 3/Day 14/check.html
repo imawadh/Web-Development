@@ -7,19 +7,14 @@
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <script type="text/javascript">
-        let obj1 = { name: "Alice" };
-        let obj2 = obj1; // Copies the reference (not the object)
-        console.log(obj1.name); // Alice 
-        console.log(obj2.name); // Alice 
-        obj2.name = "Bob";
-
-        console.log(obj1.name); // "Bob" (changed!)
-        console.log(obj2.name); // "Bob"
+        let str = '1234567890';
+        let matchInput = /^\d{10}$/ // # forward carat backward d curly 10 curly end dollar fowward
+        console.log(str.match(matchInput)); 
     </script>
 </head>
 <body>
     
-    Hello 
+
     
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
