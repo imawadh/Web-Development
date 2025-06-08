@@ -37,6 +37,9 @@ split() -->
         "P,W,".split('')                ==== ['P','W','']
         "Virat".split('')               ==== ['V','i','r','a','t']
 
+    The array may contain fewer entries than limit if the end of the string is reached before the limit is reached.
+    
+    If limit is 0, [] is returned.
         
 ===============================================================================================
 trim()

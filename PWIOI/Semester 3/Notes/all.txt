@@ -1,0 +1,70 @@
+Day 1
+    ===============================================================================
+    JavaScript is light weight Interpreted and Just-in-Time Compiled programming language.
+
+    Light weight refers to memory occupied and how heavy the application is.
+
+    Interpreted refers to line by line translation.
+
+    Compiled refers to translating entire program, all lines of program are translated simultaneously at the same time.
+    	a) JIT compiled
+    	b) AOT compiled
+
+    JIT [Just-in-Time]  is the process where JavaScript is loaded into browser and compiled in browser
+    			[This happens when the user sends the request].
+
+    AOT [Ahead-of-Time] is the process where JavaScript is compiled and processed at application level.
+    			[Even before the request comes this process would happen]
+
+    We can use various engines and compilers
+    a) Ivy
+    b) Babel
+    c) Node
+    d) V8
+
+    JavaScript supports various programming techniques and approaches
+    	a) Structural Programming
+    	b) Functional Programming
+    	c) Imperative Programming
+    	d) Object Oriented Programming etc..
+
+    Note: JavaScript is not an OOP language, It supports only few features of OOP.
+
+    JavaScript is a programming language, which is used at different layers of our projects
+    a) Client Side  	: with HTML
+    b) Server Side  	: with Node JS
+    c) Database     	: MongoDB
+    d) Animation Tools 	: Flash, 3DS Max, etc..
+
+
+
+    Frontend ==============> Backend =============> Database
+      React[js]                Node.js                  Mongodb[js]
+                               express.js
+
+
+    FAQ: 
+      1. What are the issues with javascript?
+    ans.   a = 10;	     javascript is not "strongly" typed [ no datatypes on a variable]
+    	a = "sachin";
+    	a = false;
+    	a = 13.5;
+
+    	javascript is not "strictly" typed 
+    		[ without declaring the variable it permits us to use]
+    	"use strict"; 
+    	a = 10;
+
+    	javascript doesn't restrict to control the data in uniform manner.
+    	[
+    		{
+    			Name : "samsung", price: 45000
+    		},
+    		{
+    			Product : "LG", cost : 55000
+    		}
+    	]
+
+    	JavaScript is not secured and it can be blocked by browser.
+    	eg:: Trojan    [install this virus in one computer we can control that device:: Bad approach].
+    	     TeamViewer[install this software so we can control the device for installing softwares: Good approach].

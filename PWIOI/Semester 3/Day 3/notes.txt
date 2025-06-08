@@ -51,7 +51,7 @@ Ans. Older version of javascript added methods like
 
 
 Accessing the elements using getElementsByTagName() : HTMLCollection(Live)
-=========================================================================
+=================================================================================
 <!DOCTYPE html>
 <html lang="en">
 <head>

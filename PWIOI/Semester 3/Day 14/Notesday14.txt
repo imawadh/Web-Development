@@ -3,15 +3,15 @@
 methods w.r.t string
     a. toUpperCase()	: string
     b. toLowerCase()	: string
-    c. charAt()		: string
-    d. charCodeAt()        : number
+    c. charAt()		    : string
+    d. charCodeAt()     : number
     e. indexOf()		: number
-    f. slice() 		: string
+    f. slice() 		    : string
     g. substring()		: string
     h. startsWith() 	: boolean
     i. endsWith()		: boolean
-    k. trim()		: string
-    l. split()		: string[] | null
+    k. trim()		    : string
+    l. split()		    : string[] | null
 
 
 ================================================================================================
