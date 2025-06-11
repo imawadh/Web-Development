@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            height: 50px;
+            width: 50px;
+            border: 1px solid black;
+            padding: 3px;
+            margin: 3px;
+        }
+/* By default position of each item static means we can not apply top bottom left right and z-index we can verify it from inspect section */
+
+/*
+Relative ::: 
+        it means that how should it behave from its original postion(static in nature) wale position se , he we can apply top left right nad bootm property...
+*/
+/*
+Absolute ::: 
+        It behaves like relative to nearest parent ancestor ..... 
+*/
+
+
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color:yellow;
+            position: relative;
+            top: -45px;
+            left: 45px;
+            z-index: -1;
+        }
+        .box3{
+            background-color: green;
+        }
+        .box4{
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+</body>
+</html>

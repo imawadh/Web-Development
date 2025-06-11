@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadData()">
+    <script type="text/javascript">
+        async function loadData(){
+            try{
+                const URL = 'data/products.json';
+                    console.log("Data is loaded through", URL);
+
+                let response = await fetch(URL);
+                let products = await response.json();
+
+                console.log(Object.keys(products))
+
+                Object.keys(products).forEach((key)=>{
+                    console.log(key);
+                })
+                
+                // Number of key 
+                console.log("*********Before Deleting ************");
+                console.log(`The number of keys in ${Object.keys(products).length}`);
+                
+                // Type of Value of Key 
+                Object.keys(products).forEach((key)=>{
+                    console.log(`The type of value of ${key} is ${typeof products[key]}`);
+                })
+                
+                // Deleting the key dynamically from object 
+                delete products["Rating"]
+                // Number of key 
+                console.log("*********After Deleting ************");
+                console.log(`The number of keys in ${Object.keys(products).length}`);
+                Object.keys(products).forEach((key)=>{
+                    console.log(`The type of value of ${key} is ${typeof products[key]}`);
+                })
+
+                // delete products["stok"] --> if key not there in the objcet if we try to delete it would just neglect this line .... 
+
+                
+
+                // Availability of Key 
+
+                if('stock' in products){
+                    console.log(`Data is ${products['stock']}`);
+                }
+                else{
+                    console.log("Data is not present ... ");
+                    
+                }
+
+            } catch (error) {
+                console.log("Error : ", error);
+            }
+            
+        }
+    </script>
+</body>
+</html>

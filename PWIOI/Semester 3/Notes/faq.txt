@@ -1,0 +1,11 @@
+1. How to read all the keys from object ?
+    sol.  object.keys(objectName)
+
+2. How to know the datatype of value in a key ?
+
+
+3. How to get the count of keys in a object ?
+
+
+4 . How to remove the key dynamically ? 
+

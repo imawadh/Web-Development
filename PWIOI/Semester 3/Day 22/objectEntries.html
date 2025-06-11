@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadData()">
+
+
+
+    <script type="text/javascript">
+        async function loadData(){
+            try{
+                const URL = 'data/products.json';
+                    console.log("Data is loaded through", URL);
+
+                let response = await fetch(URL);
+                let products = await response.json();
+
+                console.log(products);
+
+                // Value Printing 
+                console.log(Object.values(products));
+
+                // Enteries Printing 
+                console.log(Object.entries(products));
+
+                // Only Value printing from Object.enteries
+                // Using For of loop   
+                for ( const[key,value] of Object.entries(products)){
+                    console.log(`${key} ---> ${value}`);
+                }
+                
+
+            } catch (error) {
+                console.log("Error : ", error);
+            }
+            
+        }
+    </script>
+</body>
+</html>
