@@ -1,3 +1,99 @@
+
+FAQ 1:::
+     1.   What is the MIME type for script?	
+		Ans.    <script type='text/javascript'> :: bulk loading
+			<script type='text/module'>     :: module based loading(performance is high)
+		
+
+		 2.   What is difference between script in head and body?
+		Ans. head ---> script would be loaded into browser memory and later used in the page
+		     body ---> script would be loaded directly into the page and it is not a part of browser memory.
+		
+
+		 3.   How JavaScript converts Static DOM into Dynamic DOM?
+		Ans.      HTML -----> HTML parser ----> Static DOM
+		          CSS  -----> CSS  parser ----> use static DOM and change the style of an element using CSSOM.
+			  	  JS   -----> Javascript engine -----> use STATIC DOM and converts into Dynamic DOM using 'events and functions'.
+		
+		
+		
+		 4.   What is strict mode for JavaScript?
+		Ans.  without declaring a variable, if we dont' want javascript to permit the usage of variables then we need to go for "strictmode"
+			eg:: <script type="text/javascript">
+		        		"use strict";
+		        			a = 10;
+		        			console.log(a); //uncaught ReferenceError : a is not defined	
+		    	     </script>
+		
+
+		 5.   How to target JavaScript for Legacy browsers? [Old Version Browsers]
+		Ans.  Developer can target new JavaScript code to the legacy browser by enclosing the code in HTML comments.
+		
+		Syntax
+		<script type="text/javascirpt">
+			<!--
+				"use strict";
+					......
+					......
+			-->
+		</script>
+		
+		
+		 6.   How to link external javascript file to html?
+		Ans.  <script src=''>
+		      </script>
+FAQ 2:::
+    
+    -> How to convert HTMLCollection to Array?
+    Ans. arrayElements = Array.from(HtmlCollection)
+
+    a. why do we need so many methods to target HTML page using javascript ,when we can target
+	directly with single method called 'querySelectorXXX()'?
+
+    Ans. Older version of javascript added methods like
+		    getElementById(),getElementsByClassName(),getElementsByTagName(),....
+    
+    As css become popular, to give the direct support of accessing the elements using CSS
+    methods like querySelector() and querySelectorAll() were added.
+
+
+	querySelector | querySelectorAll|getElementById ===> works only for staticDOM
+	getElementsByClassName() 
+	getElementsByTagName()	====> Dynamic DOM
+ 	getElementsByName() 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. How to read all the keys from object ?
     sol.  object.keys(objectName)
 

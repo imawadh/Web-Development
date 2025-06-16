@@ -2,13 +2,15 @@ Day 1
     ===============================================================================
     JavaScript is light weight Interpreted and Just-in-Time Compiled programming language.
 
+	LIght Weight Appliaction :::-> A lightweight application refers to software that is designed to use minimal system resources such as memory (RAM), storage, and processing power.
+
     Light weight refers to memory occupied and how heavy the application is.
 
     Interpreted refers to line by line translation.
 
     Compiled refers to translating entire program, all lines of program are translated simultaneously at the same time.
-    	a) JIT compiled
-    	b) AOT compiled
+    	a) JIT compiled {Just in Time Complilation}
+    	b) AOT compiled	{Ahead of Time Complilation}
 
     JIT [Just-in-Time]  is the process where JavaScript is loaded into browser and compiled in browser
     			[This happens when the user sends the request].
@@ -23,7 +25,17 @@ Day 1
     d) V8
 
     JavaScript supports various programming techniques and approaches
-    	a) Structural Programming
+    	a) Structural Programming ---> 
+				Structured programming is a programming paradigm focused on improving the clarity, quality, and development time of a computer program by using:
+					1. Clear, well-organized control flow
+					2. Block structures
+					3. Subroutines or functions
+					4. Avoidance of unrestricted jumps like goto
+				Structured programming in C(c has goto statement) is a discipline, not a limitation of the language. You write structured code by choice, not by force.
+				--> Examples of Unstructured Programming language ----->  Cobol, Assembly, BASIC, Fortran  
+				--> Examples of Structured Programming language -----> Modern C, C++, Java, Python , JavaScript  
+
+
     	b) Functional Programming
     	c) Imperative Programming
     	d) Object Oriented Programming etc..
@@ -68,3 +80,266 @@ Day 1
     	JavaScript is not secured and it can be blocked by browser.
     	eg:: Trojan    [install this virus in one computer we can control that device:: Bad approach].
     	     TeamViewer[install this software so we can control the device for installing softwares: Good approach].
+Day 2 
+	JavaScript Client Side
+	=========================================================================================================================================
+  	a. The main purpose of JavaScript at Client side is to avoid burden on the server.
+
+  	b. It can improve the performance of the application by managing the various interactions client side.
+
+  	c. Interactions at the Client Side includes
+
+		a. DOM Manipulations
+			- Adding Elements into page
+			- Remove Elements from Page
+			- Update Data into Elements
+			- Configuring styles to elements dynamically.
+			- Configuring events to elements dynamically.
+
+		b. It is used for validations[Verify the user input]
+
+		c. Client Side 
+			- Managing Client Memory.[username and password stored in cache memory]
+			- Managing Client Devices.[Booked the ticket and now print the ticket so we don't need internet].
+			- Managing the locations of the user[websites ask for location].
+			- Sharing of data with other applications on client device.
+
+
+
+		FAQ: 
+		 1.   What is the MIME type for script?	
+		Ans.    <script type='text/javascript'> :: bulk loading
+			<script type='text/module'>     :: module based loading(performance is high)
+		
+
+		 2.   What is difference between script in head and body?
+		Ans. head ---> script would be loaded into browser memory and later used in the page
+		     body ---> script would be loaded directly into the page and it is not a part of browser memory.
+		
+
+		 3.   How JavaScript converts Static DOM into Dynamic DOM?
+		Ans.      HTML -----> HTML parser ----> Static DOM
+		          CSS  -----> CSS  parser ----> use static DOM and change the style of an element using CSSOM.
+			  	  JS   -----> Javascript engine -----> use STATIC DOM and converts into Dynamic DOM using 'events and functions'.
+		
+		
+		
+		 4.   What is strict mode for JavaScript?
+		Ans.  without declaring a variable, if we dont' want javascript to permit the usage of variables then we need to go for "strictmode"
+			eg:: <script type="text/javascript">
+		        		"use strict";
+		        			a = 10;
+		        			console.log(a); //uncaught ReferenceError : a is not defined	
+		    	     </script>
+		
+
+		 5.   How to target JavaScript for Legacy browsers? [Old Version Browsers]
+		Ans.  Developer can target new JavaScript code to the legacy browser by enclosing the code in HTML comments.
+		
+		Syntax ::
+			<script type="text/javascirpt">
+				<!--
+					"use strict";
+						......
+						......
+				-->
+			</script>
+		
+		
+		 6.   How to link external javascript file to html?
+		Ans.  <script src=''>
+		      </script>
+Day 3
+
+	1. document.getElementsByClassName()  : HTMLCollection[]
+
+	How to convert HTMLCollection to Array?
+	Ans. arrayElements = Array.from(HtmlCollection)
+    
+
+
+	Working with iterator called "forEach"
+	======================================
+	-> It can be used only on Array object.
+
+	callbackfunction = (value,index,arr) => {
+			//value 
+			//index
+			//arr
+	};
+	forEach( callbackfunction)
+
+
+	2. document.getElementsByTagName()  : HTMLCollection[]
+		Another approach to convert HTMLCollection to Array
+			[...HTMLCollection]
+
+
+	3. document.getElementsByName()     : NodeList
+		While working with NodeList,directly we can use forEach() without any conversion.
+
+
+	4. Instead of remembering all these methods, we go for a method called 
+			querySelector(cssSelector) | querySelectorAll(cssSelector)
+	    	to target the elements in a HTML Page.
+
+			querySelector(cssSelector)    : Element
+			querySelectorAll(cssSelector) : NodeList
+
+
+	FAQ: 
+	 a. why do we need so many methods to target HTML page using javascript ,when we can target
+		directly with single method called 'querySelectorXXX()'?
+
+	Ans. Older version of javascript added methods like
+			getElementById(),getElementsByClassName(),getElementsByTagName(),....
+	     As css become popular, to give the direct support of accessing the elements using CSS
+	     methods like querySelector() and querySelectorAll() were added.
+
+
+		querySelector | querySelectorAll|getElementById ===> works only for staticDOM
+		  getElementsByClassName() 
+		  getElementsByTagName()	====> Dynamic DOM
+	 	  getElementsByName() 
+
+
+
+	Accessing the elements using getElementsByTagName() : HTMLCollection(Live)
+		=========================================================================
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		</head>
+		<body>
+		    <h2>My Shopping List</h2>
+		    <ul id="shopping-list">
+		        <li>IPHONE</li>
+		        <li>ONEPLUS</li>
+		        <li>SAMSUNG</li>
+		    </ul>
+		    <button onclick="highlightItems()">Highlight Items</button>
+		</body>
+		</html>
+
+		<script type="text/javascript">
+		    function highlightItems(){
+		       let elements = document.getElementsByTagName("li")
+		       console.log(elements);
+
+		       console.log(elements);
+		       console.log(Array.from(elements))
+
+		       Array.from(elements).forEach((product,index,arr)=>{
+		            product.style.cssText = 'margin: 25px; color: green'
+		       })
+		    }
+		</script>
+
+
+
+	Difference b/w them with example
+	================================
+	<div id="main" class="box">
+	  <p class="box">Hello</p>
+	  <p class="box">World</p>
+	</div>
+
+
+	a. using id
+	const el = document.getElementById("main");
+	console.log(el); // <div id="main" class="box">
+
+	b. using classname
+	const boxes = document.getElementsByClassName("box");
+	console.log(boxes); // HTMLCollection(3) [div.box, p.box, p.box]
+
+	c. using querySelector()
+	const el = document.querySelector(".box");
+	console.log(el); // <div class="box">
+
+	d. using querySelectorAll()
+	const elList = document.querySelectorAll(".box");
+	console.log(elList); // NodeList(3) [div.box, p.box, p.box]
+
+			refer chart to understand which one to use
+
+
+	Static vs. Dynamic DOM Access — What’s the difference?
+	========================================================================================================================================
+
+	Static DOM Access
+	The DOM (Document Object Model) structure that is rendered when the page initially loads.
+	It doesn’t change unless a page reload happens.
+	Happens once, at the time of accessing.
+
+
+	If DOM elements change later, the reference does not update.
+	Example: querySelectorAll() returns a NodeList, which is static.
+
+
+	Dynamic (Live) DOM Access
+	Reflects changes automatically.
+	If new elements are added or removed, the collection updates itself.
+	Example: getElementsByClassName() returns an HTMLCollection, which is live.
+
+
+	eg#1.
+		<div id="container">
+		  <p class="item">Item 1</p>
+		  <p class="item">Item 2</p>
+		</div>
+
+		<button onclick="addItem()">Add Item</button>
+
+		<script>
+		  const liveList = document.getElementsByClassName("item"); // Dynamic (live)
+		  const staticList = document.querySelectorAll(".item");    // Static (snapshot)
+
+		  function addItem() {
+		    const p = document.createElement("p");
+		    p.className = "item";
+		    p.textContent = "New Item";
+		    document.getElementById("container").appendChild(p);
+
+		    console.log("Live (HTMLCollection):", liveList.length);   // Updates
+		    console.log("Static (NodeList):", staticList.length);     // Does not update
+		  }
+		</script>
+
+
+
+	Javascript output operations
+	======================================================================================================================================
+		 a. alert()
+		 b. confirm()
+		 c. document.write() | document.writeln()
+		 d. innerHTML | outerHTML
+		 e. innerText | outerText
+		 f. textContent
+		 g. console.XXXXX() [log(),warn(),error(),info(),debug()]
+
+
+
+		1. 
+		alert(msg) : void 
+			It has a ok button
+			It returns undefined when the user clicks ok button | presses esc keyboard
+			It is used to just to display some messages.
+
+		Limitation
+			a. No styling can be added to the Msg.
+			b. No cancel button, so to come out of the actions the user should 		
+				click 'esc' button.
+
+		2. 
+		  confirm(msg) : boolean
+			It has ok and cancel button
+			It returns true when user clicks on 'ok' button otherwise it returns false.
+
+		Limitation
+			a. No styling can be added to the Msg.
+Day 4
+		
