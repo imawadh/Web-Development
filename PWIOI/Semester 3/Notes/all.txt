@@ -342,4 +342,1007 @@ Day 3
 		Limitation
 			a. No styling can be added to the Msg.
 Day 4
+	javascript output techniques
+	============================
+ 	alert()    
+ 	confirm() 
+ 	document.write() | document.writeln()
+
+ 	1. document.write(msg)
+  		 msg : string | html elements 
+		 <!-- We can write the whole string as well as html elements within the document.write()-->
+
+
+
+	Limitation with document.write()
+		===============================
+		 => document.write() can behave unexpectedly if used after the page finishes loading.
+
+	e.g:, 
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <script type="text/javascript">
+
+		        function addContent() {
+		            // document.writeln('Welcome to the world of Javascript!!! <br>');
+		            // document.writeln(" Javascript is a cool stuff....<br>");
+		            // document.write(" Javascript is too dangerous if we don't understand....");
+
+		            //Create an element
+		            h1 = document.createElement("h1"); // <h1> </h1>
+
+			   // Adding content to the element
+		            h1.textContent= 'Welcome to the world of javascript'; // <h1> ... </h1>
+
+			   //Appending as a child to body element
+		            document.body.appendChild(h1);
+
+		        }
+
+
+		    </script>
+		</head>
+		<body>
+    
+    		<h1> Hello User </h1>
+			<button type="button" onclick="addContent()">ADD CONTENT</button>
+
+
+		</body>
+		</html>
+
+
+	Output
+	======
+		What happens when you click the button?
+		The whole existing page (including the button, heading, etc.) gets wiped out.
+
+		Only the content inside document.write(...) is shown.
+
+		Why? Because once the page finishes loading, document.write() acts like:
+
+		"Let me rebuild the entire document from scratch now!"
+
+
+	innerHTML vs outerHTML
+	======================
+		  innerHTML : it will add the element as a child to the targeted container|element.
+		  outerHTML : it will replace the element with the newly provided one to the targeted container|element.
+
+	eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <script type="text/javascript">
+		        function deleteRecord(){
+		            flag = confirm("Are you sure u want to delete the Record??");
+		            if (flag) {
+		                document.querySelector("h2").outerHTML='<h3 style="color:green;">Record deleted succesfully </h3>';
+		            } else {
+		                document.querySelector("p").outerHTML = '<h2 style="color:red;"> You have pressed Cancel button </h2>';
+		            }
+		        }
+		    </script>
+		</head>
+		<body>
+		    <button onclick="deleteRecord()">Delete</button>
+		    <h2></h2>
+		    <p></p>
+		</body>
+		</html>
+	
+	Output :observer the DOM by replacing innerHTML and outerHTML
+
+
+	innerText vs outerText
+	======================
+	same as innerHTML and outerHTML but in case of innerText or outerText we can just present only text content not any HTML+styles.
+
+
+	What is the difference b/w innerText vs textContent?
+	Ans. 
+	Note: 
+	Use textContent when:
+	You want all the text (including text from hidden elements).
+	Performance is important, especially when you don’t need to worry about layout or CSS visibility.
+	You are manipulating raw text, and you don’t care about white spaces or hidden elements.
+
+	Use innerText when:
+	You want the visible text, and you're dealing with text that might have styling (like hidden elements or user interactions).
+	You need to respect CSS visibility and layout.
+	It’s important that the text looks like it does on screen, including white spaces and line breaks.
+
+
+	logs details 
+	============
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <script type="text/javascript">
+		        function deleteRecord(){
+		            console.info('User has clicked Delete button');
+		            flag = confirm("Are you sure u want to delete the Record??");
+
+		            if (flag) {
+		                console.log("User has clicked ok button");
+		                document.querySelector("h2").textContent='Record deleted succesfully';
+		                console.log('Deleted succesfully...');
+
+		            } else {
+		                console.warn("User has clicked cancel button");
+		                document.querySelector("p").innerText = ' You have pressed Cancel button ';
+		                console.error('Operation didnot went as expected');
+		            }
+		        }
+		    </script>
+		</head>
+		<body>
+		    <button onclick="deleteRecord()">Delete</button>
+		    <h2></h2>
+		    <p></p>
+		</body>
+		</html>
+
+
+	Javascript input mechanism
+	===	==========================
+		 a. prompt()
+		 b. queryString
+		 c. formelements
+
+
+	prompt(): string | null
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <script type="text/javascript">
+		        function createFolder(){
+		            input=prompt('Enter the foldername')
+
+		            if (input==null) {
+		                document.querySelector("h2").textContent='User has clicked on cancel button';  
+		            } else if(input.length==0) {
+		                document.querySelector("h2").textContent='Without Entering the folder name User has clicked on OK button';  
+		            }else{
+		                document.querySelector("h2").outerHTML = '<h1 style="color:green; font-family:Algerian;">
+						Folder created: '+input+"</h1>";
+		            }
+		        }
+		    </script>
+		</head>
+		<body>
+		    <button onclick="createFolder()">CREATE FOLDER</button>
+		    <h2></h2>
+		</body>
+		</html>
+
+
+	2. queryString
+		It is a combination of URL + queryParameters(K,V)
+		To collect the queryString we use "BOM" [Browser Object Model]
+			queryString = location.search;
+		QueryString data would be received in the form of 'string'.
+		string has various methods to process our input
+			a. slice(start)
+			b. indexOf('')
+
+
+	eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		</head>
+		<body>
+		    <form action="">
+		        <dl>
+		            <dt>Username</dt>
+		            <dd>
+		                <input type="text" name="myName">
+		            </dd>
+		            <dt>Password</dt>
+		        </dl>
+		        <button>Submit</button>
+		    </form>
+		    <script type="text/javascript">
+		        queryString = location.search;
+		        console.log(queryString);
+		        console.log("Input value is ::" +(queryString.slice(queryString.indexOf('=') + 1)));
+		    </script>
+		</body>
+		</html>
+Day 5
+	e.g: 1, 
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+		    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+		    <style type="text/css">
+
+		    </style>
+
+		    <script type="text/javascript">
+		        function registerProduct(){
+		            console.log("Function triggered");
+		            document.getElementById("detailscontainer").style.display = 'block';
+		            document.getElementById("buttoncontainer").style.display = 'none';
+
+
+		            //Read and display the values in the output layout
+		            document.getElementById("lblName").textContent = document.getElementById("txtName").value;
+		            document.getElementById("lblPrice").textContent = document.getElementById("txtPrice").value;
+		            document.getElementById("lblCity").textContent= document.getElementById("lstCities").value;
+
+
+		            stockStatus = document.getElementById("optStock");
+		            availablity = ''
+
+		            if (stockStatus.checked) {
+		                availablity ='Stock Available';
+		            } else {
+		                availablity = 'Out of Stock';
+		            }
+
+		            document.getElementById("lblStock").textContent = availablity;
+
+		        }
+
+		        function  editDetails() {
+		            console.log("User clicked on edit button");
+		            document.getElementById("lblTitle").innerHTML = '<h1>EDIT PRODUCT</h1>';
+
+
+
+		            button = document.getElementById("btnRegister");
+
+		            button.textContent = 'SAVE';
+		            button.className = 'btn btn-success';
+
+		        }
+
+		    </script>
+		</head>
+		<body>
+
+		    <!-- Button trigger modal -->
+		     <div id="buttoncontainer">
+		         <button type="button" class="btn btn-primary m-3" 
+		         data-bs-toggle="modal" data-bs-target="#register">
+		                ADD PRODUCT
+		        </button>
+		    </div>
+
+		    <!-- Modal -->
+		    <div class="modal fade" id="register">
+
+		      <div class="modal-dialog">
+
+		        <div class="modal-content">
+
+		          <div class="modal-header">
+		            <h2 id="lblTitle">Add Product</h2>
+		            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		          </div>
+
+		          <div class="modal-body">
+		            <dl>
+		                <dt>Name</dt>
+		                <dd>
+		                    <input type="text" id="txtName" class="form-control">
+		                </dd>
+
+		                <dt>Price</dt>
+		                <dd>
+		                    <input type="number" id="txtPrice" class="form-control">
+		                </dd>
+
+		                <dt>Shipped To</dt>
+		                <dd>
+		                    <select class="form-select" id="lstCities">
+		                        <option>Select City</option>
+		                        <option>HYD</option>
+		                        <option>BGR</option>
+		                        <option>TN</option>
+		                    </select>
+		                </dd>
+
+		                <dt>Stock</dt>
+		                <dd class="form-switch">
+		                        <input type="checkbox" id="optStock" class="form-check-input">
+		                        <label class="form-check-label">Available</label>
+		                </dd>
+		            </dl>
+		          </div>
+
+		          <div class="modal-footer">
+		            <button class="btn btn-primary" data-bs-dismiss="modal" id="btnRegister"
+		                onclick="registerProduct()">Register</button>
+		            <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+		          </div>
+
+		        </div>
+
+		      </div>
+
+		    </div>
+
+		    <div class="w-25 m-2" id="detailscontainer" style="display: none;">
+		        <h2 class="bg-dark text-white p-3">Product Details</h2>
+		        <dl>
+		            <dt>Name</dt>
+		            <dd id="lblName"></dd>
+
+		            <dt>Price</dt>
+		            <dd id="lblPrice"></dd>
+
+		            <dt>City</dt>
+		            <dd id="lblCity"></dd>
+
+		            <dt>Stock</dt>
+		            <dd id="lblStock"></dd>
+		        </dl>
+
+		        <button class="btn btn-warning bi bi-pen-fill" data-bs-toggle="modal" data-bs-target="#register"
+		        onclick="editDetails()"> EDIT </button>
+
+		    </div>
+
+		    <script src="../node_modules/jquery/dist/jquery.js"></script>
+		    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+		</body>
+		</html>
+
+
+	eg#2.
+
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+
+		    <script type="text/javascript">
+
+		        var x = 3;
+
+		        function addTwoNumbers(num){
+		             result = num + 3;
+		             return result;
+		        }
+
+		        var output = addTwoNumbers(3);
+
+		    </script>
+
+
+		</head>
+		<body>
+
+		</body>
+		</html>
+Day 6
+	var : It supports hoisting
+		Hoisting : It is a phenomenon in javascript where variables and functions can be used without initialization.
+		           if var variable holds function expression | arrow function then such variables can't be used
+			   without initialization, if we try to use it would result in 'TypeError'.
+
+
+		var :
+		  It supports hoisiting with 'undefined' as the result
+		  Redeclaring the same variable is possible.
+		  Reassignment of value to a variable is possible.
+		  It is a function scope variable.
+		  It supports shadowing.
+
+		let : 
+		  It supports hoisting[Variable would be in Temporal Dead Zone: it can't be used without initializing]
+		  If we try to use the variable present in Temporal Dead Zone, then it would result in 
+				ReferenceError : variable can't be accesed without initialization.
+
+		  redeclaring the same variable is not possible.
+		  Reassignment of value to a variable is possible.
+		  They are block scope variable [Can't be used outside the block]
+		  It supports shadowing[Redeclaring the same variable in different scope]
+
+
+		const : 
+		  It supports hoisting[Variable would be in Temporal Dead Zone: it can't be used without initializing]
+		  redeclaring the same variable is not possible
+		  ReAssignment of value to a varialbe is also not possible[It result in TypeError]
+		  They are block scope variable [Can't be used outside the block]   
+		  It supports shadowing[Redeclaring the same variable in different scope]
+Day 7
+	variable
+	   It is a name given to memory location where we kept our data.
+	   Normally variables are used when we want to access the data mulitple lines
+
+	Variable naming rules
+	=====================
+		1.  Name must start with an alphabet or can start with _ or $.
+
+		2. _ is used for configures lot of constructs.
+		   _ refers that variable requires further implementation.
+			var productName;  // its functionality is final
+			var _productName; // Representation :: it is not yet implemented
+
+		3. Don't use special chars in variable.[Suggested by ECMA standards]
+
+		4. Name can be alpha numeric.
+			var product2020;
+
+		5. Name is case sensitive.
+
+		6. Name can be max 255 chars long.
+
+		7. Avoid using single char and long variable name.
+
+		8. Avoid using keywords[Total 45 reserved words]
+			var const; // invalid
+			var if;   // invalid
+
+		9. Always use camelCase for name and it should speak what it is?.
+
+			var u = "sachin"; //not a good approach
+			var userName = "sachin"; //good approach
+
+
+	Datatypes
+	=========
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <script type="text/javascript">
+
+		        let str ="Hello";
+		        console.log(str);
+		        str[0]='Y'
+		        console.log(str); //immutable 
+		        console.log(typeof str);
+
+		        let myData = 10;
+		        myData.id = "Roll_number";
+		        console.log(myData);//immutable
+
+
+		        let obj = {id : 10};
+		        console.log(obj);//mutable
+				// Even const properties can be modified ... 
+				// In JavaScript, a const object is an object declared with the const keyword, which means the reference to the object cannot be reassigned. However, the properties of the object can still be modified
+
+		        obj.name = "sachin";
+		        console.log(obj);//mutable
+
+		        obj.id = {country : "IND",type:"cricket"};
+		        console.log(obj);
+		        console.log(typeof obj);//mutable
+
+		        delete obj.id;
+		        console.log(obj);//mutable
+
+
+		    </script>
+
+
+		</head>
+		<body>
+
+		</body>
+		</html>
+
+
+	Note: 
+	 Javascript object vs JSON
+	 =========================
+
+		Javascript object = { K : V}
+					convert javascript object to JSON : JSON.stringify()
+
+		JSON object       = {'K' : V}
+					convert string representation JSON to javascript object  : JSON.parse()
+
+
+
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <script type="text/javascript">
+
+		        let user  = {id:10,name:'sachin',isMarried : true}; //javascript object
+		        console.log(user);
+		        let jsonUser = JSON.stringify(user);
+		        console.log(jsonUser);
+
+
+		        let myData='{"country" : "IND","username" : "Nitin","AccountNumber" : 9998887776}';
+		        console.log(myData);
+		        let javascriptObject = JSON.parse(myData);
+		        console.log(javascriptObject);
+
+		    </script>
+
+
+		</head>
+		<body>
+
+		</body>
+		</html>
+
+
+		Number
+		======
+		It represents a numeric value.
+		- A numeric value can be
+			Signed Integer  :: -5
+			Unsigned Integer::  5
+
+			Floating Point  ::    34.30[2 integers with 2 digit fractions]
+			Double          ::   420.40[more than 2 digits integer with 2 digit fractions]
+			Decimal         ::  4560.448765 [more than 4 digits integer with 29 digits fractions]
+			Exponent        :: 2e3 [2 x 10(3) = 2000]
+		        bigint 		:: 23283928354748n [ suffix it with n so during calculations if we don't want round up]
+
+			Hexa 		:: 0f0033 [0 to f]
+			Octa 		:: Oo748  [0 to 8] ----> related to memory management[caching at that time we use]
+			Binary 		:: 0b1010 [0,1]
+
+
+
+		How Does JavaScript Handle Numbers?
+			JavaScript uses a single Number type, which follows the IEEE 754 64-bit floating-point standard.
+			The same Number type is used for both integers and floating-point values.
+			Internally, JavaScript stores:
+					Integers exactly (if they fit in 53 bits).
+					Decimals as floating points.
+
+			Since Number is a floating-point type, it can lead to precision issues.
+
+
+		eg#1. 
+		   console.log(0.1 + 0.2); //0.300000000002 
+
+		solution : console.log((0.1 + 0.2).toFixed(2)); // 0.30
+
+		What If You Need Large Integers?
+			If numbers exceed 53-bit precision, JavaScript introduces BigInt.
+
+
+		eg#1.
+			let a = 9007199254740991;
+		        let b = 9007199254740992;
+		        let c = 9007199254740993;
+
+		        console.log(a);
+		        console.log(b);
+		        console.log(c);
+		        console.log(c+1);
+		        console.log(a === a+1);
+		        console.log(c === c+1);
+
+
+		Output
+			number
+			number
+			number
+			number
+			 1.7976931348623157e+308
+			 9007199254740991
+			 a =  9007199254740991
+			 b =  9007199254740992
+			 c =  9007199254740993n
+			 false
+			 false
+			 false
+			 0.30
+Day 8
+	NUmber Data Type ::
+
+		The Number data type in JavaScript includes both integers and floating-point numbers. Special values like Infinity, -Infinity, and NaN represent infinite values and computational errors, respectively.
+
+	eg: 
+		let n1 = 2;
+		console.log(n1) // 2
+
+		let n2 = 1.3;
+		console.log(n2) // 1.3
+
+		let n3 = Infinity;
+		console.log(n3)// Infinity
+
+		let n4 = 'something here too' / 2;
+		console.log(n4)// NaN
+
+	eg#1.
+		let age = prompt("Enter the age");
+		let ageInput = Number(age);
+		if (age == null) {
+		    console.log("No age entered, u pressed cancel button | esc button");
+		} else if(age == '' ){
+		    console.log("Plz enter the right age to process")
+		}else if( Number.isNaN(ageInput)){ 
+		    console.log("Plz enter the correct age")
+		}else{
+		    console.log("Age is : ",age);
+		}
+
+		eg#2.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <script type="text/javascript">
+
+		            let cost = 45000;
+		            console.log('Amount is : ' + cost);
+		            console.log('Amount is :' +cost.toString());
+
+		            let options = {
+		                'style' : 'currency',
+		                'currency' : 'GBP'
+		            }
+		            console.log('Amount is : '+cost.toLocaleString('en-GB',options));    
+		    </script>
+		</head>
+		<body>
+
+		</body>
+		</html>
+
+		// toLocaleString() is a built-in method in JavaScript that converts a number (or date) to a string, using locale-sensitive formatting.
+
+
+		number.toLocaleString([locales[, options]])
+		Parameters:
+		locales (optional): A string or array of strings that specify the locale (e.g. 'en-US', 'en-GB', 'fr-FR', etc.)
 		
+		options (optional): An object that customizes the formatting behavior (e.g., whether to show currency, number of decimal places, etc.)
+
+	e.g:	
+		console.log(num.toLocaleString('de-DE')); // "1.234.567,89" (German format)
+		console.log(num.toLocaleString('en-IN')); // "12,34,567.89" (Indian format)
+
+		console.log(cost.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+		// Output: "$45,000.00"
+
+		console.log(cost.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }));
+		// Output: "￥45,000"
+Day 9 and 10
+
+	e.g#1: 
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <script type="text/javascript">
+
+		        // string in javascript : '', "", ``
+
+		        function doTask(){
+		            let userName = prompt("Enter the username ");
+		            let userAge  = prompt("Enter the userage ");
+		            document.write(`Hello  ${userName}  Your age is  ${userAge} Status : ${userAge > 18 ? 'Major' :'Minor'}`);
+		        }
+		        function doOneMoreTask(user) {
+		            return `Hello ${user} `;
+		        }
+
+
+		        function printByHighlighting(strings,value) {
+		            console.log("call is made...");
+		           return `${strings[0]} <b> ${value}</b> ${strings[1]}`; 
+		        }
+
+		        doTask();
+		         document.write(`Greeting MSG : ${doOneMoreTask('Dhoni')}`);
+
+		        let name = 'Javascript';
+		        document.write(printByHighlighting`Learn ${name} from PWIOI`);
+
+
+		    </script>
+
+
+		</head>
+		<body>
+
+		</body>
+		</html>
+
+
+		2. 
+		<script type="text/javascript">
+		        let labelName = prompt("Enter the lableName ",'EMAIL|PASSWORD|DATE')
+		        let type =prompt("Enter the type of input",'EMAIL|DATE|PASSWORD');
+		        let template = `
+		            <label>
+		                    ${labelName}
+		            </label>
+		            <input type=${type}> 
+		        `;
+		        document.write(template);
+		</script>
+
+		3. <!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <script type="text/javascript">
+		        let  userType = prompt("Enter the userType","ADMIN|GUEST|RegularUser")
+		        let labelName = prompt("Enter the lableName ",'EMAIL|PASSWORD|DATE')
+		        let type =prompt("Enter the type of input",'EMAIL|DATE|PASSWORD');
+		        let btnText =prompt("Enter the button text");
+		        let template = `
+		            <h2> ${userType} </h2>
+		            <dl>
+		                <dt> ${labelName} </dt>
+		                <dd>
+		                    <input type=${type}> 
+		                </dd>
+		            </dl>
+		            <button> ${btnText} </button>
+
+		        `;
+		        document.write(template);
+		    </script>
+
+
+
+		</head>
+		<body>
+
+		</body>
+		</html>
+
+
+	Binding
+	=======
+		  Process of attaching a variable with its value at runtime is referred as Binding.
+
+		Databinding   : Binded the variable with value 
+					eg: ${variableName}
+				var userName = 'sachin'
+				document.write(`${userName}`);
+				document.write(`${username}`);
+
+		stylebinding   : Process of attaching the style related details in 'Inline' manner to 
+				 an element is refered as style binding.			
+					eg: document.getElementById("").style.cssAttribute='cssValue'
+					    document.getElementById('').style.cssText = 'cssKey: cssValue';
+
+		classbinding   : Process of attaching the class associated with style to an element is refered
+				 as classbinding.
+				  eg: document.getElementById('').className = 'userDefined|library class'
+
+
+		What is an Event?
+		 Ans. Anything which happens on a webpage is refered as "Event".
+				onclick  => When any element is clicked by the user[button].
+				onchange => When the value of an element is changed by the user
+				onblur   => When the element looses the focus.
+				onload   => When the page is loaded by the browser.
+
+		string formating methods
+		========================
+		 a. bold()  	      : string
+		 b. italics()	      : string
+		 c. fontsize(number)  : string
+		 d. fontcolor(string) : string
+		 e. toUpperCase()     : string
+
+		eg#1
+		     let str='sachin';
+		     let str1 =str.toUpperCase();
+		     let str2 =str1.bold();
+		     let str3=str2.fontcolor('red');
+			document.write(str3);
+
+			document.write(str.toUpperCase().bold().fontcolor('red'));//method chaining
+
+
+	changing the theme
+	==================
+		<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+		    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+		    <script type="text/javascript">
+		        function changeTheme() {
+		            const checkBox = document.getElementById("themeCheckBox")
+		            const frmLogin= document.getElementById("frmLogin");
+		            const loginBtn = document.getElementById("btnLogin");
+
+
+		            if (checkBox.checked) {
+		                //change the theme to dark
+		                frmLogin.className = 'w-25 border border-3 rounded p-4 bg-dark text-light';
+		                loginBtn.className ='btn btn-light w-100';
+
+
+		            } else {
+		                //change the theme to light
+		                frmLogin.className = 'w-25 border border-3 rounded p-4 bg-light text-dark'
+		                loginBtn.className ='btn btn-dark w-100';
+		            }
+
+
+		        }
+		    </script>
+		</head>
+
+		<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+		    <form action="" class="w-25 border border-3 rounded p-4 bg-light text-dark" id="frmLogin">
+
+		        <div class="form-switch">
+		            <input type="checkbox" name="" 
+		                    id="themeCheckBox"
+		                    class="form-check-input" onchange="changeTheme()">
+		            Dark Theme
+		        </div>
+		        <h2><span class="bi bi-personal-fill"></span> User Login</h2>
+		        <dl>
+		            <dt>User Name</dt>
+		            <dd><input type="text" class="form-control"></dd>
+		            <dt>Password</dt>
+		            <dd><input type="password" class="form-control"></dd>
+		        </dl>
+		        <button class="btn btn-dark w-100" id="btnLogin">Login</button>
+		    </form>
+		</body>
+
+		</html>
+
+
+	methods on string object
+	========================
+	length: number
+
+		 let str ="sachin";
+		  console.log(str.length); //6
+		  console.log(str.length()); //TypeError
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <script type="text/javascript">
+		        function validateUserName(){
+		            console.log("control entering the method");
+
+		            const userData = document.getElementById("txtUser");
+		            const msg = document.getElementById("error-msg");
+
+		            let count =  userData.value.length;
+
+		            if(count==0){
+		                msg.innerHTML = 'Name Required'.fontcolor('red');
+		            }else if (count<4) {
+		                msg.innerHTML = 'Name too Short'.fontcolor('red');
+		            } else {
+		                msg.innerHTML = '';                
+		            }
+
+
+		        }
+		    </script>
+		</head>
+		<body>
+		    <dl>
+		        <dt>Username</dt>
+		        <dd>
+		            <input type="text" name="" id="txtUser" onkeyup="validateUserName()">
+		        </dd>
+		        <dd id="error-msg">
+
+		        </dd>
+		    </dl>
+		</body>
+		</html>
+
+
+		eg#2.
+
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+
+		    <script type="text/javascript">
+
+		        function verifyChars() {
+		            const comments = document.getElementById("userComments");
+		            const msg = document.getElementById("msg");
+
+
+		            let noOfChars = 20;
+		            let typedCharacter = comments.value.length;
+
+		            msg.innerHTML = `${noOfChars- typedCharacter} Remaining `.bold().fontcolor('red');
+
+		        }
+
+
+		     </script>
+
+
+		</head>
+		<body>
+
+		    <fieldset style="width:250px">
+		        <legend>Your comments</legend>
+		        <samp>Note : max 20 characters</samp>
+		        <br><br>
+		        <textarea name="" id="userComments" rows="4" cols="20" onkeyup="verifyChars()" maxlength="20" autofocus></textarea>
+		        <p id="msg">
+		        </p>
+		    </fieldset>
+
+
+		</body>
+		</html>
+Day 11
+
+
+
+
+
+
+
+
+
+
+
