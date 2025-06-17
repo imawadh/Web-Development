@@ -1335,6 +1335,2028 @@ Day 9 and 10
 		</body>
 		</html>
 Day 11
+	string object in javascript
+	===========================
+		 length             : number
+		 endsWith(string)   : boolean
+		 startsWith(string) : boolean
+
+		eg#1
+			let str='sachin@gmail.com'
+			console.log(str.endsWith('@gmail.com'))// true
+
+			let str='sachin@gmail.com'
+			console.log(str.endsWith('@yahoo.com'))// false
+
+			let str='IPL2025'
+			console.log(str.startsWith('IPL'))// true
+
+			let str='IPL2025'
+			console.log(str.startsWith('ipl'))// false
+
+		eg#1.
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+			    <meta charset="UTF-8">
+			    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    <title>Document</title>
+			    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+			    <script type="text/javascript">
+
+			        function verifyCard() {
+			            const cardNumber = document.getElementById("txtCard");
+			            const img = document.getElementById("imgCard");
+
+
+			            let flag= cardNumber.value.startsWith('4455');
+
+			            if(flag){
+			                img.src='../public/images/visa.png'
+			            }else{
+			                img.src='../public/images/mastercard.png';
+			            }
+
+			        }
+
+			        function verifyEmail(){
+			            const email = document.getElementById("txtEmail");
+			            const msg = document.getElementById("emailError");
+			            let flag = email.value.endsWith("@gmail.com");
+			            if (flag) {
+			                msg.innerHTML = ''
+			            } else {
+			                msg.innerHTML = 'Only Gmail is Allowed'.fontcolor('red')
+			            }
+			        }
+
+			    </script>
+
+
+			</head>
+
+			<body class="container-fluid">
+			    <dl class="mt-4">
+
+			        <dt>Your card number</dt>
+			        <dd class="input-group">
+			            <input type="text" id="txtCard" onblur="verifyCard()"> 
+			            <img width="40" height="40" id="imgCard">
+			        </dd>
+
+			        <dt>Your Gmail Account</dt>
+			        <dd>
+			            <input type="email" id="txtEmail" onblur="verifyEmail()">
+			        </dd>
+			        <dd id="emailError">
+
+			        </dd>
+
+			    </dl>
+
+			</body>
+			</html>
+
+
+		eg#2. 
+		 charAt(number): object(single data)
+		 charCodeAt(number): object(single data)
+
+		Note: ASCII of a-z > 97 to 122
+		      ASCII of A-Z > 65 to 90
+
+		eg: 
+		let str='sachin'
+		console.log(str.charAt(0))
+		 s
+
+		let str='sachin'
+		console.log(str.charCodeAt(0))
+		 115
+
+		charCodeAt(number): if number is of null|undefined|NaN 
+				    it would adjust to '0'th index data.
+
+
+
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>Document</title>
+		    <script type="text/javascript">
+		        function verifyCase(){
+		           const username =  document.getElementById("txtUsername");
+		           const msg = document.getElementById("error-msg");
+
+		           let flag = username.value.charCodeAt(0) >=65 && username.value.charCodeAt(0) <=90;
+		           if (flag) {
+		                msg.innerHTML = ''
+		           } else {
+		                msg.innerHTML = 'Must start with UpperCase';
+		                msg.style.cssText = 'font-size: 16px; font-weight: bold; color:red; font-family:Algerian';
+		           }
+		        }
+		    </script>
+		</head>
+		<body>
+		    <dl>
+		        <dt>Username</dt>
+		        <dd>
+		            <input type="text" name="" id="txtUsername" onblur="verifyCase()">
+		        </dd>
+		        <dd id="error-msg">
+
+		        </dd>
+		    </dl>
+		</body>
+		</html>
+
+
+
+	indexOf(string): number
+
+		 - If the specified string is present it returns index of that character
+		 	otherwise it returns -1.
+
+
+	slice(starting,ending)
+	======================
+		slice()  : It is used to extract the characters b/w specified index
+
+			syntax: slice(start,end) : string  => It returns characters b/w  starting to ending. [end-1]
+								rule : forward direction extraction
+								     : end index must be greater that starting index
+
+				slice(start): string 	   => It return from starting to ending
+
+		Parameters
+		==========
+		startIndex (required) – The position where extraction begins (inclusive).
+					If negative, it is treated as array.length + endIndex.
+
+		endIndex (optional) – The position where extraction stops (exclusive).
+			If omitted, it extracts till the end.
+			If negative, it is treated as array.length + endIndex.
+
+		Note: slice(start,end)
+				a. NaN  -> 0
+				b. null -> 0
+				c. undefined -> no parameter
+				d. true      -> 1
+				e. false     -> 0
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(6,-5));
+		rameshtend
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(6,16));
+		rameshtend
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice());
+		sachinrameshtendulkar
+
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(-6,-9));
+
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(-9,-6));
+		 ten
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(NaN,NaN));
+
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(undefined,undefined))
+		 sachinrameshtendulkar
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(null,null))
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(null,undefined))
+		 sachinrameshtendulkar
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(true,true))
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(true,false))
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(false,true))
+		s
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(false,null))
+
+		let str='sachinrameshtendulkar'
+		console.log(str.slice(false,undefined))
+		sachinrameshtendulkar
+
+
+	substring() : It can read the characters b/w the given index range.
+
+			syntax: substring(startIndex,endIndex) : string  ==> endIndex can be -ve | +ve
+				substring(startIndex): string 		 ==> It return from startindex to endindex-1
+
+		eg: str.substring(7);     //from 7 till end of the String
+		    str.substring(7,15);  //from 7 till 14th index of the String
+		    str.substring(7,0);   //from 0 till 6th index of the String
+
+
+		Parameters
+		----------
+		startIndex (required) – The index where extraction begins (inclusive).
+		endIndex   (optional) – The index where extraction stops (exclusive). 
+					If omitted, the substring extends to the end of the string.
+
+		Key Points
+		----------
+		If startIndex is greater than endIndex, they are swapped.
+		If startIndex or endIndex is negative or NaN, they are treated as 0.
+		If endIndex is omitted, it extracts up to the end of the string.
+Day 12
+
+		Methods of string object
+		========================
+			a. toUpperCase()       : string
+			b. startsWith(string)  : boolean
+			c. endsWith(string)    : boolean
+			d. charAt(number)      : string
+			e. charCodeAt(number)  : number
+			f. indexOf(string)     : number( -1 : not found , otherwise returns the index)
+			g. slice([number],[number]) : string 
+			h. substring([number],[number]) : string
+
+
+
+		split() 
+			-> It used to split the given string based on delimitor
+			-> It accepts two arguments
+					a. string   : delimitor 
+					b. number   : limit
+
+			syntax: 
+			split(string|regEx,number) : string[]
+
+			eg#1.
+			let names ='sachin,saurav,dravid,yuvraj,dhoni'
+			let output = names.split(',',4)
+			console.log(typeof output,output)// object (4) ['sachin', 'saurav', 'dravid', 'yuvraj']
+
+			eg#2.
+			let names ='sachin,saurav,dravid,yuvraj,dhoni'
+			let output = names.split(',')
+			console.log(typeof output,output) // object (5) ['sachin', 'saurav', 'dravid', 'yuvraj', 'dhoni']
+
+
+			corner cases
+			=============
+			"".split()			: ['']
+			"".split('')                  : []
+			'hello user'.split()          : ['hello user']
+			'hello user'.split(undefined) : ['hello user']
+			'hello user'.split(null)	: ['hello user']
+			'hello user'.split('',0)	: []
+			'P,W,,'.split(',')		: ['P','W','','']
+			'P,W,' .split(',')            : ['P','W','']
+
+
+			eg#1.
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+			</head>
+			<body>
+				
+
+				<script type="text/javascript">
+
+					let details = 'HOME|PAGES|CONTACTUS|ABOUTUS|Support|Help';
+
+					let items = details.split('|');
+
+					let ul = document.createElement("ul");
+
+					let output = item=>{
+						//logic of working with item
+						let li = document.createElement("li");
+
+						li.textContent = item.toUpperCase();
+
+						ul.appendChild(li);
+					}
+
+					items.forEach(output);
+
+					document.body.appendChild(ul);
+
+
+				</script>
+			</body>
+			</html>
+
+
+			trim()
+			It is used to remove trailing and leading space of the data
+
+			let str='   sachin ramesh tendulkar  '
+			console.log(str,str.length)
+			sachin ramesh tendulkar   28
+
+
+			let str='   sachin ramesh tendulkar  '
+			console.log(str.length,str.trim(),str.trim().length)
+			28 'sachin ramesh tendulkar' 23
+
+
+
+			Note: 
+			In javascript we can use condition statements on methods|properties which would return 'object|null'
+			This is possible because by default javascript uses the following condition to process the instruction
+				if(someoutput!=null)
+				{
+					//truthy case
+				}else{
+					//falsey case
+				}
+
+			eg: 
+				let str=''.someMethod(input);// Object|null
+				if(str){						if(str!=null){
+					//process for true case			====>    
+				}else{                                                  }else{
+					//process for false case
+				}                                                       }
+
+			eg#1.
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+			</head>
+			<body>
+				<ul id="listName">
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>Javascript</li>
+					<li>React</li>
+				</ul>
+
+				<script type="text/javascript">
+					const ul = document.getElementById("listName");
+					console.log(ul.children);
+					console.log(ul.childNodes);
+					console.log(ul.childElementCount);
+					console.log(ul.children.length);
+
+					console.log(ul.firstChild);
+					console.log(ul.lastChild);
+
+					console.log(ul.firstElementChild);
+					console.log(ul.lastElementChild);
+
+					console.log(ul.removeChild(ul.lastElementChild));
+					console.log(ul.childElementCount);
+
+
+					let password='sachin';
+					let str=password.match(/^(?=.*[A-Z])\w{6,14}$/); //Array | null
+
+					if (str) {
+						console.log('Strong password');
+					} else {
+						if (password.length<5) {
+							console.log('Weak password')
+						} else {
+							console.log('Poor password');
+						}
+					}
+				</script>
+			</body>
+			</html>
+
+
+			eg#3.
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+				<script type="text/javascript">
+					function verifyCase(){
+					const username =  document.getElementById("txtUsername");
+					const msg = document.getElementById("error-msg");
+
+					let flag = username.value.charCodeAt(0) >=65 && username.value.charCodeAt(0) <=90;
+					if (flag) {
+							msg.innerHTML = ''
+					} else {
+							msg.innerHTML = 'Must start with UpperCase';
+							msg.style.cssText = 'font-size: 16px; font-weight: bold; color:red; font-family:Algerian';
+					}
+					}
+				</script>
+			</head>
+			<body>
+				<dl>
+					<dt>Username</dt>
+					<dd>
+						<input type="text" name="" id="txtUsername" onblur="verifyCase()">
+					</dd>
+					<dd id="error-msg">
+
+					</dd>
+				</dl>
+			</body>
+			</html>
+Day 13
+	methods w.r.t string
+	====================
+		a. toUpperCase()	: string
+		b. toLowerCase()	: string
+		c. charAt()		: string
+		d. charCodeAt()        : number
+		e. indexOf()		: number
+		f. slice() 		: string
+		g. substring()		: string
+		h. startsWith() 	: boolean
+		i. endsWith()		: boolean
+		k. trim()		: string
+		l. split()		: string[] | null
+
+
+		1. match(regEx) : array|null
+			if the string matches with regEx it would return an array otherwise it would return null.
+
+	eg#1. 
+		let str='9998887776'
+		let matchInput = /^\d{10}$/
+		console.log(str.match(matchInput)) // [non-empty array]
+
+		let str='999888777'
+		let matchInput = /^\d{10}$/
+		console.log(str.match(matchInput)) //null
+
+		let str='9998887776'
+		let matchInput = /\d{10}/
+		console.log(str.match(matchInput)) //[non-empty array]
+
+		let str='999888777'
+		let matchInput = /\d{10}/
+		console.log(str.match(matchInput)) //null
+
+		let str='9998887776778'
+		let matchInput = /\d{10}/
+		console.log(str.match(matchInput)) //[non-empty array]
+
+		solution 
+			use ^ and $ symbol to ensure the matching is happening from begining to the ending of the input.
+			if we don't use these symbols, then mathcing will happen by taking the part of the input supplied by the user.
+
+
+		eg#2.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+
+		</head>
+		<body>
+			<dl>
+				<dt>Username</dt>
+				<dd>
+					<input type="text" name="" id="txtUsername" onkeyup="verifyPwd()">
+				</dd>
+
+				<dd id="error-field">
+
+				</dd>
+			</dl>
+
+			<script type="text/javascript">
+				function verifyPwd() {
+					const pwd = document.getElementById("txtUsername");
+					const msg =  document.getElementById("error-field");
+
+					if (pwd.value.length<4) {
+						//if length<4: weak password
+						msg.innerHTML = 'Weak Password';
+						msg.style.color = 'red'; 
+					}else{
+						let regEx = /^(?=.*[A-Z]){5,16}$/;
+						if(pwd.value.match(regEx)){
+							//if pwd matches with regex: Strong password
+							msg.innerHTML = 'Strong Password';
+							msg.style.color = 'green'; 
+						}else{
+							//otherwise : poor password
+							msg.innerHTML = 'Poor Password';
+							msg.style.color = 'goldenrod'; 
+						}
+					}
+				}
+			</script>
+		</body>
+		</html>
+
+
+		boolean type
+		============
+		The permitted values are 
+			a. true | false
+			b.  > 0 | < 0   : true
+			c.   0          : false
+
+
+		List few attributes which behaves like boolean value
+		a. checked   
+		b. readonly
+		c. required
+		d. disabled
+		e. border 
+
+		eg#1.
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Document</title>
+
+				<script type="text/javascript">
+					function toggleCheckBox() {
+					const username =  document.getElementById("txtUsername");
+						const msg = document.getElementById("msg");
+					const checkbox= document.getElementById("checkbox");
+
+						if (checkbox.checked) {
+							username.disabled = true;
+							msg.innerHTML = `The entered input is : ${username.value}`;
+						} else {
+							username.disabled = false;
+							msg.innerHTML = '';
+						}
+					
+					}
+				</script>
+
+
+			</head>
+			<body>
+				<input type="checkbox" name="" id="checkbox" onchange ="toggleCheckBox()"> Enable | Disable
+				<dl>
+					<dt>Username</dt>
+					<dd>
+						<input type="text" name="" id="txtUsername" >
+					</dd>
+				</dl>
+				<p id="msg"></p>
+			</body>
+
+			</html>
+
+
+		Note: 
+		number
+		string
+		boolean
+
+
+		how it works when used with '+' operator?
+				+ :: Addition
+		a. if one operand is string type then perform 'concatination'	: string
+		b. if both the operands are number type then it perform 'addition': number
+		c  if one operand is number and other operand is of other type like boolean|null|undefined, it will convert to number type
+			and then perform 'Addition'. : number
+
+
+		console.log(5 + 10); 			: 15(number)
+		console.log(3.5 + 2.5);			: 6(number)
+		console.log(-1 + 4); 			: 3(number)
+		console.log("3" + 2); 			: 32(string)
+		console.log(2 + "3"); 			: 23(string)
+		console.log("5" + true); 		: 5true(string)
+		console.log(10 + "5"); 			: 105(string)
+		console.log("5" + 10); 			: 510(string)
+		console.log("Result: " + 5 + 10); 	: Result : 510
+		console.log(5 + 10 + " is the result"); : 15 is the result
+
+
+
+		Ternay operator
+		==============
+		syntax:   condition ? true : false
+
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+			<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+			
+			<script type="text/javascript">
+				function toggleButton() {
+					const btn = document.getElementById("sortBtn")
+					btn.className = btn.className=='bi bi-sort-alpha-down'? 'bi bi-sort-alpha-up': 'bi bi-sort-alpha-down'; 
+				}
+				function changeStatus() {
+					const checkBox= document.getElementById("stockCheckBox");
+					const msg = document.getElementById("msg");
+					let status = checkBox.checked ? 'In Stock' : 'Out of Stock';
+					msg.textContent = status;
+				}
+				function showImg() {
+					const btn = document.getElementById("btnStatus");
+					const img= document.getElementById("poster");
+					btn.textContent = btn.textContent =='SHOW' ? 'HIDE' : 'SHOW';
+					img.style.display = img.style.display == 'none' ? 'block' : 'none';
+				}
+			</script>
+
+		</head>
+		<body>
+			<button class="bi bi-sort-alpha-down" onclick="toggleButton()" id="sortBtn"></button>
+			<div style="margin-top: 15px">
+				<input type="checkbox" name="" id="stockCheckBox" onchange="changeStatus()"> 
+				<span id="msg">Out of Stock</span>
+			</div>
+			<div style="margin-top:  15px;">
+				<button onclick="showImg()" id="btnStatus">SHOW</button><br><br>
+				<img src="../public/images/mensfashion.jpeg" alt="" width="50" height="50" style="display: none;" id="poster">
+			</div>
+
+		</body>
+		</html>
+
+
+		Decision making operators and statements
+		========================================
+			== 		Equal
+			===		Identical Equal
+			!=		Not Equal
+			!==		Identical Not Equal
+			>		Greater than
+			<		Lesser than
+			>=		Greater than or equal
+			<=		Less than or equal
+			&&		Logical and
+			||		Logical or
+			!		Not
+
+		FAQ: What is the difference b/w == and === ? 
+		Ans.  "==" compares value of different types[internally performs type conversion]
+			"===" compares values of same types[ very strict no type conversion]
+
+		eg#1. 
+		2 =='2'  // true :: Number('2') : 2
+		2 ==='2' //false
+
+
+		FAQ: How to compare a value with regular expression?
+		Ans.   By using a string method called "match()"
+				var mobile = "+91987654210";
+				var regExp = /\+91\d{10}/;
+
+				mobile ==  regExp     ===> invalid
+				mobile === regExp     ===> invalid
+				mobile.match(regEx)   ===> valid
+
+
+		FAQ: How to convert string type 'true' to boolean type true?
+			let boolType = 'true' === 'true' ? true : false;
+			console.log(boolType, typeof(boolType)); //true boolean
+Day 14
+	string methods
+	==============
+		a. toLowerCase() : string
+		b. toUpperCase() : string
+		c. slice() 	
+		d. indexOf()
+		e. split()
+		f. trim()
+		g. substring() 
+		h. charAt()
+		i. charCodeAt() 
+		k. match()
+
+
+		operator
+		a. ternary operator : condition ? true : false
+		b. arithmetic operator : +
+		c. comparison operator : == | ===
+
+		statements
+		==========
+		-> Executable code which would decide the control flow of the program.
+		
+		conditional statements
+		======================
+		a. if
+		b. if else
+		c. nested if else
+		d. switch| case | default | break
+
+
+		Syntax of if
+		============
+		if(condition)
+		{
+			//statement of true part
+		}
+
+		condition : true | false
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+		</head>
+		<body>
+			<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+
+			<script type="text/javascript">
+				function  validateCard() {
+				const card = document.getElementById("card");
+				const cvv = document.getElementById("cvv");
+				if (card.value==='444777666') {
+						cvv.disabled  = false;
+				}
+				}
+
+				function validateCvv(){
+					const cvv = document.getElementById("cvv");
+					const expiry = document.getElementById("expiry");
+					if (cvv.value==='333') {
+						expiry.disabled = false;
+					}
+				}
+
+				function validateYear() {
+				const expiry =  document.getElementById("expiry");
+				const btn = document.getElementById("btnPay");
+				if (expiry.value==='2025') {
+						btn.disabled = false;
+				}
+				}
+
+			</script>
+		</head>
+		<body>
+			<fieldset style="width:150px">
+				<legend>Payment Details</legend>
+				<dl>
+					<dt>CardNumber</dt>
+					<dd>
+						<input type="text" name="" id="card" onblur="validateCard()" maxlength="16">
+					</dd>
+
+					<dt>CVV</dt>
+					<dd>
+						<input type="text" name="" id="cvv" disabled size="4" onblur="validateCvv()">
+					</dd>
+
+					<dt>Expiry</dt>
+					<dd>
+						<select name="" id="expiry" disabled onchange="validateYear()">
+							<option value="Choose Expiry">Choose Expiry</option>
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+						</select>
+					</dd>
+				</dl>
+				<button id="btnPay" disabled>Pay</button>
+			</fieldset>
+		</body>
+		</html>
+		</body>
+		</html>
+
+
+	Example to demonstrate if else logic as code driven
+	===================================================
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+			<script type="text/javascript">
+				function findGender() {
+					const male = document.getElementById("male");
+					const female = document.getElementById("female");
+					if (male.checked) {
+						console.log("MALE SELECTED");
+					}
+					
+					if(female.checked){
+						console.log("FEMALE SELECTED");
+					}
+				}
+				function enableBtn() {
+					document.getElementById("btnSubmit").disabled = false;
+				}
+			</script>
+		</head>
+		<body>
+			<div style="margin-top: 15px;">
+				<input type="radio" name="gender" id="male" value="MALE" onchange="enableBtn()"><label for="">MALE</label>
+				<input type="radio" name="gender" id="female" value="FEMALE" onchange="enableBtn()"><label for="">FEMALE</label><br><br>
+			</div>
+			<button type="button" id="btnSubmit" onclick="findGender()" disabled>submit</button>
+		</body>
+		</html>
+
+
+	if-else
+	=======
+		It is a conditional statement where if block will be executed when condition matches for true otherwise else block will be executed.
+		else block is written without any condition, so by default if case fails then control would move to else block.
+
+		syntax: 
+		if(condition){
+			//true
+		}else{
+			//false
+		}
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+		</head>
+		<body>
+			<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+
+			<script type="text/javascript">
+
+				function  validateCard() {
+				const card = document.getElementById("card");
+				if (card.value==='444777666') {
+					const container = document.getElementById("cvvContainer")
+					const cvv = document.getElementById("cvv");
+						container.style.display = 'block';
+						cvv.disabled  = false;
+				}else{
+						alert("Invalid Card Number");
+				}
+				}
+
+				function validateCvv(){
+					const cvv = document.getElementById("cvv");
+					if (cvv.value==='333') {
+						const expiry = document.getElementById("expiry");
+						const expriyContainer = document.getElementById("expiryContainer");
+						expriyContainer.style.display = 'block';
+						expiry.disabled = false;
+					}else{
+						alert("Invalid Cvv");
+					}
+				}
+
+				function validateYear() {
+				const expiry =  document.getElementById("expiry");
+				if (expiry.value==='2025') {
+					const btn = document.getElementById("btnPay");
+					const payOption = document.getElementById("payContainer");
+						btn.disabled = false;
+						payOption.style.display ='block';
+				}else{
+						alert("Invalid Expiry Option");
+				}
+				}
+
+			</script>
+		</head>
+		<body>
+			<fieldset style="width:150px">
+				<legend>Payment Details</legend>
+				<dl>
+					<dt>CardNumber</dt>
+					<dd>
+						<input type="text" name="" id="card" onblur="validateCard()" maxlength="16">
+					</dd>
+
+					<div id="cvvContainer" style="display: none;">
+						<dt>CVV</dt>
+						<dd>
+							<input type="text" name="" id="cvv" disabled size="4" onblur="validateCvv()">
+						</dd>
+					</div>
+
+					<div id="expiryContainer" style="display: none;">
+						<dt>Expiry</dt>
+						<dd>
+							<select name="" id="expiry" disabled onchange="validateYear()">
+								<option value="Choose Expiry">Choose Expiry</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+							</select>
+						</dd>
+					</div>
+				</dl>
+
+				<div id="payContainer" style="display: none;">
+					<button id="btnPay" disabled>Pay</button>
+				</div>
+			</fieldset>
+		</body>
+		</html>
+		</body>
+		</html>
+
+
+	nested if-else
+	==============
+		if(condition1)
+		{
+			if(condition2){
+				if(condition3){
+					//logic
+				}else{
+					//false logic of condition3
+				}	
+			}else{
+				//false logic of condition2
+			}
+		}else{
+			//false logic of condition1
+		}
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+			<script type="text/javascript">
+
+				function validateCard(){
+					const card = document.getElementById("card");
+					const msg = document.getElementById("msg");
+					if (card.value==='999888777') {  
+						const cvv = document.getElementById("cvv");
+
+						if(cvv.value === '333'){
+							const expiry = document.getElementById("expiry");
+							
+							if (expiry.value === '2025') {
+								msg.innerHTML = 'Valid Data';
+								msg.style.color='green';
+								msg.style.fontFamily ='Algerian';
+
+							} else {
+								msg.innerHTML = 'Invalid Expiry Date';
+							}  
+
+						}else{
+							msg.innerHTML = 'Invalid CVV Info';
+						}
+					} else {
+						msg.innerHTML = 'Invalid Card Details';
+					}
+				}
+			</script>
+		</head>
+		<body>
+			<fieldset style="width:150px">
+				<legend>Payment Details</legend>
+				<dl>
+					<dt>CardNumber</dt>
+					<dd>
+						<input type="text" name="" id="card"  maxlength="16">
+					</dd>
+
+					<div id="cvvContainer">
+						<dt>CVV</dt>
+						<dd>
+							<input type="text" name="" id="cvv"  size="4">
+						</dd>
+					</div>
+
+					<div id="expiryContainer">
+						<dt>Expiry</dt>
+						<dd>
+							<select name="" id="expiry">
+								<option value="Choose Expiry">Choose Expiry</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+							</select>
+						</dd>
+					</div>
+				</dl>
+
+				<div id="payContainer">
+					<button id="btnPay" onclick="validateCard()">Pay</button>
+				</div>
+
+				<p id='msg' align="center" style="color: red;"></p>
+			</fieldset>
+		</body>
+		</html>
+Day 15
+	javascript output techniques
+	============================
+		a. alert(string) 
+		b. confirm(string) : boolean
+		c. document.write(string|markup)
+		d. innerHtml
+		e. textContent
+		f. outerText vs innerText
+
+		javascript input elements
+		==========================
+		a. prompt() : string|null
+
+		javascript targeting the elements
+		==================================
+		a. using id         : static
+		b. using className  : dynamic
+		c. using tagName    : dynamic
+		d. querySelector(cssSyntax) | querySelectorAll()  : ECMA6+
+
+		primitive types
+		===============
+		Memory : stack(LIFO)
+		Range and size is fixed
+		Immutable : can't be changed on the same memory,if we try to change the reflection not on the same memory
+				but at different location.
+
+		a. number		: IEE754 (floating point - 64bit)
+						Number():: NaN|actual data : strict type
+						parseInt():: NaN|actual data,parseFloat()
+						toString() | toLocaleString(localetype,jsontype)
+		
+		b. string	         : property : length
+					methods  : slice(),trim(),split(),substring(),match(),charCodeAt(),indexOf()
+
+		c. boolean		: true |false
+					0 : false , any number>0 : true
+					null,undefined,"",0,NaN,0n : false
+					[],"sachin",function(){},any number>0 : true
+
+		operators
+		=========
+		d. null
+		e. undefined
+		f. BigInt
+		g. Symbol
+
+		Note: null === null (true)
+			undefined === undefined (true)
+			NaN === NaN 
+			NaN == NaN   (false)
+			null == undefined (true)
+			null === undefined (false)
+
+		What is the difference b/w null and undefined?
+		Ans. null : runtime value
+			undefined : compile time value(used by js engine)
+
+		Logical operator
+		================
+		a. && , ||
+
+
+		syntax:  (condition-1) && (condition-2)   
+				(condition-1) || (condition-2)
+
+
+		Programs
+		a. Find the largest of 2 numbers
+			eg: a>b       : a is greater
+				otherwise : b is greater
+
+		b. Find the largest of 3 numbers
+			eg: a>b && a>c : a is greater
+				b>c    : b is greater
+				otherwise  : c is greater
+
+		c. Find whether the value is in range or out of range
+			eg: input to a functions : value,min,max
+
+		Check if the triange is equilateral,issoceles or scalene
+				if all 3 sides are equal    : equilateral
+				if any 2 sides are matching : issoceles 
+				if no sides are matching    : scalene
+
+
+		switch in javascript
+		====================
+		if we want ceratain set of statements to be executed, where the condition is already predefined then we need to go for 'switch'
+
+
+		syntax: 
+		switch(type){
+			case label1 : ;;;;;;;
+					break;
+
+			case label2 : ;;;;;;
+					break;
+
+			default : ;;;;;;
+					break;
+
+		};
+
+
+
+		Note: 
+		1. type will be compared in strict manner with respect to label.
+				(type === label)
+
+		2. default can be anywhere in the switch hierarchy.
+		3. it gets executed when none of the labels are matching with input type.
+		4. while executing any label|default ,if we don't attach break to that block then fall through would happen.
+		5. for one input if we want multiple cases to execute then we use the mechanism of 'fall through'.
+		6. default at max can be only one in switch statement.
+		7. duplicate case labels are permitted 
+		8. switch argument type can be of any type like booleam,string,number,object,function,....
+
+
+		FAQ: 
+		1. Can we define switch without default ?
+		2. Can we define default above or b/w cases?
+		3. Can we use case without "jump statement" in switch[break]?
+		4. Can we use return as a jump statement in switch?
+		5. What is the difference b/w break and return ?
+		6. Can we define case value as "string" or "boolean"?
+		7. Can we define multiple cases for a single input?
+		8. How to define a case with range of values?
+
+
+		switch-code.html
+		================
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+
+			<link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+			<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+
+			<script type="text/javascript">
+
+				let regEx='';
+				let data = '';
+
+				function changeCountry() {
+
+					console.log("control in function selectCountry()");
+
+					//Get the country details choosen by the user
+					const countryName = document.getElementById("lstCountries").value;
+					const poster = document.getElementById("imgFlag");
+					const mobiles = document.getElementById("txtMobile");
+					console.log(mobiles);
+					
+					/*
+						Based on the country perform operation
+							a.Choose the image and bind to UI
+							b.In mobile field keep the format of mobile number 
+					*/
+					switch (countryName) {
+						case 'IND':
+							poster.src='../../public/images/india-flag.JPG';
+							mobiles.placeholder = '+91 and 10digits';
+							data = mobiles.placeholder;
+							regEx=/^\+91\d{10}$/;
+							break;
+						case '' : 
+							poster.src='';
+							mobiles.placeholder = ''
+							break;
+						case '' :
+							poster.src='';
+							mobiles[0].placeholder = '' 
+							break;
+					
+						default:
+							poster.src='';
+							poster.alt = 'N|A'
+							mobiles.placeholder = 'N|A'
+							break;
+					}
+				}
+
+				function verifyMobileNumber() {
+					//Read the value from the placeholder of mobileText
+					const mobile = document.getElementById("txtMobile").value;
+					const msg = document.getElementById("error");
+
+					//use the pattern and  match based on condition print the result
+					if (mobile.match(regEx)) {
+						msg.textContent = 'Mobile Number Verified succesfully';
+						msg.className = 'text-success h2 text-center';
+					} else {
+						msg.textContent = `Invalid MobileNumber : ${data}`;
+					}   
+				
+				}
+			</script>
+
+		</head>
+		<body class="container-fluid">
+
+			<div class="w-25 mt-3 border border-2 border-black rounded-2 p-4">
+
+				<h2> Verify Mobile</h2>
+				<dl>
+					<dt>
+						Select Your Country 
+					</dt>
+					<dd>
+						<img width="50" height="50" id="imgFlag">
+					</dd>
+					<dd>
+						<select name="" id="lstCountries" class="form-select" 
+								onchange="changeCountry()">
+							<option>Select Country</option>
+							<option value="IND">INDIA</option>
+							<option value="UK">UnitedKingdom</option>
+							<option value="USA">UnitedStates of America</option>       
+						</select>
+					</dd>
+
+					<dt>
+						Your Mobile
+					</dt>
+					<dd>
+						<input type="text" name="" id="txtMobile" class="form-control">
+					</dd>
+					<button class="btn btn-primary w-100" onclick="verifyMobileNumber()">Verify</button>
+				</dl>    
+			</div>
+			<p class="text-center text-danger h2" id="error"></p>
+		</body>
+		</html>
+
+		</html>
+Day 17
+
+	javascript output techniques and input techniques
+	=================================================
+			prompt() : string | null
+			queryString() | form elements   : string 
+
+		a. using id : HtmlElement
+			name,classname,tagName : HtmlCollection,
+			querySelector : HtmlElement and querySelectorAll() : NodeList
+
+
+		primitive type
+		==============
+		=> Immutable, Stack[LIFO]
+		=> structure and range is defined
+
+		a. number 		: IEE754 format(64bit)		
+					Number() | parseInt() |parseFloat()
+					toString() | toLocaleString('locale',options)
+								
+		b. string		: property : length
+					methods  : split(),trim(),substring(),slice(),charCodeAt()
+							
+					
+		c. boolean		: true | false
+					any  number except zero: true
+						truthy : " " , anynumber excluding 0, [],function
+						falsy : "",NaN,0,null,undefined,0n,-0.
+					
+					
+		d. undefined | null  : undefined : compiletime
+					null     : runtime
+
+		e. BigInt		: suffix with 'n'.
+		f. Symbol
+
+	Opertors
+	========
+		+ => if one of the operand is of string type then it perform concatination
+			if both are number it perform addition
+			if operand is of other type excluding string then first it converts to number using Number(data) 
+			and performs addition
+
+		-,*,/ -> It converts into Number(data) and performs suitable operation as per the operator.
+
+		||, && , ? : 
+		== and === 
+
+		statements
+		a. if 
+		b. if else
+		c. nested if else
+		d. else if ladder
+		e. switch
+
+
+	Non primitive types
+	===================
+		a. Memory would be allocated in heap
+		b. structure and range is not predefined
+		c. Mutable : change made would be reflected in the same memory
+
+		eg: Array , Map, Object, function(){}
+
+	Array
+	=====
+		It is used to store multiple value under single variableName.
+		Memory allocation need not be 'continguos' as data would be stored in the form of 'Key-Value' pair 
+		and data would be accessed via 'key|index'.
+
+	Creation phase
+	==============
+		let|const variable =new Array (size);  // Dynamic array
+		let arr = [value1,value2,value3,value4,....]; //static array
+
+		Note: 
+		a. Inside an array we can keep any type of elements[primtive and nonprimitive]
+		b. Indexing would happen internally in the form of 'string' as the index would be Key:value pair data.
+		c. Array can be created in 2 ways
+				1. static : let arr = [value1,....]
+				2. dynamic : let arr = new Array(size);
+
+		d. Different ways of reading an element from an array
+			a. using for loop
+				syntax : for(initialization ;condition ;counter){
+							//read the element using index 
+							array[index]
+					} 
+
+			b. using property of the array[key|index]
+				syntax : for(const property in object){
+						//read element using property
+						object[property]
+					}
+
+			c. directly reading the value[element] from an array
+				syntax : for(const element of object){
+						console.log(element);
+					}
+
+		eg#1.
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+
+			<script type="text/javascript">
+				let arr = [10,'sachin',53.4,true,['MI','IND'],function(){console.log("God of Cricket")}];
+				console.log(arr);
+				console.log(arr[5]);
+				console.log(arr[4]);
+				console.log(arr[4][1]);
+
+				arr[5]();// IIFE : Immediate Invoking Function Expression
+
+
+				let arr1 = [18,'kohli',55.4,true];
+				console.log(arr1);
+				console.log(arr1[0]);
+				console.log(arr[-5]);//undefined
+				console.log(arr1[5]);//undefined
+
+				//using for loop
+				console.log("Reading from for loop");
+				for(let i = 0 ; i<arr1.length; i=i+1){
+					console.log(arr1[i]);
+				}
+
+				console.log("Using for..in loop");
+				//using for..in loop
+				for (const property in arr1) {
+					console.log(`[${property}]  ${typeof property} : ${arr1[property]} ${typeof arr1[property]}`)
+				}
+
+				arr1[5] = ['RCB','IND'];
+				console.log(arr1);
+
+				console.log(arr1[4]);
+
+				let arr2 = ['RCB','GT','MI','Punjab','CSK'];
+				console.log("using for...of loop");
+				//using for.. of loop
+				for (const element of arr2) {
+					console.log(element);
+				}
+			</script>
+
+		</head>
+		<body>
+			
+		</body>
+		</html>
+
+
+		Array Destructuring
+		===================
+		=> Array destructuring is a syntax that lets you unpack values from arrays into individual variables in a clean and readable way.
+
+
+		eg#.1 without destructuring techinque
+
+		let arr = ['sachin', 51, 53.4, true];
+				let userName = arr[0]; 
+				let userAge = arr[1]; 
+				let userAvg = arr[2]; 
+				let isMarried = arr[3];
+
+				console.log(arr);
+				console.log(userName, userAge, userAvg, isMarried)
+		
+
+		eg#2. using destructuring technique
+
+		let arr = ['sachin', 51, 53.4, true];
+				const[myName,myAge,myAvg,maritalStatus]=arr;
+				console.log(myName,myAge,myAvg,maritalStatus);
+
+		eg#3. function returning an array 
+
+		function presentData() {
+					return ['kohli',38,'56.5',true];
+		}
+
+		//destructuring the array to unpack the values 
+		const[name,age,avg,married]=presentData();
+		console.log(name,avg,avg,married);
+
+
+		eg#4. Array destructuring to get the values not being unpacked.
+
+		let arr = ['sachin',,'M'];
+				console.log(arr);
+
+				const[name,age='Not Mentioned',gender,email] = arr;
+				console.log(age);
+				console.log(email);
+
+		eg#5. Array destructuring to swap two variables without using temp
+
+			let a  = 10;
+				let b = 20;
+				console.log("Before swapping")
+				console.log("a = ",a , "b = ",b);
+
+				let temp =a;
+				a =b;
+				b =temp;
+				console.log("After swapping")
+				console.log("a = ",a , "b = ",b);
+
+				//Array destructuring without using temp
+				[b,a]=[a,b];
+				console.log()
+				console.log("After swapping")
+				console.log("a = ",a , "b = ",b);
+
+
+
+		Object destructuring
+		====================
+		a. while binding the object to unpack, the keys of the object should be the same for the variable used for binding
+		b. if the variable name change while unpacking the value would be 'undefined'.
+		c. we can change the keyname while processing using the following syntax
+				const{keyname : newName,... ] = obj;
+
+		eg#1. without object destructuring
+
+		let user = {
+					userName : 'sachin',
+					age  : 51,
+					gender: 'M',
+					email : 'sachin@mi.com'
+				}
+				
+				console.log(user);
+				const myName=user.name;
+				const myAge=user.age;
+				const myGender=user.gender;
+				const myEmail=user.email;
+				console.log(myName,myAge,myGender,myEmail);
+
+
+		eg#2. with object destructuring
+
+		let user = {
+					userName : 'sachin',
+					age  : 51,
+					gender: 'M',
+					email : 'sachin@mi.com'
+				}
+
+		console.log("Using object destructuring");
+			const{userName,age} =user;
+			console.log(userName,age);
+
+
+		eg#3. Object destructuring but key is not found while unpacking
+		
+		let user = {
+					userName : 'sachin',
+					age  : 51,
+					gender: 'M',
+					email : 'sachin@mi.com'
+				}
+
+		console.log("Using object destructuring");
+			//instead of printing undefined, we assign a dummy value to present in UI
+			const{userName,age,salary='Not disclosed'} =user;
+			console.log(userName,age,salary);
+
+		eg#4. using our own keys for object destructuring
+
+		let user = {
+					userName : 'sachin',
+					age  : 51,
+					gender: 'M',
+					email : 'sachin@mi.com'
+				}
+
+		console.log("Object destructuring using our own keys")
+				const{userName:playerName,age: playerAge}=user;
+				console.log(playerName,playerAge);
+Day 22
+	Non primitive types
+	===================
+		Arrays	 : Heterogenous,Mutable
+				K : V 
+				K : [number,string,boolean]
+				V : [any type]
+					Note: if key is of string,boolean type then it adds a propery where length won't be changed.
+				static ( let arr = [])
+				dynamic (let arr = new Array(size))
+					property : length
+					methods  : unshift(begin),push(end), splice(start,deleteCount,...items)
+						shift(begin), pop(end)
+							sort([compare]),reverse()
+						indexOf(),lastIndexOf()
+					Reading   : map(),filter(),reduce()
+						forEach()
+					loops     : for, for..in,for..of
+					RestOperator : function parameter,Array Destructuring, Object Destructuring
+
+
+		Object	 : {'K' : V}
+				Reading the data
+					a. . operator		=> key are valid identifiers and key is already known
+					b. [key] operator	=> key is a part of another variable and it is not a standarad identifer
+				Object.keys()
+				Object.values()
+				Object.entries()
+				in operator -> to check for the existence of a key
+				delete operator -> to delete a particular key of an object
+
+		Asynchronous javascript mode of execution
+		=========================================
+		a. webapi
+			Promise   : pending,resolved, rejected
+			setTimeout()
+			fetch(URL). then().catch()
+			asynch | await
+
+
+	-> Card for Rending items ... 
+		<div class='card m-2 p-2' style='width:300px'>
+
+			<img src='' alt='' class='card-img-top' height='100'>  
+			
+			<div class='card-header overflow-auto' height='180'>
+				<p class='card-title text-center'> 
+
+				</p>
+			</div>
+
+			<div class='card-body' style='height:150px'>
+				<dl>
+					<dt></dt>
+					<dd></dd>
+				</dl>		
+			</div>
+
+			<div class='card-footer'>
+				<button> ADD TO CART </button>		
+			</div>
+		</div>
+
+
+
+	Methods Related to array
+	======
+		findIndex((value,index,array)) : index of the element
+
+		eg#1.
+		let users = [{id:10,name:'sachin'},{id:18,'name':'kohli'}];
+		let index=users.findIndex( user => user.id === 18)
+		console.log(index); //1
+		index = users.findIndex( user => user.id === 7);
+		console.log(index); //-1
+
+
+	Code ---> for Flipkart
+		<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+			<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+			<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+
+			<script type="text/javascript">
+				function loadData() {
+					loadCategories();
+					loadProducts("https://fakestoreapi.com/products/")
+					getCartCount();
+				}
+
+				var cartItems = [];
+
+				function getCartCount() {
+					document.getElementById("lblCount").className = 'bg-danger text-white  rounded badge rounded-circle position-absolute top-0 end-75'
+					document.getElementById("lblCount").textContent = cartItems.length;
+					console.log(cartItems);
+				}
+
+
+				async function addToCart(productId) {
+					try {
+						//1. make a call to api :https://fakestoreapi.com/products/{productId} : {}
+						const URL = `https://fakestoreapi.com/products/${productId}`
+						let response = await fetch(URL);
+						let product = await response.json();
+
+						//2. Add the details to the cartItems
+						cartItems.push(product);
+
+						//3. call the method getCartCount to display the noOfitems in the cart
+						getCartCount();
+
+					} catch (error) {
+						console.log("Error in response : ", error);
+					}
+				}
+
+
+				async function loadProducts(URL) {
+					try {
+
+						//clean the UI before rendering the page
+						document.querySelector("main").innerHTML = '';
+
+
+						//1. call api : https://fakestoreapi.com/products/  : [{},{},....]
+						let response = await fetch(URL);
+						let products = await response.json();
+
+						products.forEach((product) => {
+							console.log(product);
+							//2. Render the UI by creating a card where data should be from the API response
+							let div = document.createElement("div");
+							div.style.cssText = 'width:300px';
+							div.className = 'card m-2 p-2'
+							div.innerHTML = `
+										<img src='${product.image}' alt='' class='card-img-top' height='100'> 
+										<div class='card-header overflow-auto' height='180'>
+											<p class='card-title text-center'> 
+												${product.title}
+											</p>
+										</div>
+
+										<div class='card-body' style='height:150px'>
+											<dl>
+												<dt>Price</dt>
+												<dd>
+													${product.price}
+												</dd>
+												<dt> Rating </dt>
+												<dd>
+												<span class='bi bi-star-fill text-success'> </span>  ${product.rating.rate} [${product.rating.count}]
+												</dd>
+											</dl>		
+										</div>
+
+										<div class='card-footer'>
+												<button class='btn btn-danger w-100' onclick ='addToCart(${product.id})'> <span class='bi bi-cart4'> </span> ADD TO CART </button>		
+										</div>
+							`;
+
+							document.querySelector("main").appendChild(div);
+						})
+					} catch (error) {
+						console.log("ERROR RESPONSE IS : ", error);
+					}
+
+				}
+
+				function filterProducts() {
+					console.log("Onchange event occcured");
+
+					//1.Target the value choosen by the user
+					let data = document.getElementById("lstCategories").value;
+
+					//2. modify the url based on the value choosen by the user
+					let URL = undefined;
+					if (data == 'ALL') {
+						URL = 'https://fakestoreapi.com/products/';
+					} else {
+						URL = `https://fakestoreapi.com/products/category/${data}`
+					}
+					loadProducts(URL);
+				}
+
+				async function loadCategories() {
+					try {
+
+						//1. call api : https://fakestoreapi.com/products/categories : []
+						const URL = "https://fakestoreapi.com/products/categories";
+						let response = await fetch(URL);
+						let categories = await response.json()
+
+						//Adding the element at the begining for UI design
+						categories.unshift("ALL");
+
+						categories.forEach((category) => {
+							//2. Create an option element and keep the value and text as sent from API
+							const option = document.createElement("option");
+							option.value = category;
+							option.textContent = category.toUpperCase();
+
+							//3. Target the select element and append the data
+							document.getElementById("lstCategories").appendChild(option);
+						})
+					}
+					catch (error) {
+						console.log("Problem caused due to : ", error);
+					}
+
+				}
+
+				function deleteItem(productId) {
+					console.log(cartItems);
+
+					//1. search for that id in the cartItems
+					let index = cartItems.findIndex((item) => item.id === productId);
+					console.log(index);
+
+					//2. delete the element as per the id
+					cartItems.splice(index, 1);
+
+					console.log(cartItems);
+					//3. load the data back : displayCartItems()
+					displayCartItems();
+				}
+
+				function displayCartItems() {
+					document.querySelector("tbody").innerHTML = "";
+
+					//1. Iteration each item and printing it on modal body
+					cartItems.forEach(item => {
+						let tr = document.createElement("tr");
+
+						let tdName = document.createElement("td");
+						let tdPreview = document.createElement("td");
+						let tdPrice = document.createElement("td");
+						let tdAction = document.createElement("td");
+
+						tdName.textContent = item.title;
+						tdPreview.innerHTML = `<img src='${item.image}' widht='50' height='50'>`;
+						tdPrice.textContent = item.price;
+						tdAction.innerHTML = `<button class='btn btn-danger' onclick='deleteItem(${item.id})'>
+														<span class='bi bi-trash-fill'></span>
+											</button>`;
+
+						tr.appendChild(tdName);
+						tr.appendChild(tdPreview);
+						tr.appendChild(tdPrice);
+						tr.appendChild(tdAction);
+
+						document.querySelector("tbody").appendChild(tr);
+					})
+				}
+			</script>
+		</head>
+
+		<body>
+
+			<body class='container-fluid' onload="loadData()">
+
+				<header class="mt-3 d-flex justify-content-between bg-dark text-white p-3 fs-5">
+
+					<div>
+						<span class="fw-bold">FakeStore</span>
+					</div>
+
+					<nav class="">
+
+						<span class="me-3">
+							<a href="">HOME</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">ELECTRONICS</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">JEWELERY</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">MENSCLOTHING</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">WOMENSCLOTHING</a>
+						</span>
+
+					</nav>
+
+					<div>
+						<!-- Button trigger modal -->
+						<button class="btn btn-warning position-relative bi bi-cart" data-bs-toggle="modal"
+							data-bs-target="#cart" onclick="displayCartItems()">
+							Your Cart
+							<span id="lblCount">
+
+							</span>
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="cart">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Your Cart</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-body fs-5 text-dark">
+										<table border="1" cellspacing="2" cellpadding="2">
+											<thead>
+												<th> Name </th>
+												<th> Preview </th>
+												<th> Price</th>
+												<th> Action </th>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Payment</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+				</header>
+
+				<article class="bg-dark text-white text-center p-2 mt-2">
+
+					<span class="bi bi-lightning-fill" style="color:goldenrod"></span>
+					<span>
+						HOLIDAY DEALS 50% OFF -LIMITED OFFER
+					</span>
+					<span class="bi bi-lightning-fill" style="color: goldenrod;"></span>
+
+				</article>
+
+				<section class="row mt-2">
+
+					<nav class="col-2">
+						<div>
+							<label class="form-label fw-bold">Select Category</label>
+							<select id="lstCategories" class="form-select" onchange="filterProducts()">
+
+							</select>
+						</div>
+					</nav>
+
+					<main class="col-10 d-flex flex-wrap overflow-auto p-2">
+
+					</main>
+
+				</section>
+
+
+				<script src="../node_modules/jquery/dist/jquery.js"></script>
+				<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+			</body>
+		</body>
+
+		</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+		Map,Date
+		Functions
+
+									
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

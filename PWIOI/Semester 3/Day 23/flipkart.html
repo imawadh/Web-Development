@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function loadData(){
+            loadCategory(); 
+            loadProduct("https://fakestoreapi.com/products");
+        }
+
+        // Function which is invoked when prodduct category is changed 
+        function replaceProductByCategory(){
+            console.log("HELLO");
+            let URL = undefined;
+            let data = document.querySelector("main").innerHTML;
+            // console.log(data);
+            if(data=="ALL"){
+                URL = "https://fakestoreapi.com/products";
+            }
+            else{
+                URL = `https://fakestoreapi.com/products/category/${data}`;
+            }
+            loadProduct(URL);
+        }
+
+        // Function to load product on UI
+        async function loadProduct(URL) {
+            
+            try {
+                let response = await fetch(URL);
+                let products = await response.json();
+
+                products.forEach((product)=>{
+                    const div = document.createElement("div");
+                    div.className = "card m-2 p-2";
+                    div.style.cssText = "width:300px";
+
+                    div.innerHTML = `
+                        <img src="${product.image}" alt="" class="card-img-top" height="100">
+                        <div class="card-header overflow-auto" height="180">
+                            <p class="card-title text-center">
+                                ${product.title}
+                            </p>
+                        </div>
+                        <div class="card-body" style="height: 150px;">
+                            <dl>
+                                <dt>Price</dt>
+                                <dd>${product.price}</dd>
+                                <dt>Rating</dt>
+                                <span class="bi bi-star-fill text-success"> </span>
+                                <dd>${product.rating.rate} [${product.rating.count}]</dd>
+                                
+                            </dl>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn bg-danger w-100"> <span class="bi bi-cart4"> </span>ADD TO CART</button>
+                        </div>
+                        `;
+                    document.querySelector("main").appendChild(div);
+                })
+
+            } catch (error) {
+                console.log("ERROR MESSAGE IS " + error)
+            }
+             
+        }
+
+        // Loading Different Categories for Drop Down
+        async function loadCategory(){
+            
+            try{
+                const URL = "https://fakestoreapi.com/products/categories";
+                let response = await fetch(URL);
+                let categories = await response.json();
+                categories.unshift("ALL");
+                categories.forEach((category) => {
+                    let option = document.createElement("option");
+                    option.value = category;
+                    option.textContent = category.toUpperCase();
+                    document.getElementById("lstCategory").appendChild(option);
+                });
+            }
+            catch(error){
+                console.log("ERROR OCCURED " + error);
+            }
+
+        }
+        
+    </script>
+</head>
+<body onload="loadData()">
+    <header class="d-flex justify-content-around bg-black text-white p-2">
+        <div>
+            <span class="fw-bold">FakeStore</span>
+        </div>
+        <div>
+            <ul class="d-flex justify-content-between">
+                <li style="list-style: none;" class="pe-3">Home</li>
+                <li style="list-style: none;" class="pe-3">Electronics</li>
+                <li style="list-style: none;" class="pe-3">Jwellery</li>
+                <li style="list-style: none;" class="pe-3">MenClothing</li>
+                <li style="list-style: none;" class="pe-3">WomenClothing</li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-warning rounded  text-dark" data-bs-toggle="#modal" data-bs-target="cardItems"  id="cardItems" >
+            <span class="bi bi-cart"></span>
+            <span>Your Cart</span>
+        </button>
+            <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="cardItems" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="cardItems">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    </header>
+
+    <article class="mt-2 bg-black d-flex justify-content-center p-2">
+        <span class="bi bi-lightning text-danger"></span>
+        <span class="text-white"> &nbsp;Holiday Offer 50%  &nbsp;</span>
+        <span class="bi bi-lightning text-danger"></span>
+    </article>
+
+    <section class="mt-3 ps-2 row">
+        <nav class="col-2">
+            <select id="lstCategory" onchange="replaceProductByCategory()">
+                
+            </select>
+        </nav>
+        <main class="col-10 d-flex flex-wrap">
+
+        </main>
+    </section>
+    
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

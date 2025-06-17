@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FlipKart</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script type="text/javascript">
+            // function that calls other function when site starts rending 
+            function loadContent(){
+                loadCategories("https://fakestoreapi.com/products/categories");
+                loadContentByCategory("https://fakestoreapi.com/products");
+                loadCartCount();
+            }
+            
+            
+            // Loading of list of Categories when the site load 
+            async function loadCategories(URL){
+                try {
+                    // GET data by fetching data from api call 
+                    let response = await fetch(URL);
+                    let categories = await response.json();
+                    
+                    // Adding each categeory to option list
+                    categories.unshift("ALL");
+                    categories.forEach(category => {
+                        let option = document.createElement("option");
+                        option.value = category;
+                        option.textContent = category.toUpperCase();
+                        document.getElementById("lstCategories").appendChild(option);
+                    });
+                    
+                    
+                } catch (error) {
+                    console.log("ERROR OCCURED ::: + " + error);
+                }
+            }
+            
+            // Filter Product Section whwn the peoduct category is checked from navigation section
+            function filterProduct(){
+                let URL = undefined
+                const data = document.getElementById("lstCategories").value;
+                console.log(data);
+                if(data=="ALL"){
+                    URL = "https://fakestoreapi.com/products";
+                }
+                else{
+                    URL = `https://fakestoreapi.com/products/category/${data}`;
+                }
+                loadContentByCategory(URL);
+            }
+
+            // Loading Content By Category .... 
+            async function loadContentByCategory(URL){
+                // Deleting the data from main section ..... 
+                document.querySelector("main").innerHTML = "";
+                try {
+                    // GET data by fetching data from api call 
+                    let response = await fetch(URL);
+                    let products = await response.json();
+            
+                    products.forEach(product => {
+                        const div = document.createElement("div");
+                        div.className = "card m-2 p-2";
+                        div.style.cssText = "width:300px";
+            
+                        div.innerHTML = `
+                            <img src="${product.image}" alt="" class="card-img-top" height="100">
+                            <div class="card-header overflow-auto" height="180">
+                                <p class="card-title text-center">
+                                    ${product.title}
+                                </p>
+                            </div>
+                            <div class="card-body" style="height: 150px;">
+                                <dl>
+                                    <dt>Price</dt>
+                                    <dd>${product.price}</dd>
+                                    <dt>Rating</dt>
+                                    <span class="bi bi-star-fill text-success"> </span>
+                                    <dd>${product.rating.rate} [${product.rating.count}]</dd>
+                                    
+                                </dl>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn bg-danger w-100" onclick="addItemToCart(${product.id})"> <span class="bi bi-cart4"> </span>ADD TO CART</button>
+                            </div>
+                            `;
+                        document.querySelector("main").appendChild(div);
+                    });
+            
+                } catch (error) {
+                    console.log("ERROR OCCURED ::: + " + error);
+                }
+                
+            
+            }
+
+            // Adding Element to cart function when add to cart button is pressed
+            async function addItemToCart(productId){
+                try {
+                    //1. make a call to api :https://fakestoreapi.com/products/{productId} : {}
+                    const URL = `https://fakestoreapi.com/products/${productId}`;
+                    let response = await fetch(URL);
+                    let product = await response.json();
+
+                    //2. Add the details to the cartItems
+                    cartEle.push(product);
+
+                    //3. call the method getCartCount to display the noOfitems in the cart
+                    loadCartCount();
+
+
+                } catch (error) {
+                    console.log("Error in response : ", error);
+                }
+            }
+
+
+
+        
+
+        // On click of Cart button function to show card item 
+        function loadCartItem(){
+            document.querySelector("tbody").innerHTML="";
+
+            cartEle.forEach((item)=>{
+                let tr = document.createElement("tr");
+
+                let tdName = document.createElement("td");
+                let tdPrice = document.createElement("td");
+                let tdImage = document.createElement("td");
+                let tdStatus = document.createElement("td");
+
+                tdName.textContent = item.title;
+                tdPrice.textContent = item.price;
+
+                tdImage.innerHTML = `<img src="${item.image}"  width='100' height='100'>`;
+                
+                tdStatus.innerHTML = `<button class="btn btn-danger" onclick="deleteCartElement(${item.id})">
+                                        <span class="bi bi-trash-fill"> </span>
+                                        </button>`;
+
+                tr.appendChild(tdName);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdImage);
+                tr.appendChild(tdStatus);
+
+                document.querySelector("tbody").appendChild(tr);
+                
+
+            })
+
+        }
+
+        // Function to delete item from cart
+        function deleteCartElement(productId){
+            // Finding the index of product which we need to delete 
+            console.log(cartEle);
+            console.log(productId);
+            let index = cartEle.findIndex(item => item.id === productId
+            );
+            console.log(index);
+            console.log(cartEle);
+            // Deteing the selected element
+            cartEle.splice(index,1);
+            loadCartCount();
+            loadCartItem();
+        }
+
+
+
+        // Loading the Cart Count -> Loading the number of element in the cart 
+        let cartEle = []
+        function loadCartCount(){
+            const data = document.getElementById("lblCart");
+            data.textContent = cartEle.length;
+            data.className = "bg-danger text-white rounded-pill p-1 badge";
+            console.log(cartEle);
+        }
+        
+        
+        
+
+        
+
+
+        
+
+
+    </script>
+</head>
+<body onload="loadContent()">
+
+    <!-- Header Section --> 
+    <header class="d-flex justify-content-around bg-black text-white p-2">
+        <div>
+            <span class="fw-bold">FakeStore</span>
+        </div>
+        <div>
+            <ul class="d-flex justify-content-between">
+                <a href="javascript:void()" class="text-decoration-none text-white"> <li class="pe-3 list-unstyled">Home</li> </a>
+                <a href="javascript:void()" class="text-decoration-none text-white"> <li class="pe-3 list-unstyled">Electronics</li> </a>
+                <a href="javascript:void()" class="text-decoration-none text-white"> <li class="pe-3 list-unstyled">Jwellery</li> </a>
+                <a href="javascript:void()" class="text-decoration-none text-white"> <li class="pe-3 list-unstyled">MenClothing</li> </a>
+                <a href="javascript:void()" class="text-decoration-none text-white"> <li class="pe-3 list-unstyled">WomenClothing</li> </a>
+            </ul>
+        </div>
+        <div>
+            <button class="btn btn-warning"  data-bs-toggle="modal"
+            data-bs-target="#cart" onclick="loadCartItem()" >
+                <span class="bi-cart"></span>
+                <span>Cart</span>
+                <span id="lblCart"></span>
+            </button>
+             <!-- Modal -->
+             <div class="modal fade" id="cart">
+               <div class="modal-dialog" >
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                     </button>
+                   </div>
+                   <div class="modal-body">
+                     <table border="1" cellspacing="3" cellpadding="2">
+                        <thead>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                            <th>Status</th>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                     </table>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save</button>
+                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Pay Now !</button>
+                     
+                   </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Article Section -->
+    <article class="mt-2 p-2 bg-black w-100 text-center">
+        <span class="bi bi-lightning-fill text-warning"></span>
+        <span class="text-white"> &nbsp;Holiday Offer 50%  &nbsp;</span>
+        <span class="bi bi-lightning-fill text-warning"></span>
+    </article>
+
+    <!-- Main Section -->
+     <section class="row mt-4 ps-3 pe-3">
+        <nav class="col-2">
+            <select id="lstCategories"  onchange="filterProduct()" >
+
+            </select>
+        </nav>
+        <main class="col-10 d-flex flex-wrap" id="lstProducts">
+
+        </main>
+     </section>
+
+  
+
+    
+     <img src="" alt="" srcset="" width="40px">
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

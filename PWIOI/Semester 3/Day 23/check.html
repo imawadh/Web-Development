@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+			<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+			<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+
+			<script type="text/javascript">
+				function loadData() {
+					loadCategories();
+					loadProducts("https://fakestoreapi.com/products/")
+					getCartCount();
+				}
+
+				var cartItems = [];
+
+				function getCartCount() {
+					document.getElementById("lblCount").className = 'bg-danger text-white  rounded badge rounded-circle position-absolute top-0 end-75'
+					document.getElementById("lblCount").textContent = cartItems.length;
+					console.log(cartItems);
+				}
+
+
+				async function addToCart(productId) {
+					try {
+						//1. make a call to api :https://fakestoreapi.com/products/{productId} : {}
+						const URL = `https://fakestoreapi.com/products/${productId}`
+						let response = await fetch(URL);
+						let product = await response.json();
+
+						//2. Add the details to the cartItems
+						cartItems.push(product);
+
+						//3. call the method getCartCount to display the noOfitems in the cart
+						getCartCount();
+
+					} catch (error) {
+						console.log("Error in response : ", error);
+					}
+				}
+
+
+				async function loadProducts(URL) {
+					try {
+
+						//clean the UI before rendering the page
+						document.querySelector("main").innerHTML = '';
+
+
+						//1. call api : https://fakestoreapi.com/products/  : [{},{},....]
+						let response = await fetch(URL);
+						let products = await response.json();
+
+						products.forEach((product) => {
+							console.log(product);
+							//2. Render the UI by creating a card where data should be from the API response
+							let div = document.createElement("div");
+							div.style.cssText = 'width:300px';
+							div.className = 'card m-2 p-2'
+							div.innerHTML = `
+										<img src='${product.image}' alt='' class='card-img-top' height='100'> 
+										<div class='card-header overflow-auto' height='180'>
+											<p class='card-title text-center'> 
+												${product.title}
+											</p>
+										</div>
+
+										<div class='card-body' style='height:150px'>
+											<dl>
+												<dt>Price</dt>
+												<dd>
+													${product.price}
+												</dd>
+												<dt> Rating </dt>
+												<dd>
+												<span class='bi bi-star-fill text-success'> </span>  ${product.rating.rate} [${product.rating.count}]
+												</dd>
+											</dl>		
+										</div>
+
+										<div class='card-footer'>
+												<button class='btn btn-danger w-100' onclick ='addToCart(${product.id})'> <span class='bi bi-cart4'> </span> ADD TO CART </button>		
+										</div>
+							`;
+
+							document.querySelector("main").appendChild(div);
+						})
+					} catch (error) {
+						console.log("ERROR RESPONSE IS : ", error);
+					}
+
+				}
+
+				function filterProducts() {
+					console.log("Onchange event occcured");
+
+					//1.Target the value choosen by the user
+					let data = document.getElementById("lstCategories").value;
+
+					//2. modify the url based on the value choosen by the user
+					let URL = undefined;
+					if (data == 'ALL') {
+						URL = 'https://fakestoreapi.com/products/';
+					} else {
+						URL = `https://fakestoreapi.com/products/category/${data}`
+					}
+					loadProducts(URL);
+				}
+
+				async function loadCategories() {
+					try {
+
+						//1. call api : https://fakestoreapi.com/products/categories : []
+						const URL = "https://fakestoreapi.com/products/categories";
+						let response = await fetch(URL);
+						let categories = await response.json()
+
+						//Adding the element at the begining for UI design
+						categories.unshift("ALL");
+
+						categories.forEach((category) => {
+							//2. Create an option element and keep the value and text as sent from API
+							const option = document.createElement("option");
+							option.value = category;
+							option.textContent = category.toUpperCase();
+
+							//3. Target the select element and append the data
+							document.getElementById("lstCategories").appendChild(option);
+						})
+					}
+					catch (error) {
+						console.log("Problem caused due to : ", error);
+					}
+
+				}
+
+				function deleteItem(productId) {
+					console.log(cartItems);
+
+					//1. search for that id in the cartItems
+					let index = cartItems.findIndex((item) => item.id === productId);
+					console.log(index);
+
+					//2. delete the element as per the id
+					cartItems.splice(index, 1);
+
+					console.log(cartItems);
+					//3. load the data back : displayCartItems()
+					displayCartItems();
+				}
+
+				function displayCartItems() {
+					document.querySelector("tbody").innerHTML = "";
+
+					//1. Iteration each item and printing it on modal body
+					cartItems.forEach(item => {
+						let tr = document.createElement("tr");
+
+						let tdName = document.createElement("td");
+						let tdPreview = document.createElement("td");
+						let tdPrice = document.createElement("td");
+						let tdAction = document.createElement("td");
+
+						tdName.textContent = item.title;
+						tdPreview.innerHTML = `<img src='${item.image}' widht='50' height='50'>`;
+						tdPrice.textContent = item.price;
+						tdAction.innerHTML = `<button class='btn btn-danger' onclick='deleteItem(${item.id})'>
+														<span class='bi bi-trash-fill'></span>
+											</button>`;
+
+						tr.appendChild(tdName);
+						tr.appendChild(tdPreview);
+						tr.appendChild(tdPrice);
+						tr.appendChild(tdAction);
+
+						document.querySelector("tbody").appendChild(tr);
+					})
+				}
+			</script>
+		</head>
+
+		<body>
+
+			<body class='container-fluid' onload="loadData()">
+
+				<header class="mt-3 d-flex justify-content-between bg-dark text-white p-3 fs-5">
+
+					<div>
+						<span class="fw-bold">FakeStore</span>
+					</div>
+
+					<nav class="">
+
+						<span class="me-3">
+							<a href="">HOME</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">ELECTRONICS</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">JEWELERY</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">MENSCLOTHING</a>
+						</span>
+
+						<span class="me-3">
+							<a href="">WOMENSCLOTHING</a>
+						</span>
+
+					</nav>
+
+					<div>
+						<!-- Button trigger modal -->
+						<button class="btn btn-warning position-relative bi bi-cart" data-bs-toggle="modal"
+							data-bs-target="#cart" onclick="displayCartItems()">
+							Your Cart
+							<span id="lblCount">
+
+							</span>
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="cart">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Your Cart</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-body fs-5 text-dark">
+										<table border="1" cellspacing="2" cellpadding="2">
+											<thead>
+												<th> Name </th>
+												<th> Preview </th>
+												<th> Price</th>
+												<th> Action </th>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Payment</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+				</header>
+
+				<article class="bg-dark text-white text-center p-2 mt-2">
+
+					<span class="bi bi-lightning-fill" style="color:goldenrod"></span>
+					<span>
+						HOLIDAY DEALS 50% OFF -LIMITED OFFER
+					</span>
+					<span class="bi bi-lightning-fill" style="color: goldenrod;"></span>
+
+				</article>
+
+				<section class="row mt-2">
+
+					<nav class="col-2">
+						<div>
+							<label class="form-label fw-bold">Select Category</label>
+							<select id="lstCategories" class="form-select" onchange="filterProducts()">
+
+							</select>
+						</div>
+					</nav>
+
+					<main class="col-10 d-flex flex-wrap overflow-auto p-2">
+
+					</main>
+
+				</section>
+
+
+				<script src="../node_modules/jquery/dist/jquery.js"></script>
+				<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+			</body>
+		</body>
+
+		</html>

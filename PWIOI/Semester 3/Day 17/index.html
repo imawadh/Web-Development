@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Document</title>
+
+			<script type="text/javascript">
+				let arr = [10,'sachin',53.4,true,['MI','IND'],function(){console.log("God of Cricket")}];
+				console.log(arr);
+				console.log(arr[5]);
+				console.log(arr[4]);
+				console.log(arr[4][1]);
+
+				arr[5]();// IIFE : Immediate Invoking Function Expression
+
+
+				let arr1 = [18,'kohli',55.4,true];
+				console.log(arr1);
+				console.log(arr1[0]);
+				console.log(arr[-5]);//undefined
+				console.log(arr1[9]);//undefined
+                // If we pass negative or value of index to access array element which is greater than or equal to size it would result as undefined .... 
+
+				//using for loop
+				console.log("Reading from for loop");
+				for(let i = 0 ; i<arr1.length; i=i+1){
+					console.log(arr1[i]);
+				}
+
+				console.log("Using for..in loop");
+				//using for..in loop
+				for (const property in arr1) {
+					console.log(`[${property}]  ${typeof property} : ${arr1[property]} ${typeof arr1[property]}`)
+				}
+
+				arr1[5] = ['RCB','IND'];
+				console.log(arr1);
+
+				console.log(arr1[4]);
+
+				let arr2 = ['RCB','GT','MI','Punjab','CSK'];
+				console.log("using for...of loop");
+				//using for.. of loop
+				for (const element of arr2) {
+					console.log(element);
+				}
+			</script>
+
+		</head>
+		<body>
+			
+		</body>
