@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function loadTime(){
+            let now = new Date();
+            document.getElementById("cal").textContent = now.toLocaleDateString();
+            document.getElementById("clock").textContent = now.toLocaleTimeString();
+
+            let cHour = now.getHours();
+            let msg = undefined;
+            let img = document.querySelector("img");
+            if(cHour<=12){
+                msg = "GOOD MORNING";
+                img.src = "../public/images/morning.jpeg"
+            }
+            else if(cHour<=16){
+                msg = "Good Afternoon";
+                img.src = "../public/images/babubali.jpeg"
+            }
+            else if(cHour<=20){
+                msg="Good Evening";
+                img.src = "../public/images/babubali.jpeg"
+            }
+            else{
+                msg = "Good Night";
+                img.src = "../public/images/babubali.jpeg"
+            }
+            document.querySelector("section").className = "d-block text-center w-100 pt-4";
+            document.getElementById("msg").innerHTML = msg;
+
+
+            
+            
+        }
+    </script>
+</head>
+<body onload="loadTime()">
+    <header class="bg-black text-white d-flex justify-content-between ps-4 pe-4 pt-2">
+        <div class="fw-bold">
+            Shopper.
+        </div>
+        <div>
+            <ul class="d-flex justify-content-around">
+                <li class="list-unstyled me-3">Home</li>
+                <li class="list-unstyled me-3">About</li>
+                <li class="list-unstyled me-3">Contact</li>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-around">
+
+            <div class="me-4">
+                <span class="bi bi-calendar"></span>
+                <span id="cal">
+
+                </span>
+            </div>
+            <div>
+                <span class="bi bi-clock"></span>
+                <span id="clock"></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="d-none">
+        <img src="" alt="" width="150" height="120">
+        <br>
+        <span id="msg"></span>
+    </section>
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

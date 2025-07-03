@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body onload="loadData()">
+
+    <div class="h-100 w-50  p-2 m-auto">
+
+        <div class="card text-center">
+            <div class="card-header">
+            <span id="lblTitle">Header</span>
+            </div>
+            <div class="card-body">
+                <span id="lblPrice" class="text-end"></span>
+                <div>
+                    <img src="" alt="" id="imgProd" height="200" width="200">
+                </div>
+            </div>
+            <div class="card-footer text-body-secondary">
+            <button class="btn btn-primary" id="btnPrev">Prev</button>
+            <button class="btn btn-primary" id="btnNext">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let productId = 1;
+        let timer = null;
+        function loadData(){
+            timer =  setTimeout(loadProdunct,3000);
+        
+
+            document.getElementById("btnPause").addEventListener("click",function(){
+                clearInterval(timer);
+            })
+
+            document.getElementById("btnPlay").addEventListener("click",function(){
+                timer = setTimeout(loadData);
+            })
+        }
+
+        async function loadProdunct(productId){
+
+            try {
+                let URL = `https://fakestoreapi.com/products/${productId}`;
+    
+                let response = await fetch(URL);
+                if(!response.ok){
+                    throw "Error Found"
+                }
+                
+
+                let product = await response.json();
+                console.log(product);
+    
+                document.getElementById("lblTitle").textContent = product.title;
+                document.getElementById("lblPrice").innerHTML = `<span class="bi bi-tag-fill bg-danger p-1 rounded"><span class="bi bi-currency-dollar">${product.price}<span></span>`;
+                document.getElementById("imgProd").src = product.image;
+                
+                
+            } catch (error) {
+                console.log(error);
+            }finally{
+                productId++;
+                timer = setTimeout(loadProdunct,3000);
+            }
+
+        }
+    </script>
+
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

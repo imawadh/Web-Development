@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Progaram 1
+
+        // function a(){
+        //     var i = 10;
+        //     console.log("****************************");
+        //     setTimeout(function(){
+        //         console.log(i);
+        //     },3000)
+        //     console.log("****************************");
+        // }
+        // a();
+
+
+        // Program 2
+        // function x(){
+        //     for(var i = 1; i<=5; i++){
+        //         setTimeout(function(){
+        //             console.log(i);
+        //         },i*1000);
+        //     }
+        // }
+        // x();
+
+
+        // Program 3
+        // function x(){
+        //     for(let i = 1; i<=5; i++){
+        //         setTimeout(function(){
+        //             console.log(i);
+        //         },i*1000);
+        //     }
+        // }
+        // x();
+
+        
+        // Program 4
+        function x(){
+
+            for(var i = 1; i<=5; i++){
+                function close(a){
+                    setTimeout(function(){
+                        console.log(a);
+                    },a*1000);
+                }
+                close(i);
+            }
+            
+        }
+        x();
+    </script>
+</body>
+</html>
+
+<!-- setTimeout(callbackfunction, time in millisecod , args)-->

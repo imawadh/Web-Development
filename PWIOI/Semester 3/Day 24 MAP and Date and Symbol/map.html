@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+
+        let map = new Map();
+        map.set("name","YashRaj");
+        map.set(true,"isMarried");
+        map.set(0,"runsScored");
+
+        console.log("Printing the keys in  maps :: ",map.keys());
+        console.log("Printing the values in  maps :: ",map.values());
+        console.log("Printing the entities in  maps :: ",map.entries());
+
+
+        console.log("*****************Before Deletion ****************");
+        console.log(map);
+        console.log("**********After Deeletion in Map *********************");
+        if(map.has(true)){    
+            map.delete(true);
+        }
+        console.log(map);
+
+
+        console.log("****************** Some other concepts related to MAP **************************");
+
+        let key = {"name":"Awadh",}
+
+        
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

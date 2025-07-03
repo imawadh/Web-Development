@@ -1,0 +1,58 @@
+Non Primitive Data Types :::
+
+
+Map 
+======
+What are the limitation of Object Data Type ?
+Ans ... 
+        1. Keys must of of String Type
+        2. No standarad api on its own to tell the no. of keys present in an object.
+        3. Searching ans deletion on its own cann't be done it should be with help of operators (of object class).
+        4. Best Suited only when data is "Structured" else it fails ..
+        5. Insertion order is not preserved in Object while is preserved in case of Map it preserved 
+
+    Map is the solution to all these problems which were with Object ....
+    
+Map provides following method for maipualtion :::
+==================================================
+
+set()      :: It is used to assign a new key with the value to a map
+get()      :: It returns the value of key of a map 
+********************************** 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Symbol Type in JAVASCRIPT ::: 
+
+- We can create a Symbol() with same key 
+- Even if we craete a Symbol() type with same key still 2 keys in an object would be available in the memory ...
+- If we use == | === operator on Symbol type with the smae key result would be false.
+- We can use "toStirng()" to convert symbol type in String .... 
+
+
+
+
+
+
+

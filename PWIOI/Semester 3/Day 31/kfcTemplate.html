@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    
+    <div>
+        <!--Customer Details Section-->
+        <div>
+            <button class="btn btn-danger w-100" onclick="displayDetails('customerDetailSection')">Customer Details </button>
+            <div id="customerDetailSection" style="display: none;" class="differerentSection">
+                <dl class="text-center">
+                    <h1 class="bg-danger">Customer Details</h1>
+                    <dt class="text-start">Customer Name</dt>
+                    <dd><input type="text" class="w-100" id="txtCumstomerName"></dd>
+                    <dt class="text-start">Mobile Number</dt>
+                    <dd><input type="number" class="w-100" id="txtMobileNumber"></dd>
+                </dl>
+                
+            </div>
+        </div>
+
+        <!--Meal Section-->
+        <div>
+            <button class="btn btn-danger w-100" onclick="displayDetails('selectMeals')">Select Your Meal </button>
+            <div id="selectMeals" style="display: none;" class="differerentSection">
+                <dl class="text-center">
+                    <h1 class="bg-danger">Select Your Meals </h1>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <div>
+                                <img src="../public/images/kfc1.jpeg" alt="" srcset="">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <input type="radio" id="meal1">
+                                <span class="bi-currency-dollar">50</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="../public/images/kfc2.jpeg" alt="" srcset="">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <input type="radio" id="meal2">
+                                <span class="bi-currency-dollar">50</span>
+                            </div>
+                        </div>
+                    </div>
+                </dl>
+                
+            </div>
+        </div>
+
+
+        <!--Add On Section-->
+        <div>
+            <button class="btn btn-danger w-100"  onclick="displayDetails('SelectAddOns')">Select Add Ons </button>
+            <div id="SelectAddOns" style="display: none;" class="differerentSection">
+                <dl class="text-center">
+                    <h1 class="bg-danger">Select Add Ons</h1>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <div>
+                                <img src="../public/images/coke.jpeg" alt="" srcset="">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <input type="radio">
+                                <span class="bi-currency-dollar">50</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="../public/images/chips.jpeg" alt="" srcset="">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <input type="radio">
+                                <span class="bi-currency-dollar">50</span>
+                            </div>
+                        </div>
+                    </div>
+                </dl>
+                
+            </div>
+        </div>
+
+        <!--Order Summary Section-->
+        <div>
+            <button id="orderBtn" type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#placeOrderSection" disabled>
+                Place Order
+              </button>
+              <div class="modal fade" id="placeOrderSection">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold text-danger" >Your Order Summary</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="fw-bold">
+                          Customer Name
+                        </div>
+                        <div class="fw-bold">
+                          Mobile NUmber
+                        </div>
+                        <div class="fw-bold">
+                          Meals
+                        </div>
+                        <div class="fw-bold">
+                          Add Ons
+                        </div>
+                        <div class="fw-bold">
+                          Total
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Pay Now</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript">
+
+        // Displaying on the click of buuton the content 
+        function displayDetails(id){
+            console.log(id);
+            let list = document.getElementsByClassName("differerentSection");
+            list = Array.from(list);
+            console.log(list);
+            list.forEach(element => {
+                element.style.display="none";
+            });
+            document.getElementById(id).style.display = "block";
+        }
+
+        // To activate the place order buuton
+        let checkDataCompletion = function (){
+            let userName = document.getElementById("txtCumstomerName").value.trim();
+            let mobileNumber = document.getElementById("txtMobileNumber").value.trim();
+            let meal1 = document.getElementById("meal1").checked;
+            let meal2 = document.getElementById("meal2").checked;
+            document.getElementById("orderBtn").disabled = (!userName && mobileNumber && (meal1 | meal2));
+
+
+        }
+        document.getElementById("txtCumstomerName").addEventListener("input",checkDataCompletion);
+        document.getElementById("txtMobileNumber").addEventListener("input",checkDataCompletion);
+        document.getElementById("meal1").addEventListener("checked",checkDataCompletion);
+        document.getElementById("meal2").addEventListener("checked",checkDataCompletion);
+
+
+
+
+
+
+
+        </script>
+</body>
+</html>

@@ -2929,7 +2929,7 @@ Day 22
 					property : length
 					methods  : unshift(begin),push(end), splice(start,deleteCount,...items)
 						shift(begin), pop(end)
-							sort([compare]),reverse()
+						sort([compare]),reverse()
 						indexOf(),lastIndexOf()
 					Reading   : map(),filter(),reduce()
 						forEach()

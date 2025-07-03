@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+
+        class DivisionByZero extends Error{
+            constructor(msg){
+                super(msg);
+            }
+        }
+        class BGreaterThanA extends Error{
+            constructor(msg){
+                super(msg);
+            }
+        }
+        function divide(a,b){
+            if(b==0){
+                throw new DivisionByZero("Divison By Zero is not possible");
+            }
+            if(b>a){
+                throw new BGreaterThanA("Denominator is greater than Numerator");
+            }
+            console.log("The result is :: ",a/b)
+        }
+        try{
+            divide(10,90);
+
+        }catch(error){
+            console.log("Error is ", error.message)
+        }
+
+
+
+        
+        
+        
+    </script>
+</head>
+<body>
+
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

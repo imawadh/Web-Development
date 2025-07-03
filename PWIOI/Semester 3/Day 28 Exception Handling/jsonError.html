@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+
+        console.log("Execution Starts");
+        try {
+            let a = '{name:"Sachin","Age":54}';
+            let b = JSON.parse(a);
+            console.log(b.name);
+        } catch (error) {
+            console.log("Error is " , error);
+            console.log("Error TYPE is ", error.name); // Type of Error
+            console.log("Error Message is ", error.message); // Error Message
+            console.log("Error Stack Detail is ", error.stack); // Error Stack Details
+        }finally{
+            console.log("Finnaly Block Executes whether try executes completely or not ")
+        }
+        console.log("GraceFul Termination");
+        // Graceful Termination happen when the programmer handles the error by himself and abnormal happens when the javascript runtime engine handles error 
+        
+    </script>
+</head>
+<body>
+
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

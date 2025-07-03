@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        var count = 0;
+        let id;
+        function increaseProgress(){
+            let progress = document.querySelector("progress");
+            progress.value = count;
+            count++;
+            console.log(count);
+            if(count==100){
+                document.getElementById("banner").outerHTML = `<img src="../public/images/babubali.jpeg">` ;
+                clearInterval(id);
+                document.getElementById("progessSection").style.display="none";
+            }
+           
+        }
+        function startProgess(){
+            id = setInterval(increaseProgress,10);
+        }
+        function stopProgress(){
+
+        }
+    </script>
+</head>
+<body>
+    <div id="progessSection">
+        <progress min="0" max="0" value="0"></progress>
+        <button class="btn btn-danger" onclick="startProgess()" >
+            <span class="bi bi-pause"></span>
+        </button>
+    
+        <button class="btn btn-primary" onclick="stopProgress()">
+            <span class="bi bi-play"></span>
+        </button>
+    </div>
+    <div id="banner">
+
+    </div>
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

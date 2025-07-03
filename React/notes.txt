@@ -1,0 +1,26 @@
+What is React ? 
+
+    React is not a framework, it is a library given by facebook to perform DOM operation virtually so that the user will be very happy in seeing the change on the UI. 
+
+
+Creating an Element 
+
+    Signature 
+        const element =  React.createElement(
+            type, // HTML tag Name or React Component 
+            props, // object with props/attributes or null
+            ...children // child element or text
+        )
+
+
+Accessing DOM ::: 
+
+    Signature 
+        const container = document.getElementById("idName);
+        const root = ReactDom.crateRoot(container);
+        
+
+Useage of {} in React.createElement
+    -> It is used to give the attributes to an element  
+
+
