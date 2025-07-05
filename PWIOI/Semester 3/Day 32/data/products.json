@@ -1,0 +1,11 @@
+[
+    {
+        "category" : "Electronics",
+        "items"  : ["mobile","TV","Remote"]
+    },
+
+    {
+        "category" : "Fashion",
+        "items"  : ["Men","Kids","Womens"]
+    }
+]

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body onload="loadContents()">
+    <ol>
+
+    </ol>
+    
+
+    <script type="text/javascript">
+
+        async function loadProducts() {
+            let URL = "data/products.json"
+            let response =  await fetch(URL);
+            let products =  await response.json();
+
+            for(let i = 0; i<products.length; i++){
+                let olLi = document.createElement("li");
+                olLi.textContent = products[i].category;
+
+                let ul = document.createElement("ul");
+                for(let j =0; j<products[i].items.length; j++){
+                    let li = document.createElement("li");
+                    li.textContent = products[i].items[j];
+                    ul.appendChild(li);
+                }
+
+                olLi.appendChild(ul);
+
+                document.querySelector("ol").appendChild(olLi);
+
+            }
+
+        }
+
+
+        function loadContents(){
+            loadProducts();
+        }
+    </script>
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
