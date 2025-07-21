@@ -1,26 +1,82 @@
 What is React ? 
 
-    React is not a framework, it is a library given by facebook to perform DOM operation virtually so that the user will be very happy in seeing the change on the UI. 
+        React is not a framework, it is a library given by facebook to perform DOM operation virtually so that the user will be very happy in seeing the change on the UI. 
 
 
-Creating an Element 
+    Creating an Element 
 
-    Signature 
-        const element =  React.createElement(
-            type, // HTML tag Name or React Component 
-            props, // object with props/attributes or null
-            ...children // child element or text
-        )
+        Signature 
+            const element =  React.createElement(
+                type, // HTML tag Name or React Component 
+                props, // object with props/attributes or null
+                ...children // child element or text
+            )
 
 
-Accessing DOM ::: 
+    Accessing DOM ::: 
 
-    Signature 
-        const container = document.getElementById("idName);
-        const root = ReactDom.crateRoot(container);
-        
+        Signature 
+            const container = document.getElementById("idName);
+            const root = ReactDom.crateRoot(container);
 
-Useage of {} in React.createElement
-    -> It is used to give the attributes to an element  
+
+    Useage of {} in React.createElement
+        -> It is used to give the attributes to an element  
+
+
+Basic React 
+
+    React
+    =====
+    -> it is library of Javascript used to modify the DOM faster
+    -> Using CDN
+
+
+    API calls
+    =========
+     let heading = React.createElement("",{},...) //ReactElement[JS object] :: Virtual DOM
+     let root = ReactDOM.createRoot(element)
+      root.render(heading);//JS Object ---> HTMLELEMENT --> render it on Actual DOM [UI]
+
+
+
+    Note: 
+    To install parcel to our project, our project should contain package.json file which holds all the dependencies of our project
+    
+    cmd> npm init -y
+        output: package.json
+        {
+        "name": "react-workspace",
+        "version": "1.0.0",
+        "main": "index.js",
+        "scripts": {
+        "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "description": ""
+        }
+
+    Parcel
+    ======
+     It is used to build our project and push our project to "Production Environment".
+     Parcel is a dependency used in 'Development environment' to pack our code and to push into Production Environment.
+    	Two types of dependency
+    		a. Developer dependency  : Used only in development environment  
+    		b. Production dependency : Used only in testing and production environment.
+
+     cmd> npm i -D parcel
+
+    package.json
+    ============
+    "parcel": "^2.15.4"
+
+
+    Signature : Major.Minor.Patch
+
+
+    npm i -D parcel
 
 

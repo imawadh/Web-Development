@@ -1,0 +1,18 @@
+[
+    {
+        "userName" : "sunil",
+        "pwd" :"gavaskar"
+    },
+    {
+        "userName" : "sachin",
+        "pwd" :"tendulkar"
+    },
+    {
+        "userName" : "virat",
+        "pwd" :"kohli"
+    },
+    {
+        "userName" : "shubman",
+        "pwd" :"gill"
+    }
+]

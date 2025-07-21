@@ -1,0 +1,77 @@
+Browser Events ::: 
+=====================
+    --> We present something on a webpage using elements and browser is one who identifies the html tags and present it and we perform some action on elements browser identifies it and does something and that identification of action is technically called as Event...
+
+    Sender 
+    Subscriber 
+    Observer
+    Delegate[Function Pointer]
+    Event Handler
+    Even Listener
+
+
+    JavaScript Browser Events :::
+    ===============================
+    - Event is a message sent by sender to its subscriber in order to notify change.
+    - Event follows a software design pattern called as "Observer".
+    - Observer is a communication pattern.
+    - Event Uses Function Pointer mechanism [Delegate = Function Pointer]
+
+    Syntax :::
+    ==========
+    Function insertClick(){
+
+    } 
+    <button onclick="insertClick()">
+    
+    Function insertClick() ---> Subscriber
+    onclick="insertClick()" ---> Sender
+
+
+
+Event Arguments :::
+-------------------
+    - It comprises of default and custom arguments.
+    - Every event handler have 2 default  arguments.
+        1. Event 
+        2. this
+
+    <button onclick="insertClick(this,event)">// correct
+    <button onclick="insertClick(event,this)">// correct
+    <button onclick="insertClick(event)">// correct
+    <button onclick="insertClick(this)">// correct
+    <button onclick="insertClick(this.id)">// correct used for knowing only specific data
+    
+    Note :: 
+
+    this --> It comprises of information about currnt object ---> [button] id,name,classNames, value, height etc
+    event --> It sends information about current event. ----> [onclick] clientX,clictY, shiftKey, ctrlKey ...etc
+
+
+Browser Events :::
+===================
+ All javascript events are related to browser.
+ Browser events be can configured to any element in a page.
+ Browser events are classified into various categories
+	a. Mouse Events
+	b. keyboard Events
+	c. Button Events
+	d. Timer Events
+	e. Touch Events
+	f. Form Events
+	g. Clipboard Events
+
+Mouse Events
+	a. onmouseover
+	b. onmouseout
+	c. onmousedown
+	d. onmouseup
+	e. onmousemove
+
+onmouseover   : When we hover the mouse coursor on the element, browser would fire this event.
+
+onmouseout    : When we release the mouse cursor up on the element, browser would fire this event.
+
+onmousedown   : When we hold the mouse cursor down on the element, browser would fire this event.
+
+

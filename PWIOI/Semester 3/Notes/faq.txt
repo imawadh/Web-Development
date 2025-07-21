@@ -1,14 +1,18 @@
 
-FAQ 1:::
+FAQ 1::: 
      1.   What is the MIME type for script?	
 		Ans.    <script type='text/javascript'> :: bulk loading
 			<script type='text/module'>     :: module based loading(performance is high)
 		
 
 		 2.   What is difference between script in head and body?
-		Ans. head ---> script would be loaded into browser memory and later used in the page
+		Ans. head ---> script would be loaded into browser memory and later used in the page. A
 		     body ---> script would be loaded directly into the page and it is not a part of browser memory.
-		
+
+			One more way ::: 
+			 <script src="script.js" defer></script>
+				defer is an HTML attribute you can add to a <script> tag to tell the browser:
+				“Download this script now, but don’t run it until the HTML document has been fully parsed.”
 
 		 3.   How JavaScript converts Static DOM into Dynamic DOM?
 		Ans.      HTML -----> HTML parser ----> Static DOM

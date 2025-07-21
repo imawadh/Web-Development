@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+    <h1>
+        User Login 
+    </h1>
+
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="lblUserName">
+        </dd>
+        <dd id="msg"></dd>
+    </dl>
+    
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded",function(){
+            document.getElementById("lblUserName").addEventListener("keyup",function(){
+                let data = this
+                fetch(URL).then(function(rseponse){
+                    return response.json();   
+                }).then(function(users){
+
+                    for (const user of users) {
+                        if(user.userName===data){
+
+                        }
+                    }
+
+
+                })
+            })
+        })
+    </script>
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

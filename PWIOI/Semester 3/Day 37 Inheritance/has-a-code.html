@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+    <fieldset class="m-2 ps-3 w-75 border border-3 border-dark pb-4">
+        <legend class="ps-5">Install HDFC APP</legend>
+        <div>
+            <select id="lstVersions">
+                <option value="-1">Select Version</option>
+                <option value="ver-1">HDFC VERSION 1</option>
+                <option value="ver-2">HDFC VERSION 2</option>
+                <option value="ver-3">HDFC VERSION 3</option>
+            </select>
+            <button class="btn btn-success" id="btnInstall">Install</button>
+        </div> 
+    </fieldset>
+    
+    
+    
+    <script type="text/javascript">
+
+        class HDFC1{
+            personalBankingFeature = "Personal Banking";
+            creditCardFeature = "Credit Feature";
+            print(){
+                document.write(`F1 :: ${this.personalBankingFeature} and ${this.creditCardFeature} <br>`);
+            }
+        }
+        
+        
+        class HDFC2{
+            loansFeature = "Home | Car | Gold | Education";
+            
+            print(){
+                let obj = new HDFC1();
+                obj.print();
+                document.write(`F2 :: ${this.loansFeature}<br>`)
+            }
+        }
+        
+        
+        class HDFC3{
+            nriFeature = "NRI Banking Available "
+            print(){
+                let obj=  new HDFC2();
+                obj.print();
+                document.write(`F3 :: ${this.nriFeature} <br>`);
+            }
+        }
+
+        
+        let obj = null;
+        document.getElementById("btnInstall").addEventListener("click",function(){
+            let option = document.querySelector("select").value;
+            console.log(option);
+            
+            
+            switch (option) {
+                case "ver-1":
+                    document.write(`<h1>Version 1 is being Installed</h1>`);
+                    obj = new HDFC1();
+                    obj.print();
+                    break;
+                    
+                case "ver-2":
+                    document.write(`<h1>Version 2 is being Installed</h1>`);
+                    obj = new HDFC2();
+                    obj.print();
+                    break;
+                        
+                case "ver-3": 
+                    document.write(`<h1>Version 3 is being Installed</h1>`);
+                    obj = new HDFC3();
+                    obj.print();
+                    break;
+                        
+                default:
+                    document.write("Please select any version");
+                    break;
+            }
+        })
+    </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

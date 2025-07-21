@@ -1,0 +1,98 @@
+1. What are Light weight Appplications ? 
+    A lightweight application refers to software that is designed to use minimal system resources such as memory (RAM), storage, and processing power.
+
+2. what is Parsing ? 
+    Breaking down code (like HTML, CSS, or JavaScript) into parts the computer can understand and work with.
+
+3.  What Does “Rendering” Mean?
+    Rendering is the process of turning your code (HTML, CSS, JavaScript) into what you actually see on the screen — a visual web page.
+
+4. Script Attributes .... ? 
+
+    <script type="text/javascirpt" defer></script>
+    <script type="text/javascirpt" aynsc></script>
+    
+    <!-- Modules are deferred by default -->
+    <script type="module" src="app.js"></script>
+    <!-- Equivalent to: -->
+    <script type="module" src="app.js" defer></script>
+
+5. MIME Type .... ? 
+    A MIME type (Multipurpose Internet Mail Extensions type) is a standardized way to identify the type of content being transferred over the internet. It helps browsers and servers understand how to handle files, whether they are HTML pages, images, JavaScript, or other data formats.
+
+          ***  In modern HTML5, explicitly writing type="text/css" (for <style>) or type="text/javascript" (for <script>) is primarily for legacy browser support. 
+
+          *** MIME types are required when dealing with non-standard formats, such as:
+          1. ES6 modules (import/export) require an explicit type="module".
+                <script type="module" src="app.js"></script>
+          and many more appliaction is there 
+    
+    Syntax :::
+        type="type/subtype"...
+
+    *** <link rel="stylesheet" href="style.css"> 
+    {rel="stylesheet"} explicitly tells the browser that it is a CSS file ..
+
+6. How is a HTML Page Rendered ? 
+    Step 1 : HTML Parsing and Construction
+        Tokenisation -->  Browser Breaks down the  html file text into meaning full tokens ...
+
+        Tokens include:
+            Start tags (<html>, <div>)
+            End tags (</div>, </body>)
+            Attributes (class="container")
+            Text content (Hello World)
+
+    Step 2 : DOM TREE Construction ::
+            Document as the parent  
+                Document
+                    └── html
+                        ├── head
+                        │   └── title ("Page")
+                        └── body
+                            └── h1 ("Hello")
+
+    Step 3 : If css is there then CSSOM 
+            The browser must wait for CSSOM to be ready before rendering.
+            CSSStyleSheet
+                └── Rule: .box
+                    ├── color: red
+                    └── font-size: 20px
+
+
+    Important ::: 
+            If javascript blocks parsing (type="text/javascirpt" or sometime async attribute) then the javascirpt execution starts and if dom manipulation  is there while creating rending tree it too get affected.
+            
+            If it doesn't block the parsing construction of rending tree is done through DOM and CSSOM. 
+            
+
+    Step 4 : Rendeeing Tree :::
+            Merge DOM and CSSOM
+            DOM + CSSOM + JS("If parsing is blocked and modification done done through JS")→ Render Tree
+            RenderView
+                └── RenderBody
+                    └── RenderDiv (class="box")
+                        └── RenderText ("Hello")
+
+    Step 4 : Layout (Reflow) and Paint
+            Calculate Layout
+                The browser calculates positions and sizes of all elements.
+                This is called "layout" or "reflow."
+
+            Paint Pixels
+                The browser paints pixels on the screen.
+
+7. target attribute in anchor tag ? 
+
+
+    The target attribute specifies where to open the linked document.
+
+    _blank	:: Opens the linked document in a new window or tab
+    _self	:: Opens the linked document in the same frame as it was clicked (this is default)
+    _parent	:: Opens the linked document in the parent frame {Used in frame}
+            The third value is _parent, which opens the link in the parent of the current context. For example, if your website has an iframe, a _parent value in that iframe would open in your website's tab/window, not in the embedded frame.
+
+    _top	:: Opens the linked document in the full body of the window {used in frame}
+            The fourth value is _top, which opens the link in the top-most browsing context - think "the parent of the parent". This is similar to _parent, but the link will always open in the full browser tab/window, even for nested embedded frames.
+
+8. 

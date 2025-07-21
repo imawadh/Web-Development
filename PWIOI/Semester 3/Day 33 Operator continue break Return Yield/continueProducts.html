@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body onload="loadData()">
+    <table class="table" style="display: none;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script type="text/javascript">
+
+        function loadData(){
+            const URL = "https://fakestoreapi.com/products";
+            loadProducts(URL);
+        }
+
+        async function loadProducts(URL) {
+
+            let response = await fetch(URL);
+            let products = await response.json();
+
+            if(products.length>1){
+                document.querySelector("table").style.display = "block";
+            }
+
+            for (const product of products) {
+                if(product.category==="jewelery" || product.category==="electronics"){
+                    continue;
+                }
+                let tr = document.createElement("tr");
+
+                let tdId = document.createElement("td");
+                let tdCategory = document.createElement("td");
+                let tdPrice = document.createElement("td");
+
+                tdId.textContent = product.id;
+                tdCategory.textContent = product.category;
+                tdPrice.textContent = product.price;
+
+                tr.appendChild(tdId);
+                tr.appendChild(tdCategory);
+                tr.appendChild(tdPrice);
+
+                document.querySelector("tbody").appendChild(tr);
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        function print(){
+            var a = 10;
+            console.log(a);
+        }
+
+        console.log(print);
+        console.log(print());
+
+        class Animal{
+
+        }
+        class Dog extends Animal{
+
+        }
+
+        let d = new Dog();
+        
+        console.log(d instanceof Animal);
+        console.log(d instanceof Dog);
+        console.log(d instanceof Object);
+        console.log(d instanceof Array);
+        console.log(d instanceof String);
+        console.log(d instanceof Date);
+        console.log(d instanceof Map);
+        
+        console.log("****************************");
+        console.log(Dog instanceof Animal);
+        console.log(Dog instanceof Dog);
+        console.log(Dog instanceof Object);
+        console.log(Dog instanceof Array);
+        console.log(Dog instanceof String);
+        console.log(Dog instanceof Date);
+        console.log(Dog instanceof Map);
+
+    </script>
+</body>
+</html>

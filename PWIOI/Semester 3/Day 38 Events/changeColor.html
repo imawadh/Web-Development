@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeColor(this.name)" name="red">Red</button>
+    <button onclick="changeColor(this.name)" name="green">Green</button>
+    <button onclick="changeColor(this.name)" name="blue">Blue</button>
+    <h1>WELCOME TO JAVASCRIPT EVENT</h1>
+    <script type="text/javascript">
+        function changeColor(color){
+            document.querySelector("h1").style.color = color;
+        }
+    </script>
+</body>
+</html>

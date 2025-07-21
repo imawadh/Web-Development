@@ -1,4 +1,4 @@
-Day 1
+Day 1 ... 
     ===============================================================================
     JavaScript is light weight Interpreted and Just-in-Time Compiled programming language.
 
@@ -38,7 +38,7 @@ Day 1
 
     	b) Functional Programming
     	c) Imperative Programming
-    	d) Object Oriented Programming etc..
+    	d) Object Oriented Programming etc.. -->  {OBPS Object Based Programming Language}
 
     Note: JavaScript is not an OOP language, It supports only few features of OOP.
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        let maxNumberOfAttempts = 3;
+        let attemptMade = 1;
+        let flag = false;
+
+        while(attemptMade<=maxNumberOfAttempts){
+            let name = prompt("Enter The User Name");
+            if(name=="sachin"){
+                flag = true;
+                break;
+            }
+            attemptMade++;
+        }
+        if(flag){
+            document.write("Authentication Successful .....");
+        }else{
+            document.write("Authentication Failed .....");
+
+        }
+
+
+
+    </script>
+</body>
+</html>
