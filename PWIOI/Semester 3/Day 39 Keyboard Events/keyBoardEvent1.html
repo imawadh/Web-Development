@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+       function handle(btnE,e){
+            if(btnE==="keyDown"){
+                console.log("Key is pressed down...")
+            }else if(btnE==="keyUp"){
+                console.log("Key is pressed up");
+            }else{
+                console.log("The Event is ",e);
+            }
+       }
+    </script>
+</head>
+<body class="p-3">
+    <input type="text" id="" onkeydown="handle('keyDown',event)" onkeyup="handle('keyUp',event)" onkeypress="handle('keyPress',event)">
+
+    
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Mouse Click Events :::
+======================
+    ondbclick       :: double Click
+    oncontextmenu   :: right Click [To do selection]
+    onclick         :: single Click
+    onselectStart   :: Dragging | Selecting the text
+
+    ondragStart 

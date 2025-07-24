@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Zoom Preview</title>
+  <style>
+    section {
+      display: grid;
+      grid-template-columns: 4fr 8fr;
+      gap: 20px;
+    }
+
+    nav img {
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .active {
+      border: 2px solid blue;
+      padding: 2px;
+    }
+
+    main div {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+      border: 1px solid black;
+    }
+
+    #imgPreview {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .zoomIn {
+      transform: scale(1.50);
+    }
+
+    .zoomOut {
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <nav>
+      <div>
+        <img
+          src="../public/images/babubali.jpeg"
+          height="50"
+          width="50"
+          onmouseover="displayImage(this)"
+        />
+      </div>
+      <div>
+        <img
+          src="../public/images/coke.jpeg"
+          height="50"
+          width="50"
+          onmouseover="displayImage(this)"
+        />
+      </div>
+      <div>
+        <img
+          src="../public/images/chhava.jpeg"
+          height="50"
+          width="50"
+          onmouseover="displayImage(this)"
+        />
+      </div>
+      <div>
+        <img
+          src="../public/images/iphone15.png"
+          height="50"
+          width="50"
+          onmouseover="displayImage(this)"
+        />
+      </div>
+    </nav>
+    <main>
+      <div>
+        <img
+          id="imgPreview"
+          src="../public/images/babubali.jpeg"
+          class="zoomOut"
+          onmousedown="scaleUp()"
+          onmouseup="scaleDown()"
+          
+        />
+      </div>
+    </main>
+  </section>
+
+  <script>
+    function displayImage(obj) {
+      document.querySelectorAll("nav img").forEach((img) =>
+        img.classList.remove("active")
+      );
+      obj.classList.add("active");
+      const preview = document.getElementById("imgPreview");
+      preview.src = obj.src;
+    }
+
+    function scaleUp() {
+      const img = document.getElementById("imgPreview");
+      img.classList.remove("zoomOut");
+      img.classList.add("zoomIn");
+    }
+
+    function scaleDown() {
+      const img = document.getElementById("imgPreview");
+      img.classList.remove("zoomIn");
+      img.classList.add("zoomOut");
+    }
+  </script>
+</body>
+</html>

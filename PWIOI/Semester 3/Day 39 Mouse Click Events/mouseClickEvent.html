@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body>
+
+    <div class="p-3">
+        <img src="../public/images/babubali.jpeg" width="300px" height="400px">
+    </div>
+    <span class="p-3">Double Click Opens it in window</span>
+    <div class="p-3">Selection is not allowed </spanclass=>
+    
+    
+    <script type="text/javascript">
+
+        // On Double click
+        document.querySelector("img").addEventListener("dblclick",function(){
+            window.open(this.src,"_blank");
+        })
+
+        // Disable right click 
+        document.oncontextmenu = function(){
+            return false;
+        }
+
+        // Disable Select 
+        document.onselectstart = function(){
+            return false;
+        }
+
+        // Drag Disable 
+        document.ondragstart = function(){
+            return false;
+        }
+
+    </script>
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

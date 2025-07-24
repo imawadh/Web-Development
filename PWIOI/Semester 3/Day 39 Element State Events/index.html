@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset style="width: 300px;">
+        <legend>Registration Page</legend>
+        <dl>
+            <dt>Username</dt>
+            <dd>
+                <input type="text" name="" id="txtUsername">
+            </dd>
+            <dd id="lblFocusMsg" style="display: none;">
+                <span style="color:goldenrod; ">NAME IN BLOCK LETTER ONLY</span>
+            </dd>
+            <dd id="lblBlurMsg" style='display: none;'>
+                <span style="color:red;">Username is required</span>
+            </dd>
+        </dl>
+    </fieldset>
+    <script type="text/javascript">
+
+        document.getElementById("txtUsername").addEventListener("focus", function () {
+            const focus = document.getElementById("lblFocusMsg");
+            const blur = document.getElementById("lblBlurMsg");
+            focus.style.display = 'block';
+            blur.style.display = 'none';
+        })
+
+        document.getElementById("txtUsername").addEventListener("blur", function () {
+            const focus = document.getElementById("lblFocusMsg");
+            const msg = document.getElementById("lblBlurMsg");
+            focus.style.display = 'none';
+            if (this.value.length == 0) {
+                msg.style.display = 'block';
+            }
+        })
+
+        document.getElementById("txtUsername").addEventListener("keyup", function () {
+            const focus = document.getElementById("lblFocusMsg");
+            const msg = document.getElementById("lblBlurMsg");
+            focus.style.display = 'none';
+            msg.style.display = 'none';
+            this.value = this.value.toUpperCase();
+        })
+    </script>
+</body>
+
+</html>

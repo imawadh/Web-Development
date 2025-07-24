@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function changePosition(e){
+            console.log("Event Fired");
+            const star = document.getElementById("star");
+            star.style.position="fixed";
+            star.style.top = e.clientY + "px";
+            star.style.left = e.clientX + "px";
+    
+        }
+    </script>
+</head>
+<body onmousemove="changePosition(event)" height="100vh">
+
+    <div style="height: 1000px;">
+        Move the pointer and see magic...
+    </div>
+    
+    <div id="star" class="bi bi-star-fill fs-3 text-success" height="100vh" width="100vw">
+
+    </div>
+
+    
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
