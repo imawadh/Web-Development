@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body onload="loadQuestions()">
+    
+    <div style="display:  grid; grid-template-columns: 10fr  2fr;">
+
+        <div class="p-3">
+            
+            <dl>
+                <dt id="lblQuestion"></dt>
+                <dd id="lblOptions">
+                   
+                </dd>
+                <dd>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </dd>
+            </dl>
+    
+        </div>
+        <div class="currentTime">
+            <span id="timer">15</span> seconds remaining
+        </div>
+        
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+        let currentQuestionNumber = 0;
+        let currentQuestion = null;
+        let questions = [];
+    
+        let q = document.getElementById("lblQuestion");
+        let opt = document.getElementById("lblOptions");
+        let timerDisplay = document.getElementById("timer");
+    
+        let countdownInterval;
+        let timeLeft = 15;
+        let totalScore = 0;
+    
+        async function loadQuestions(){
+            let url = "../Data/mcq.json";
+            let questionJson = await fetch(url);
+            questions = await questionJson.json();
+            console.log(questions);
+            if (questions.length == 0) {
+                document.write(`<span class="text-danger">Sorry! No questions present...</span>`);
+            } else {
+                loadNextQuestion();
+                currentQuestion = setInterval(loadNextQuestion, 15000);
+            }
+        }
+    
+        function loadNextQuestion() {
+            if (currentQuestionNumber < questions.length) {
+                // Reset UI
+                q.innerHTML = '';
+                opt.innerHTML = '';
+                timeLeft = 15;  // Reset timer for new question
+    
+                let ques = questions[currentQuestionNumber];
+                q.innerHTML = ques.question;
+    
+                ques.option.forEach(o => {
+                    let newDiv = document.createElement("div");
+                    newDiv.innerHTML = `<input type="radio" name="selectOption" value="${o}"> ${o}`;
+                    opt.appendChild(newDiv);
+                });
+    
+                startCountdown(); // Start the countdown timer
+            } else {
+                console.log("All questions displayed");
+                clearInterval(currentQuestion);
+                clearInterval(countdownInterval);
+                timerDisplay.innerText = 'Done';
+                document.write(`Solved ${totalScore} out of ${questions.length}`);
+            }
+            currentQuestionNumber++;
+        }
+    
+        function startCountdown() {
+            clearInterval(countdownInterval); // Prevent multiple intervals
+    
+            countdownInterval = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    timerDisplay.innerText = timeLeft;
+                } else {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitButton = document.querySelector("button");
+            submitButton.addEventListener("click", function () {
+                clearInterval(currentQuestion);
+                clearInterval(countdownInterval);
+
+                const selectedOption = document.querySelector('input[name="selectOption"]:checked');
+                const currentCorrectAnswer = questions[currentQuestionNumber - 1].correctOption; // last shown question
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.nextSibling.textContent.trim();
+                    if (selectedValue === currentCorrectAnswer) {
+                        totalScore++;
+                    }
+                }
+
+                loadNextQuestion();
+            });
+        });
+
+    
+    </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

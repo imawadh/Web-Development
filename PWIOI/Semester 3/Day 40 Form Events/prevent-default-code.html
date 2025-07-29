@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="p-3">
+
+    <form action="" onsubmit="alert('Data send to backend')" onreset="alert('All data Deleted ... ')">
+
+        <label for="">User Name</label>
+        <input type="text" name="username" class="mb-2" id="txtUserName"> <br>
+        <label for="">Password</label>
+        <input type="password" name="password"  class="mb-2" id="txtPwd">
+
+        <br>
+        <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+
+    </form>
+
+    
+
+    
+    <script type="text/javascript">
+        document.getElementById("btnSubmit").addEventListener("click",function(e){
+            e.preventDefault();// This stpos the deafult behaviour of submit btn
+
+            let userName = document.getElementById("txtUserName");
+            let pwd = document.getElementById("txtPwd");
+            console.log(`User Name is ::: ${userName.value} and Password is ${pwd.value}`);
+        })
+        
+    </script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

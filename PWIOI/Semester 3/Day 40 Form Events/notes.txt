@@ -1,0 +1,8 @@
+Form Events :::
+===============
+    1. onsubmit
+    2. onreset
+
+    - These are two events configure for form
+    - They define actions to perform when the user submits or clear the form.
+    

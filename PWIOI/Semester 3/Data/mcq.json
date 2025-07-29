@@ -1,0 +1,32 @@
+[
+    {
+        "question": "What is the capital of India ?",
+        "option": [
+             "Delhi",
+             "Lucknow",
+             "Kolkata",
+             "Bengaluru"
+        ],
+        "correctOption": "Delhi"
+    },
+    {
+        "question": "What is the capital of Uttar Pradesh ?",
+        "option": [
+             "Delhi",
+             "Lucknow",
+             "Kolkata",
+             "Bengaluru"
+        ],
+        "correctOption": "Lucknow"
+    },
+    {
+        "question": "What is the capital of Karnataka ?",
+        "option": [
+             "Delhi",
+             "Lucknow",
+             "Kolkata",
+             "Bengaluru"
+        ],
+        "correctOption": "Bengaluru"
+    }
+]
