@@ -1,0 +1,17 @@
+
+Using React with Vite ::
+    Step 1 :: npm create vite@latest
+    Step 2 :: Enter Project Name
+    Step 3 :: Enter Package Name
+    Step 4 :: Select Framework 
+    Step 5 :: Select Variant(Language)
+    Step 6 :: Move to created Folder
+    Step 7 :: npm Install
+    Step 8 :: Install Boootstrap if necesary {npm i bootstrap@5.3.7}
+    Step 9 :: npm run dev
+
+
+
+
+    
+    
