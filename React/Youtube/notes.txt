@@ -12,6 +12,13 @@ Using React with Vite ::
 
 
 
+{ } in JSX means: "This is JavaScript, treat it as code, not text." --> Think of rendering ul items 
+---> For loop is not used in React for simple redending 
+
+Think of CSS Module .... 
+
+
+
 
     
     

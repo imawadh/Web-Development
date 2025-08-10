@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body  onload="loadData()">
+    <h1 class="text-center">Adavanced User Directory</h1>
+
+    <div class="d-flex justify-content-around ms-4 me-4 ps-4 pe-4 mt-4">
+        <input type="text"  id="" placeholder="Search by name .... " class="input-group w-50">
+
+        <button type="button" class="btn btn-dark">Sort A<span class="bi bi-arrow-right"></span>Z</button>
+
+        <button type="button" class="btn btn-dark">Sort Z<span class="bi bi-arrow-right"></span>A</button>
+
+        <button type="button" class="btn btn-dark">Switch to Grid View</button>
+
+    </div>
+    
+    <div id="contentSection" class="mt-3">
+
+    </div>
+
+    <div id="paginationSection" class="ms-5 ps-5 mt-4">
+        
+    </div>
+
+    <script type="text/javascript">
+
+        const url = "https://jsonplaceholder.typicode.com/users";
+        let contentSection = document.getElementById("contentSection");
+        let people = null;
+
+        async function loadData() {
+            let data = await fetch(url);
+            people = await data.json();
+            
+            let len = people.length/5;
+            for(let i =0; i<len; i++){
+                let btn = document.createElement("button");
+                btn.textContent = `${i+1}`;
+                btn.classList = "btn btn-outline-dark me-2";
+                btn.id = `page${i+1}`;
+                btn.addEventListener("click",()=>loadContentByPage((i)*5,Math.min((i+1)*5),people.length));
+                document.getElementById("paginationSection").appendChild(btn);
+            }
+            
+            loadContentByPage(0,5);
+
+        }
+
+        function loadContentByPage(start, end){
+
+            contentSection.innerHTML = "";
+            let table = document.createElement("table");
+            table.classList= "table table-bordered border-dark ms-5"
+            let headerRow = document.createElement("tr");
+            let name = document.createElement("th");
+            let email = document.createElement("th");
+            let company = document.createElement("th");
+
+            name.innerHTML = `Name`;
+            email.innerHTML = `Email`;
+            company.innerHTML = `Comapany`;
+            headerRow.style.height = "45px";
+            headerRow.appendChild(name);
+            headerRow.appendChild(email);
+            headerRow.appendChild(company);
+            
+            table.appendChild(headerRow);
+            contentSection.appendChild(table);
+
+            
+            for(let i = start;i<end; i++){
+                let tr = document.createElement("tr");
+                tr.style.height="35px";
+                let tdName = document.createElement("td");
+                let tdEmail = document.createElement("td");
+                let tdComapany = document.createElement("td");
+                
+                let person = people[i];
+
+                tdName.textContent = person.name;
+                tdEmail.textContent = person.email;
+                tdComapany.textContent = `${person.company.name} , ${person.company.catchPhrase}`;
+
+                tr.appendChild(tdName);
+                tr.appendChild(tdEmail);
+                tr.appendChild(tdComapany);
+
+                table.appendChild(tr);
+            }
+        }
+
+        
+        
+        
+        </script>
+
+        
+</body>
+</html>
