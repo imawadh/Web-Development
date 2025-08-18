@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #box {
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background: red;
+            
+            /* Both directions slow */
+            transition-property: background, transform;
+            transition-duration: 1s, 1s;
+            transition-timing-function: ease-in-out, cubic-bezier(0.25, 1, 0.5, 1);
+            
+            /* Optional: smooth transform too */
+            }
+
+            #box:hover {
+                background: blue;
+                transform: scale(1.15);
+            }
+
+        </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

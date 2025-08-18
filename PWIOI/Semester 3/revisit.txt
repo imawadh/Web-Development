@@ -1,3 +1,0 @@
-quick-booking.html  ---> Day 5
-user-login.html ---> Day 11
-

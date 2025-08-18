@@ -1,1 +1,0 @@
-onst delivery1 = new Promise(delivery)

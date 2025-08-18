@@ -1,8 +1,0 @@
-Clip  Board Events :::
-========================
-    oncut
-    oncopy
-    onpaste
-
-    -- Clipboard is the temporary memory for windows 
-    -- 
