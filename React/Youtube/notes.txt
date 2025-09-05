@@ -1,24 +1,29 @@
-
-Using React with Vite ::
-    Step 1 :: npm create vite@latest
-    Step 2 :: Enter Project Name
-    Step 3 :: Enter Package Name
-    Step 4 :: Select Framework 
-    Step 5 :: Select Variant(Language)
-    Step 6 :: Move to created Folder
-    Step 7 :: npm Install
-    Step 8 :: Install Boootstrap if necesary {npm i bootstrap@5.3.7}
-    Step 9 :: npm run dev
-
-
-
-{ } in JSX means: "This is JavaScript, treat it as code, not text." --> Think of rendering ul items 
----> For loop is not used in React for simple redending 
-
-Think of CSS Module .... 
-
-
-
-
+Installlation of React Project ::   
+    Method 1 :: 
+        npx create-react-app 01basicreact
     
+    Method 2 ::
+        Using Vite
+        npm create vite@latest
     
+    Method 3 ::
+        Using Parcel
+
+Fragments in React .... 
+
+Custom React
+{} --> This means evaluated Expression .... means we can not write if else or anything like this ..
+Fibre 
+Reconciliation 
+devui.io 
+reactsnippets ---> Extensions .... 
+
+
+
+
+
+
+
+
+
+
