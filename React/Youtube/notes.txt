@@ -18,6 +18,9 @@ Reconciliation
 devui.io 
 reactsnippets ---> Extensions .... 
 
+How to use tailwind css in our Project using vite ::: 
+    https://tailwindcss.com/docs/installation/using-vite 
+
 
 
 
