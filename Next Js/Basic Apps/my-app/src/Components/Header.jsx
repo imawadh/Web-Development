@@ -20,6 +20,9 @@ function Header() {
                     <li>
                         <Link href="/services">Service</Link>
                     </li>
+                    <li>
+                        <Link href="/font">Font</Link>
+                    </li>
                 </ul>
             </nav>
         </header>

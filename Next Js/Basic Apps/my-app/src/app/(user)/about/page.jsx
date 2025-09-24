@@ -1,7 +1,7 @@
-
+import style from "./page.module.css";
 function About() {
     return (
-        <div>
+        <div className={style.bg}>
             This is about Page
         </div>
     )
