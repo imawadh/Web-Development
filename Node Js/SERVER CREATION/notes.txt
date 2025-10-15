@@ -1,0 +1,7 @@
+http.createSever(callback) --> How to create a server ?  
+serverName.listen(port Number) --> How to listen a request at a port number ? 
+process.exit() --> Server ko kaise band kare 
+
+req.url --> url where it will be accessed at port in the browser ....
+req.methods --> method of acesss
+req.headers --> header of request object 
