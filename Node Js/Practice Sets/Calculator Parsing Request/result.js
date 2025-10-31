@@ -28,17 +28,17 @@ const result = (req,res)=>{
         num1 = bodyObj['num1'];
         num2 = bodyObj['num2'];
         console.log(bodyObj);
+        console.log(num1);
+        console.log(num2);
+    
+        res.write(`<p>The sum of ${num1} and ${num2} is : ${parseInt(num1)+parseInt(num2)}.</p>`)
+        
+        res.write('</body>')
+        res.write('</HTML>')
+        res.end();
     })
 
 
-    console.log(num1);
-    console.log(num2);
-
-    res.write(`<p>The sum of ${num1} and ${num2} is : ${num1+num2}.</p>`)
-    
-    res.write('</body>')
-    res.write('</HTML>')
-    res.end();
 }
 
 module.exports = result; 
